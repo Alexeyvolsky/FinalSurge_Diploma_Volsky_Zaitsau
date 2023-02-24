@@ -5,7 +5,7 @@ import lombok.Data;
 
 @Data
 @Builder(setterPrefix = "set")
-public class Palladino {
+public class PalladinoCalculator {
     private String criticalPower;
     private String reserveWorkCapacity;
     private String minutes;

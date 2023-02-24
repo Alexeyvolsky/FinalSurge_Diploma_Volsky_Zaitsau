@@ -1,7 +1,7 @@
 package tests;
 
 import enums.*;
-import models.OtherCalculators.CaloricNeeds;
+import models.OtherCalculators.CaloricNeedsCalculator;
 import models.OtherCalculators.PaceCalculator;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
@@ -26,17 +26,17 @@ public class OtherCalculatorsTest extends BaseTest  {
                 .setDistTypePaceCalculator(DistTypePaceCalculator.KILOMETERS).setHours("1").setMinutes("5")
                 .setSeconds("43").build();
         paceCalculator.fillForm(paceCalculatorValue);
-        baseModal.clickSaveButtonSettings();
+        baseModal.clickFirstSaveButtonSettings();
         Assert.assertTrue(baseModal.isGreenBoxDisplay("Pace Chart"));
     }
 
     @Test
     public void positiveCaloricNeedsTest()  {
-        CaloricNeeds caloricNeedsValue = CaloricNeeds.builder().setWeight("87").setWeightType(WeightType.KG)
+        CaloricNeedsCalculator caloricNeedsValue = CaloricNeedsCalculator.builder().setWeight("87").setWeightType(WeightType.KG)
                 .setHeight("180").setHeightType(HeightType.CENTIMETERS).setAge("23").setGender(Gender.MALE)
                 .setRunDistance("10").setDistTypeCaloricNeeds(DistTypeCaloricNeeds.KILOMETERS).build();
         caloricNeeds.fillForm(caloricNeedsValue);
-        baseModal.clickSaveButtonSettings();
+        baseModal.clickFirstSaveButtonSettings();
         Assert.assertTrue(baseModal.isGreenBoxDisplay("Today's Caloric Needs"));
     }
 
@@ -44,14 +44,14 @@ public class OtherCalculatorsTest extends BaseTest  {
     public void negativePaceCalculatorTest(PaceCalculator paceCalculatorValue)    {
         baseModal.clickPaceCalculatorButton();
         paceCalculator.fillForm(paceCalculatorValue);
-        baseModal.clickSaveButtonSettings();
+        baseModal.clickFirstSaveButtonSettings();
         Assert.assertTrue(baseModal.alertErrorMessageIsPresent());
     }
 
     @Test(dataProvider = "negativeCaloricNeedsList")
-    public void negativeCaloricNeedsTest(CaloricNeeds caloricNeedsValue)  {
+    public void negativeCaloricNeedsTest(CaloricNeedsCalculator caloricNeedsValue)  {
         caloricNeeds.fillForm(caloricNeedsValue);
-        baseModal.clickSaveButtonSettings();
+        baseModal.clickFirstSaveButtonSettings();
         Assert.assertTrue(baseModal.alertErrorMessageIsPresent());
     }
 
@@ -72,13 +72,13 @@ public class OtherCalculatorsTest extends BaseTest  {
     @DataProvider(name = "negativeCaloricNeedsList")
     public Object [][] negativeCalculatorNeedsList()    {
         return new Object[][]   {
-                {CaloricNeeds.builder().setWeight("4£$$").setWeightType(WeightType.LBS).setHeight("1")
+                {CaloricNeedsCalculator.builder().setWeight("4£$$").setWeightType(WeightType.LBS).setHeight("1")
                         .setHeightType(HeightType.CENTIMETERS).setAge("£").setGender(Gender.FEMALE)
                         .setRunDistance("%$%$").setDistTypeCaloricNeeds(DistTypeCaloricNeeds.KILOMETERS).build()},
-                {CaloricNeeds.builder().setWeight("").setWeightType(WeightType.KG).setHeight("")
+                {CaloricNeedsCalculator.builder().setWeight("").setWeightType(WeightType.KG).setHeight("")
                         .setHeightType(HeightType.CENTIMETERS).setAge("").setGender(Gender.FEMALE)
                         .setRunDistance("").setDistTypeCaloricNeeds(DistTypeCaloricNeeds.KILOMETERS).build()},
-                {CaloricNeeds.builder().setWeight("100").setWeightType(WeightType.KG).setHeight("")
+                {CaloricNeedsCalculator.builder().setWeight("100").setWeightType(WeightType.KG).setHeight("")
                         .setHeightType(HeightType.CENTIMETERS).setAge("81").setGender(Gender.FEMALE)
                         .setRunDistance("").setDistTypeCaloricNeeds(DistTypeCaloricNeeds.KILOMETERS).build()},
         };

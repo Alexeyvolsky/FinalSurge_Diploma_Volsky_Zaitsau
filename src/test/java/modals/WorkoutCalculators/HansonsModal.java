@@ -3,11 +3,12 @@ package modals.WorkoutCalculators;
 import elements.Dropdown;
 import elements.Input;
 import modals.BaseModal;
+import models.WorcoutCalculators.HansonsCalculator;
 import org.openqa.selenium.WebDriver;
 
-public class Hansons extends BaseModal {
+public class HansonsModal extends BaseModal {
 
-    public void fillForm(models.WorcoutCalculators.Hansons hansons) {
+    public void fillForm(HansonsCalculator hansons) {
         new Dropdown(driver).selectOption("RaceDist", hansons.getRaceDist().getName());
         new Dropdown(driver).selectOption("DistType", hansons.getDistTypeHansons().getName());
         new Input(driver).setValue("TimeHH", hansons.getHours());
@@ -20,7 +21,7 @@ public class Hansons extends BaseModal {
         new Input(driver).setValue("Humid", hansons.getHumidity());
     }
 
-    public Hansons(WebDriver driver) {
+    public HansonsModal(WebDriver driver) {
         super(driver);
     }
 }

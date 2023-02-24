@@ -27,7 +27,7 @@ public class AddNewWorkoutModal extends BaseModal{
         new Input(driver).setValue("Duration",hills.getDuration());
         new Input(driver).clearAndSetValue("Pace",hills.getPace());
         new Dropdown(driver).selectOption("PaceType",hills.getPaceType().getName());
-        new RadioButtonWorkouts(driver).clickRadiobuttonWorkouts(hills.getHowIfelt().getName());
+        new RadioButtonWorkouts(driver).clickRadiobutton(hills.getHowIfelt().getName());
         new Dropdown(driver).selectOption("PerEffort",hills.getPerceivedEffort().getName());
         new Input(driver).setValue("MinHR",hills.getMinHr());
         new Input(driver).setValue("AvgHR",hills.getAvgHr());

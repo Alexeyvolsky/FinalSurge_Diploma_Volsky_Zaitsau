@@ -25,7 +25,7 @@ public class SettingsTest extends BaseTest  {
         settingDetailsPage.waitUserIconPresent();
         settingDetailsPage.jsClickEditProfileButton();
         settingDetailsPage.waitUSerAvatarPresent();
-        settingDetailsPage.uploadFile();
+        settingDetailsPage.uploadFile("/src/img/monkey-selfie_custom-7117031c832fc3607ee5b26b9d5b03d10a1deaca-s1100-c50.jpg");
         Setting setting = Setting.builder().setGender(Gender.MALE).setBirthday("02/14/2010").setWeight("80")
                 .setWeightType(WeightType.KG).setCountry(Country.UNITED_STATE_OF_AMERICAN).setRegion(Region.CALIFORNIA)
                 .setCity("Minsk").setPostalCode("123532").build();

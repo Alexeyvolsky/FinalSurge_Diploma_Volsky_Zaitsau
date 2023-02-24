@@ -16,7 +16,7 @@ public class PrintWorkoutsTest extends BaseTest {
         PrintWorkout printWorkoutValue = PrintWorkout.builder().setStartingData("2/1/2023").setEndingData("2/20/2023").build();
         printWorkouts.fillForm(printWorkoutValue);
         baseModal.clickSaveButtonPrint();
-        printDetailsPage.getTabList();
+        printDetailsPage.switchBetweenTabs();
         printDetailsPage.isPrintDetailsPageIsPresent();
         Assert.assertEquals(printDetailsPage.getPrintWorkoutData(), printWorkoutValue);
     }
