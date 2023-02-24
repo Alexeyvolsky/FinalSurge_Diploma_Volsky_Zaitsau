@@ -3,18 +3,19 @@ package modals.WorkoutCalculators;
 import elements.Input;
 import elements.RadioButton;
 import modals.BaseModal;
+import models.WorcoutCalculators.IntensityCalculator;
 import org.openqa.selenium.WebDriver;
 
-public class Intensity extends BaseModal {
+public class IntensityModal extends BaseModal {
 
-    public void fillForm(models.WorcoutCalculators.Intensity intensity)  {
+    public void fillForm(IntensityCalculator intensity)  {
         new RadioButton(driver).clickRadiobutton(intensity.getSelectEvent().getName());
         new Input(driver).setValue("TimeHH", intensity.getHours());
         new Input(driver).setValue("TimeMM", intensity.getMinutes());
         new Input(driver).setValue("TimeSS", intensity.getSeconds());
     }
 
-    public Intensity(WebDriver driver) {
+    public IntensityModal(WebDriver driver) {
         super(driver);
     }
 }

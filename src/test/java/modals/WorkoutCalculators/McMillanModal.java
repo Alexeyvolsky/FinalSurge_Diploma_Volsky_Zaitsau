@@ -3,11 +3,12 @@ package modals.WorkoutCalculators;
 import elements.Dropdown;
 import elements.Input;
 import modals.BaseModal;
+import models.WorcoutCalculators.McMillanCalculator;
 import org.openqa.selenium.WebDriver;
 
-public class McMillan extends BaseModal {
+public class McMillanModal extends BaseModal {
 
-    public void fillForm(models.WorcoutCalculators.McMillan mcMillan)   {
+    public void fillForm(McMillanCalculator mcMillan)   {
         new Dropdown(driver).selectOption("distance", mcMillan.getDistanceMcMillan().getName());
         new Input(driver).setValue("TimeHH", mcMillan.getHours());
         new Input(driver).setValue("TimeMM", mcMillan.getMinutes());
@@ -18,7 +19,7 @@ public class McMillan extends BaseModal {
         new Input(driver).setValue("GTimeSS", mcMillan.getSeconds());
     }
 
-    public McMillan(WebDriver driver) {
+    public McMillanModal(WebDriver driver) {
         super(driver);
     }
 }

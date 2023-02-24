@@ -7,13 +7,12 @@ import org.openqa.selenium.WebElement;
 import pages.BasePage;
 
 public class BaseModal extends BasePage {
-    protected final static String BUTTON_LOCATOR = "//a[text()='%s']";
-    protected final static By SAVE_BUTTON_SETTINGS = By.id("saveButtonSettings");
-    protected final static By SAVE_BUTTON_SETTINGS2 = By.id("saveButtonSettings2");
-    protected final static By SAVE_BUTTON_SETTINGS3 = By.id("saveButtonSettings3");
-    protected final static By SAVE_BUTTON_SETTINGS4 = By.id("saveButtonSettings4");
+    protected final static By FIRST_SAVE_BUTTON_SETTINGS = By.id("saveButtonSettings");
+    protected final static By SECOND_SAVE_BUTTON_SETTINGS = By.id("saveButtonSettings2");
+    protected final static By THIRD_SAVE_BUTTON_SETTINGS = By.id("saveButtonSettings3");
+    protected final static By FOURTH_SAVE_BUTTON_SETTINGS = By.id("saveButtonSettings4");
     protected final static By SAVE_BUTTON_PRINT = By.id("saveButtonPrint");
-    protected static String GREEN_BOX = "//h4[text()='%s']";
+    protected String GREEN_BOX = "//h4[text()='%s']";
     protected final static By PACE_CALCULATOR_BUTTON_LOCATOR = By.xpath("//a[text()='Pace Calculator']");
     protected final static By HANSONS_CALCULATOR_BUTTON_LOCATOR = By.xpath("//a[text()='Hansons']");
     protected final static By MCMILLAN_CALCULATOR_BUTTON_LOCATOR = By.xpath("//a[text()='McMillan']");
@@ -56,20 +55,20 @@ public class BaseModal extends BasePage {
         driver.findElement(PALLADINO_CALCULATOR_BUTTON_LOCATOR).click();
     }
 
-    public void clickSaveButtonSettings()   {
-        driver.findElement(SAVE_BUTTON_SETTINGS).click();
+    public void clickFirstSaveButtonSettings()   {
+        driver.findElement(FIRST_SAVE_BUTTON_SETTINGS).click();
     }
 
-    public void clickSaveButtonSettings2()  {
-        driver.findElement(SAVE_BUTTON_SETTINGS2).click();
+    public void clickSecondSaveButtonSettings()  {
+        driver.findElement(SECOND_SAVE_BUTTON_SETTINGS).click();
     }
 
-    public void clickSaveButtonSettings3()  {
-        driver.findElement(SAVE_BUTTON_SETTINGS3).click();
+    public void clickThirdSaveButtonSettings()  {
+        driver.findElement(THIRD_SAVE_BUTTON_SETTINGS).click();
     }
 
-    public void clickSaveButtonSettings4()  {
-        driver.findElement(SAVE_BUTTON_SETTINGS4).click();
+    public void clickFourthSaveButtonSettings()  {
+        driver.findElement(FOURTH_SAVE_BUTTON_SETTINGS).click();
     }
 
     public void clickSaveButtonPrint()  {

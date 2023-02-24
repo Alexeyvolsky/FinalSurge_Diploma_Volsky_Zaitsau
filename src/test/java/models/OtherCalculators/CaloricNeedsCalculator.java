@@ -9,7 +9,7 @@ import lombok.Data;
 
 @Data
 @Builder(setterPrefix = "set")
-public class CaloricNeeds {
+public class CaloricNeedsCalculator {
     private String weight;
     private WeightType weightType;
     private String height;

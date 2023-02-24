@@ -4,12 +4,12 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public class FormSep extends BaseElement    {
+public class GetElementValue extends BaseElement    {
 
     private String label;
     private final static String LOCATOR_FOR_ELEMENTS_DETAILS = "//div[@class='span10']//small[text()='%s']//ancestor::p";
 
-    public FormSep(WebDriver driver, String label) {
+    public GetElementValue(WebDriver driver, String label) {
         super(driver);
         this.label = label;
     }

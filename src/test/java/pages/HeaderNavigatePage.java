@@ -3,15 +3,15 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class HeaderNavigate extends BasePage    {
+public class HeaderNavigatePage extends BasePage    {
 
-    private final static By DASHBOARD_BUTTON = By.xpath("//i[@class='icsw16-home']");
-    private final static By CALENDAR_BUTTON = By.xpath("//i[@class='icsw16-day-calendar']");
-    private final static By WORKOUT_CALCULATORS_BUTTON = By.xpath("//i[@class='icsw16-stop-watch']");
-    private final static By OTHER_CALCULATORS_BUTTON = By.xpath("//i[@class='icsw16-calculator']");
-    private final static By REPORTS_AND_STATISTICS_BUTTON = By.xpath("//i[@class='icsw16-graph']");
-    private final static By MAILBOX_BUTTON = By.xpath("//i[@class='icsw16-mail']");
-    private final static By PRINT_WORKOUT_BUTTON = By.xpath("//i[@class='icsw16-printer']");
+    private final static By DASHBOARD_BUTTON = By.xpath("//i[contains(@class, 'home')]");
+    private final static By CALENDAR_BUTTON = By.xpath("//i[contains(@class, 'day-calendar')]");
+    private final static By WORKOUT_CALCULATORS_BUTTON = By.xpath("//i[contains(@class, 'stop-watch')]");
+    private final static By OTHER_CALCULATORS_BUTTON = By.xpath("//i[contains(@class, 'calculator')]");
+    private final static By REPORTS_AND_STATISTICS_BUTTON = By.xpath("//i[contains(@class, 'graph')]");
+    private final static By MAILBOX_BUTTON = By.xpath("//i[contains(@class, 'mail')]");
+    private final static By PRINT_WORKOUT_BUTTON = By.xpath("//i[contains(@class, 'printer')]");
     private final static String USER_BOX_BUTTON = "//a[text()='%s']";
     private final static By FINAL_SURGE_LOGO = By.xpath("//img[@alt='Final Surge']");
 
@@ -55,7 +55,7 @@ public class HeaderNavigate extends BasePage    {
         waitForElementDisplayed(By.xpath(String.format(USER_BOX_BUTTON, "Settings")));
     }
 
-    public HeaderNavigate(WebDriver driver) {
+    public HeaderNavigatePage(WebDriver driver) {
         super(driver);
     }
 }
