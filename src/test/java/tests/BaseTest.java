@@ -26,6 +26,7 @@ public class BaseTest {
     protected DashboardPage dashboardPage;
     protected WorkoutsPage workoutsPage;
     protected HeaderNavigatePage headerNavigate;
+    protected WorkoutLibraryPage workoutLibraryPage;
     protected IntensityModal intensity;
     protected AddNewWorkoutModal addNewWorkoutModal;
     protected WorkoutDetailsPage workoutDetailsPage;
@@ -62,6 +63,7 @@ public class BaseTest {
         addNewWorkoutModal = new AddNewWorkoutModal(driver);
         workoutDetailsPage = new WorkoutDetailsPage(driver);
         workoutReportPage = new WorkoutReportPage(driver);
+        workoutLibraryPage = new WorkoutLibraryPage(driver);
         baseModal = new BaseModal(driver);
         hansons = new HansonsModal(driver);
         mcMillan = new McMillanModal(driver);
