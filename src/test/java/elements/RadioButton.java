@@ -5,7 +5,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 public class RadioButton extends BaseElement{
-    private final static String RADIOBUTTON_LOCATOR = "//label[text()='%s']/input";
+    // TODO: locator
+    private final static String RADIOBUTTON_LOCATOR = "//label[contains(text(),'%s')]/input";
     public RadioButton(WebDriver driver) {
         super(driver);
     }

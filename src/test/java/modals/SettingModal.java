@@ -4,6 +4,7 @@ import elements.Dropdown;
 import elements.Input;
 import elements.RadioButton;
 import models.Setting;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class SettingModal extends BaseModal {

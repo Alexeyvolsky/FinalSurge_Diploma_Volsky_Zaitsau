@@ -5,9 +5,7 @@ public enum WeightType {
     LBS("\n" +
             "                                                    lbs\n" +
             "                                                "),
-    KG("\n" +
-            "                                                    kg\n" +
-            "                                                ");
+    KG("kg");
 
     private final String name;
 

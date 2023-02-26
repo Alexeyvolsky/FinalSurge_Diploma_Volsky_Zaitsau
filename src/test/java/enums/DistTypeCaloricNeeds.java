@@ -2,9 +2,7 @@ package enums;
 
 public enum DistTypeCaloricNeeds {
 
-    MILES("\n" +
-            "                                                    miles\n" +
-            "                                                "),
+    MILES("miles"),
     KILOMETERS("\n" +
             "                                                    kilometers\n" +
             "                                                ");
