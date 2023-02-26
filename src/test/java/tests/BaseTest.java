@@ -6,7 +6,6 @@ import modals.BaseModal;
 import modals.OtherCalculators.CaloricNeedsModal;
 import modals.OtherCalculators.PaceModal;
 import modals.PrintWorkouts;
-import modals.SettingModal;
 import modals.WorkoutCalculators.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -39,7 +38,6 @@ public class BaseTest {
     protected CaloricNeedsModal caloricNeeds;
     protected PrintWorkouts printWorkouts;
     protected SettingDetailsPage settingDetailsPage;
-    protected SettingModal settingModal;
     protected PrintDetailsPage printDetailsPage;
     protected CalendarPage calendarPage;
 
@@ -73,7 +71,6 @@ public class BaseTest {
         caloricNeeds = new CaloricNeedsModal(driver);
         printWorkouts = new PrintWorkouts(driver);
         settingDetailsPage = new SettingDetailsPage(driver);
-        settingModal = new SettingModal(driver);
         printDetailsPage = new PrintDetailsPage(driver);
         calendarPage = new CalendarPage(driver);
     }

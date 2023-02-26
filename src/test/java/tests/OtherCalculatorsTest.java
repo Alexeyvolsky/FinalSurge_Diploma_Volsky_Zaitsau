@@ -38,6 +38,7 @@ public class OtherCalculatorsTest extends BaseTest  {
                 .setRunDistance("10").setDistTypeCaloricNeeds(DistTypeCaloricNeeds.MILES).build();
         caloricNeeds.fillForm(caloricNeedsValue);
         baseModal.clickFirstSaveButtonSettings();
+        // TODO: посмотреть про / для разделения локатора
         Assert.assertTrue(baseModal.isGreenBoxDisplay("Today's Caloric Needs"));
     }
 

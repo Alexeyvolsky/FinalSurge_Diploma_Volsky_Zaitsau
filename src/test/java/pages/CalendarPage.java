@@ -20,7 +20,7 @@ public class CalendarPage extends BasePage{
     public void clickCopyDayButton()    {
         jsClick(driver.findElement(COPY_DAY_BUTTON));
     }
-//    TODO: разобаться с календарем
+
     public void clickNeedData() {
         driver.findElement(By.xpath(String.format(NUMBER_OF_WEEK_LOCATOR, "11"))).click();
     }

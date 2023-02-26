@@ -2,24 +2,21 @@ package enums;
 
 public enum DistTypeCaloricNeeds {
 
-    MILES("miles"),
-    KILOMETERS("\n" +
-            "                                                    kilometers\n" +
-            "                                                ");
+    MILES("m"), KILOMETERS("k");
 
-    private final String name;
+    private final String value;
 
-    DistTypeCaloricNeeds(String name) {
-        this.name = name;
+    DistTypeCaloricNeeds(String value) {
+        this.value = value;
     }
 
-    public String getName() {
-        return this.name;
+    public String getValue() {
+        return this.value;
     }
 
     public static DistTypeCaloricNeeds fromString(String value) {
         for (DistTypeCaloricNeeds distTypeCaloricNeeds : DistTypeCaloricNeeds.values()) {
-            if (distTypeCaloricNeeds.getName().equals(value)) {
+            if (distTypeCaloricNeeds.getValue().equals(value)) {
                 return distTypeCaloricNeeds;
             }
         }

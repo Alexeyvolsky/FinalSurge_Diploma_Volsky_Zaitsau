@@ -1,25 +1,21 @@
 package enums;
 
 public enum ReportView {
-    LIST_VIEW(" List View\n" +
-            "                                "), GROUP_BY_WEEK(" Group by Week\n" +
-            "                                "), GROUP_BY_MONTH(" Group by Month\n" +
-            "                                "), GROUP_BY_ACTIVITY(" Group by Activity\n" +
-            "                                "), GROUP_BY_ACTIVITY_SUBTYPE(" Group by Activity Sub-type\n" +
-            "                                ");
-    private final String name;
+    LIST_VIEW("1"), GROUP_BY_WEEK("2"), GROUP_BY_MONTH("3"), GROUP_BY_ACTIVITY("4"),
+    GROUP_BY_ACTIVITY_SUBTYPE("5");
+    private final String value;
 
-    ReportView(String name) {
-        this.name = name;
+    ReportView(String value) {
+        this.value = value;
     }
 
-    public String getName() {
-        return this.name;
+    public String getValue() {
+        return this.value;
     }
 
     public static ReportView fromString(String value) {
         for (ReportView reportView : ReportView.values()) {
-            if (reportView.getName().equals(value)) {
+            if (reportView.getValue().equals(value)) {
                 return reportView;
             }
         }

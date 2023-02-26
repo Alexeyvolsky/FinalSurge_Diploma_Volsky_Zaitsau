@@ -2,7 +2,7 @@ package pages;
 
 import elements.Dropdown;
 import elements.Input;
-import elements.RadioButtonReport;
+import elements.RadioButton;
 import models.Report;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -17,7 +17,7 @@ public class WorkoutReportPage extends BasePage{
     public void fillformReportView(Report report){
         new Input(driver).clearAndSetValue("WorkoutDate", report.getStartDate());
         new Input(driver).clearAndSetValue("WorkoutDateEnd", report.getEndDate());
-        new RadioButtonReport(driver).clickRadiobutton(report.getReportView().getName());
+        new RadioButton(driver).clickRadiobutton("groupBy", report.getReportView().getValue());
         new Dropdown(driver).selectOptionByText("ActivityType",report.getActivityType().getName());
     }
     public boolean reportButtonPresent(){
