@@ -21,4 +21,12 @@ public enum ActivityType {
     public String getName() {
         return name;
     }
+    public static ActivityType fromString(String value) {
+        for (ActivityType activityType : ActivityType.values()) {
+            if (activityType.getName().equals(value)) {
+                return activityType;
+            }
+        }
+        return null;
+    }
 }

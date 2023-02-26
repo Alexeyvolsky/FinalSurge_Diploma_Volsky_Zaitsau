@@ -4,11 +4,12 @@ import elements.Dropdown;
 import elements.Input;
 import elements.RadioButton;
 import modals.BaseModal;
+import models.WorcoutCalculators.TinmanCalculator;
 import org.openqa.selenium.WebDriver;
 
-public class Tinman extends BaseModal {
+public class TinmanModal extends BaseModal {
 
-    public void fillForm(models.WorcoutCalculators.Tinman tinman)  {
+    public void fillForm(TinmanCalculator tinman)  {
         new Dropdown(driver).selectOption("distance", tinman.getDistanceTinman().getName());
         new Input(driver).setValue("TimeHH", tinman.getHours());
         new Input(driver).setValue("TimeMM", tinman.getMinutes());
@@ -16,7 +17,7 @@ public class Tinman extends BaseModal {
         new RadioButton(driver).clickRadiobutton(tinman.getGender().getName());
     }
 
-    public Tinman(WebDriver driver) {
+    public TinmanModal(WebDriver driver) {
         super(driver);
     }
 }

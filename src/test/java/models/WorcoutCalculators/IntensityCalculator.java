@@ -6,7 +6,7 @@ import lombok.Data;
 
 @Data
 @Builder(setterPrefix = "set")
-public class Intensity {
+public class IntensityCalculator {
     private String hours;
     private String minutes;
     private String seconds;

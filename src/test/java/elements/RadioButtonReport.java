@@ -11,7 +11,7 @@ public class RadioButtonReport extends BaseElement{
         super(driver);
     }
 
-    public void clickReportRadiobutton(String value){
+    public void clickRadiobutton(String value){
         WebElement radiobutton = driver.findElement(By.xpath(String.format(RADIOBUTTON_LOCATOR, value)));
         scrollIntoView(radiobutton);
         radiobutton.click();

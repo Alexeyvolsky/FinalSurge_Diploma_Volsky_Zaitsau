@@ -17,7 +17,7 @@ public class WorkoutReportPage extends BasePage{
     public void fillformReportView(Report report){
         new Input(driver).clearAndSetValue("WorkoutDate", report.getStartDate());
         new Input(driver).clearAndSetValue("WorkoutDateEnd", report.getEndDate());
-        new RadioButtonReport(driver).clickReportRadiobutton(report.getReportView().getName());
+        new RadioButtonReport(driver).clickRadiobutton(report.getReportView().getName());
         new Dropdown(driver).selectOptionByText("ActivityType",report.getActivityType().getName());
     }
     public boolean reportButtonPresent(){

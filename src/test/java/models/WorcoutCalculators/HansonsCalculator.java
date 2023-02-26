@@ -9,7 +9,7 @@ import lombok.Data;
 
 @Data
 @Builder(setterPrefix = "set")
-public class Hansons {
+public class HansonsCalculator {
     private String hours;
     private String minutes;
     private String seconds;
