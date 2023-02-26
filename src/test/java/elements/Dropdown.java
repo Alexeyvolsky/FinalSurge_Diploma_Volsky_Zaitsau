@@ -20,5 +20,4 @@ public class Dropdown extends BaseElement{
         Select select = new Select(driver.findElement(By.xpath(String.format(DROPDOWN_LOCATOR, name))));
         select.selectByVisibleText(optionName);
     }
-
 }

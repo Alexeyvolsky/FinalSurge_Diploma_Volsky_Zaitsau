@@ -30,11 +30,12 @@ public class OtherCalculatorsTest extends BaseTest  {
         Assert.assertTrue(baseModal.isGreenBoxDisplay("Pace Chart"));
     }
 
+    // TODO: locator
     @Test
     public void positiveCaloricNeedsTest()  {
         CaloricNeeds caloricNeedsValue = CaloricNeeds.builder().setWeight("87").setWeightType(WeightType.KG)
                 .setHeight("180").setHeightType(HeightType.CENTIMETERS).setAge("23").setGender(Gender.MALE)
-                .setRunDistance("10").setDistTypeCaloricNeeds(DistTypeCaloricNeeds.KILOMETERS).build();
+                .setRunDistance("10").setDistTypeCaloricNeeds(DistTypeCaloricNeeds.MILES).build();
         caloricNeeds.fillForm(caloricNeedsValue);
         baseModal.clickSaveButtonSettings();
         Assert.assertTrue(baseModal.isGreenBoxDisplay("Today's Caloric Needs"));

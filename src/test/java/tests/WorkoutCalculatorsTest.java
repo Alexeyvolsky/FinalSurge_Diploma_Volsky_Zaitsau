@@ -60,12 +60,13 @@ public class WorkoutCalculatorsTest extends BaseTest {
 
     @Test
     public void positivePallandinoTest() {
+
         baseModal.clickPalladinoCalculatorButton();
         Palladino palladinoIntervalPower = Palladino.builder().setCriticalPower("101").setReserveWorkCapacity("12").build();
         palladino.fillFormCalculateIntervalPowerTarget(palladinoIntervalPower);
         baseModal.clickSaveButtonSettings();
         Assert.assertTrue(baseModal.isGreenBoxDisplay("Interval Power Targets"));
-
+        // TODO:
         Palladino palladinoCpAndRwc = Palladino.builder().setMinutes("12").setSeconds("12").setShortTest("60")
                 .setMinutes("15").setSeconds("15").setLongTest("80").build();
         palladino.fillFormCpAndRwcFromACpTest(palladinoCpAndRwc);

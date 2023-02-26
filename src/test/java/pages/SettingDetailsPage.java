@@ -6,6 +6,7 @@ import enums.Gender;
 import enums.Region;
 import models.Setting;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -18,6 +19,8 @@ public class SettingDetailsPage extends BasePage   {
     private final static By UPLOAD_BUTTON = By.id("NextStep");
     private final static By EDIT_PROFILE_PIC_OTHER = By.id("EditProfilePicOther");
     private final static By SELECT_IMG =By.xpath("//input[@name='profilepic']");
+
+    private final static By WEIGHT_INPUT = By.id("BDay");
 
     public Setting getSettingsDetails()    {
         Setting.SettingBuilder settings = Setting.builder()
@@ -35,20 +38,17 @@ public class SettingDetailsPage extends BasePage   {
         waitForElementDisplayed(By.cssSelector(String.format(USER_ICON, "UserThumbnail")));
     }
 
-    public void waitUSerAvatarPresent() {
+    public void waitUserAvatarPresent() {
         waitForElementDisplayed(By.cssSelector(String.format(USER_ICON, ".img-holder .img-avatar")));
     }
 
-    public void clickSettingsButton(String value)   {
-        driver.findElement(By.id(String.format(USER_ICON, "Settings")));
-    }
-    public void uploadFile()    {
-        driver.findElement(EDIT_PROFILE_PIC_OTHER).click();
-        WebElement fileUpload = driver.findElement(SELECT_IMG);
-        fileUpload.sendKeys(System.getProperty("user.dir") +
-                "/src/img/monkey-selfie_custom-7117031c832fc3607ee5b26b9d5b03d10a1deaca-s1100-c50.jpg");
-        driver.findElement(UPLOAD_BUTTON).click();
-    }
+//    public void uploadFile()    {
+//        driver.findElement(EDIT_PROFILE_PIC_OTHER).click();
+//        WebElement fileUpload = driver.findElement(SELECT_IMG);
+//        fileUpload.sendKeys(System.getProperty("user.dir") +
+//                "/src/img/monkey-selfie_custom-7117031c832fc3607ee5b26b9d5b03d10a1deaca-s1100-c50.jpg");
+//        driver.findElement(UPLOAD_BUTTON).click();
+//    }
 
     public void jsClickEditProfileButton()  {
         jsClick(driver.findElement(EDIT_PROFILE_BUTTON));
@@ -57,6 +57,17 @@ public class SettingDetailsPage extends BasePage   {
     public void clickSaveChangesButton()    {
         driver.findElement(SAVE_CHANGES_BUTTON);
     }
+
+    public void jsSendKeys(WebElement element, String value) {
+        JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
+        jsExecutor.executeScript("document.getElementById('element', "+element+").setAttribute('value', "+value+")");
+    }
+
+    public void sendWeight()    {
+        jsSendKeys(driver.findElement(WEIGHT_INPUT), "18");
+    }
+
+
     public SettingDetailsPage(WebDriver driver) {
         super(driver);
     }

@@ -11,7 +11,6 @@ import modals.WorkoutCalculators.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import pages.*;
 
@@ -41,6 +40,7 @@ public class BaseTest {
     protected SettingDetailsPage settingDetailsPage;
     protected SettingModal settingModal;
     protected PrintDetailsPage printDetailsPage;
+    protected CalendarPage calendarPage;
 
     @BeforeClass(alwaysRun = true)
     public void setUp(){
@@ -73,10 +73,11 @@ public class BaseTest {
         settingDetailsPage = new SettingDetailsPage(driver);
         settingModal = new SettingModal(driver);
         printDetailsPage = new PrintDetailsPage(driver);
+        calendarPage = new CalendarPage(driver);
     }
-
-    @AfterClass(alwaysRun = true)
-    public void tearDown() {
-        driver.quit();
-    }
+//
+//    @AfterClass(alwaysRun = true)
+//    public void tearDown() {
+//        driver.quit();
+//    }
 }
