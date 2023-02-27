@@ -1,11 +1,9 @@
 package tests;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import modals.AddNewWorkoutModal;
-import modals.BaseModal;
+import modals.*;
 import modals.OtherCalculators.CaloricNeedsModal;
 import modals.OtherCalculators.PaceModal;
-import modals.PrintWorkouts;
 import modals.WorkoutCalculators.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -21,12 +19,14 @@ public class BaseTest {
     protected final static String PASSWORD = "1234567890QwE";
     protected WebDriver driver;
     protected LoginPage loginPage;
+    protected DailyVitalsPage dailyVitalsPage;
     protected DashboardPage dashboardPage;
     protected WorkoutsPage workoutsPage;
     protected HeaderNavigatePage headerNavigate;
     protected WorkoutLibraryPage workoutLibraryPage;
     protected IntensityModal intensity;
     protected AddNewWorkoutModal addNewWorkoutModal;
+    protected QuickAddModal quickAddModal;
     protected WorkoutDetailsPage workoutDetailsPage;
     protected WorkoutReportPage workoutReportPage;
     protected BaseModal baseModal;
@@ -54,6 +54,7 @@ public class BaseTest {
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.get(BASE_URL);
         loginPage = new LoginPage(driver);
+        dailyVitalsPage = new DailyVitalsPage(driver);
         dashboardPage = new DashboardPage(driver);
         workoutsPage = new WorkoutsPage(driver);
         headerNavigate = new HeaderNavigatePage(driver);
@@ -63,6 +64,7 @@ public class BaseTest {
         workoutReportPage = new WorkoutReportPage(driver);
         workoutLibraryPage = new WorkoutLibraryPage(driver);
         baseModal = new BaseModal(driver);
+        quickAddModal = new QuickAddModal(driver);
         hansons = new HansonsModal(driver);
         mcMillan = new McMillanModal(driver);
         tinman = new TinmanModal(driver);
