@@ -1,7 +1,6 @@
 package pages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 
@@ -39,16 +38,11 @@ public class SettingDetailsPage extends BasePage   {
         jsClick(driver.findElement(EDIT_PROFILE_BUTTON));
     }
 
-    public void jsSendKeysInSettings(String name, String value) {
-        JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
-        jsExecutor.executeScript("document.getElementById('"+name+"').value='"+value+"'");
-    }
-
     public void sendKeysInSettings()    {
         jsSendKeysInSettings("BDay", "02/14/2010");
-        jsSendKeysInSettings("Weight", "25");
+        jsSendKeysInSettings("Weight", String.valueOf(faker.number().numberBetween(1, 800)));
         jsSendKeysInSettings("City", "Minsk");
-        jsSendKeysInSettings("Zip", "3463446");
+        jsSendKeysInSettings("Zip", String.valueOf(faker.number().numberBetween(1000, 1000000)));
     }
 
     public void clickSaveChangesButton()    {

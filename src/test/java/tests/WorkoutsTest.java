@@ -4,12 +4,15 @@ import enums.DistTypeHills;
 import enums.HowIfelt;
 import enums.PaceType;
 import enums.PerceivedEffort;
+import io.qameta.allure.Description;
 import models.Hills;
 import models.Rest;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class WorkoutsTest extends BaseTest{
+public class WorkoutsTest extends BaseTest  {
+
+    @Description("Verify that user can add rest day")
     @Test
     public void addRestdayTest() {
         loginPage.setEmailInput(USERNAME);
@@ -29,6 +32,8 @@ public class WorkoutsTest extends BaseTest{
         Assert.assertTrue(workoutDetailsPage.isViewYourWorkoutPresent());
         Assert.assertEquals(workoutValue,workoutDetailsPage.getWorkoutDetailsRest());
     }
+
+    @Description("Verify that user can add run hills activity")
     @Test
     public void addRunHillsTest(){
         loginPage.setEmailInput(USERNAME);

@@ -1,7 +1,7 @@
 package tests;
 
 import enums.*;
-import modals.QuickAddModal;
+import io.qameta.allure.Description;
 import models.QuickAdd;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
@@ -9,13 +9,24 @@ import org.testng.annotations.Test;
 
 public class QuickAddTest extends BaseTest{
 
+    @AfterMethod
+    public void clearTestData() {
+        calendarPage.clickPlusButton("10");
+        calendarPage.clickCopyMoveDeleteButton("10");
+        baseModal.openIframeCopyWeeksi();
+        calendarPage.clickDeleteModalButton();
+        baseModal.clickContinueButton();
+        baseModal.clickContinueButton();
+    }
+
+    @Description("Verify that user can make quick add activity")
     @Test
     public void workoutLibraryTest() {
         loginPage.setEmailInput(USERNAME);
         loginPage.setPasswordInput(PASSWORD);
         loginPage.clickLoginButton();
         headerNavigate.clickCalendarButton();
-        calendarPage.clickPlusButton();
+        calendarPage.clickPlusButton("10");
         calendarPage.clickQuickAddButton();
         Assert.assertFalse(calendarPage.isActivityPresent());
         QuickAdd quickAdd = QuickAdd.builder()

@@ -1,5 +1,6 @@
 package tests;
 
+import io.qameta.allure.Description;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -14,6 +15,7 @@ public class SettingsTest extends BaseTest  {
         headerNavigate.waitSettingButtonPresent();
     }
 
+    @Description("Verify that user can change you personal information")
     @Test
     public void settingsTest()  {
         headerNavigate.clickSettingsButton();
