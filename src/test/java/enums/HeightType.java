@@ -2,26 +2,21 @@ package enums;
 
 public enum HeightType {
 
-    INCHES("\n" +
-            "                                                    inches\n" +
-            "                                                "),
-    CENTIMETERS("\n" +
-            "                                                    centimeters\n" +
-            "                                                ");
+    INCHES("i"), CENTIMETERS("m");
 
-    private final String name;
+    private final String value;
 
-    HeightType(String name) {
-        this.name = name;
+    HeightType(String value) {
+        this.value = value;
     }
 
-    public String getName() {
-        return this.name;
+    public String getValue() {
+        return this.value;
     }
 
     public static HeightType fromString(String value) {
         for (HeightType heightType : HeightType.values()) {
-            if (heightType.getName().equals(value)) {
+            if (heightType.getValue().equals(value)) {
                 return heightType;
             }
         }

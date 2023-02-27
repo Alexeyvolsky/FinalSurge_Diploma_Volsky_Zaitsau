@@ -14,7 +14,7 @@ public class TinmanModal extends BaseModal {
         new Input(driver).setValue("TimeHH", tinman.getHours());
         new Input(driver).setValue("TimeMM", tinman.getMinutes());
         new Input(driver).setValue("TimeSS", tinman.getSeconds());
-        new RadioButton(driver).clickRadiobutton(tinman.getGender().getName());
+        new RadioButton(driver).clickRadiobutton("Gender", tinman.getGender().getValue());
     }
 
     public TinmanModal(WebDriver driver) {

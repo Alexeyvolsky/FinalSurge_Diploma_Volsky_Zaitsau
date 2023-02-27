@@ -2,41 +2,21 @@ package enums;
 
 public enum Gender {
 
-    MALE("  Male", "\n" +
-            "                                                    male\n" +
-            "                                                "),
-    FEMALE(" Female", "\n" +
-            "                                                    female\n" +
-            "                                                ");
+    MALE("m"), FEMALE("k");
 
-    private final String name;
-    private final String nameForCaloricNeeds;
+    private final String value;
 
-    Gender(String name, String nameForCaloricNeeds) {
-        this.name = name;
-        this.nameForCaloricNeeds = nameForCaloricNeeds;
+    Gender(String value) {
+        this.value = value;
     }
 
-    public String getName() {
-        return this.name;
-    }
-
-    public String getNameForCaloricNeeds()  {
-        return this.nameForCaloricNeeds;
+    public String getValue() {
+        return this.value;
     }
 
     public static Gender fromString(String value) {
         for (Gender gender : Gender.values()) {
-            if (gender.getName().equals(value)) {
-                return gender;
-            }
-        }
-        return null;
-    }
-
-    public static Gender fromStringForCaloricNeeds(String value)    {
-        for (Gender gender : Gender.values())   {
-            if (gender.getNameForCaloricNeeds().equals(value))   {
+            if (gender.getValue().equals(value)) {
                 return gender;
             }
         }

@@ -10,13 +10,13 @@ public class CaloricNeedsModal extends BaseModal {
 
     public void fillForm(CaloricNeedsCalculator caloricNeeds)  {
         new Input(driver).clearAndSetValue("Weight", caloricNeeds.getWeight());
-        new RadioButton(driver).clickRadiobutton(caloricNeeds.getWeightType().getName());
+        new RadioButton(driver).clickRadiobutton("WeightType", caloricNeeds.getWeightType().getValue());
         new Input(driver).clearAndSetValue("HeightInchCent", caloricNeeds.getHeight());
-        new RadioButton(driver).clickRadiobutton(caloricNeeds.getHeightType().getName());
+        new RadioButton(driver).clickRadiobutton("HeightType", caloricNeeds.getHeightType().getValue());
         new Input(driver).clearAndSetValue("Age", caloricNeeds.getAge());
-        new RadioButton(driver).clickRadiobutton(caloricNeeds.getGender().getNameForCaloricNeeds());
+        new RadioButton(driver).clickRadiobutton("Gender", caloricNeeds.getGender().getValue());
         new Input(driver).clearAndSetValue("RunDist", caloricNeeds.getRunDistance());
-        new RadioButton(driver).clickRadiobutton(caloricNeeds.getDistTypeCaloricNeeds().getName());
+        new RadioButton(driver).clickRadiobutton("DistType", caloricNeeds.getDistTypeCaloricNeeds().getValue());
     }
 
     public CaloricNeedsModal(WebDriver driver) {
