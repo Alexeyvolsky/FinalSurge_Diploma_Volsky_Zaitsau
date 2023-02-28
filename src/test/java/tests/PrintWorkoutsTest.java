@@ -1,11 +1,13 @@
 package tests;
 
+import io.qameta.allure.Description;
 import models.PrintWorkout;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class PrintWorkoutsTest extends BaseTest {
 
+    @Description("Verify that user can choose data and get list with his activities during that time")
     @Test
     public void positivePrintWorkoutTest()  {
         loginPage.setEmailInput(USERNAME);

@@ -12,7 +12,7 @@ public class BaseModal extends BasePage {
     protected final static By THIRD_SAVE_BUTTON_SETTINGS = By.id("saveButtonSettings3");
     protected final static By FOURTH_SAVE_BUTTON_SETTINGS = By.id("saveButtonSettings4");
     protected final static By SAVE_BUTTON_PRINT = By.id("saveButtonPrint");
-    protected String GREEN_BOX = "//h4[text()='%s']";
+    protected String GREEN_BOX = "//h4[text()=\"%s\"]";
     protected final static By PACE_CALCULATOR_BUTTON_LOCATOR = By.xpath("//a[text()='Pace Calculator']");
     protected final static By HANSONS_CALCULATOR_BUTTON_LOCATOR = By.xpath("//a[text()='Hansons']");
     protected final static By MCMILLAN_CALCULATOR_BUTTON_LOCATOR = By.xpath("//a[text()='McMillan']");
@@ -22,6 +22,8 @@ public class BaseModal extends BasePage {
     protected final static By LOCATOR_IFRAME_OTHER_CALCULATOR = By.id("OtherCalciFrame");
     protected final static By LOCATOR_IFRAME_WORKOUT_CALCULATOR = By.id("IntensityCalciFrame");
     protected final static By LOCATOR_IFRAME_PRINT_WORKOUT = By.id("PrintWorkoutsiFrame");
+    protected final static By LOCATOR_IFRAME_COPY_WEEKSI = By.id("CopyWeeksiFrame");
+    protected final static By CONTINUE_BUTTON = By.id("contButton");
 
     public boolean isGreenBoxDisplay(String text)  {
         try {
@@ -90,8 +92,17 @@ public class BaseModal extends BasePage {
         driver.switchTo().frame(iframe);
     }
 
+    public void openIframeCopyWeeksi()  {
+        WebElement iframe = driver.findElement(LOCATOR_IFRAME_COPY_WEEKSI);
+        driver.switchTo().frame(iframe);
+    }
+
     public void closeIframe()   {
         driver.switchTo().defaultContent();
+    }
+
+    public void clickContinueButton()   {
+        driver.findElement(CONTINUE_BUTTON).click();
     }
 
     public boolean alertErrorMessageIsPresent()    {

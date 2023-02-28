@@ -1,5 +1,6 @@
 package tests;
 
+import com.github.javafaker.Faker;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import modals.*;
 import modals.OtherCalculators.CaloricNeedsModal;
@@ -8,6 +9,7 @@ import modals.WorkoutCalculators.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import pages.*;
 
@@ -40,6 +42,8 @@ public class BaseTest {
     protected SettingDetailsPage settingDetailsPage;
     protected PrintDetailsPage printDetailsPage;
     protected CalendarPage calendarPage;
+    protected CopyMoveDeleteModal copyMoveDeleteModal;
+    Faker faker = new Faker();
 
     @BeforeClass(alwaysRun = true)
     public void setUp(){
@@ -75,10 +79,11 @@ public class BaseTest {
         settingDetailsPage = new SettingDetailsPage(driver);
         printDetailsPage = new PrintDetailsPage(driver);
         calendarPage = new CalendarPage(driver);
+        copyMoveDeleteModal = new CopyMoveDeleteModal(driver);
     }
-//
-//    @AfterClass(alwaysRun = true)
-//    public void tearDown() {
-//        driver.quit();
-//    }
+
+    @AfterClass(alwaysRun = true)
+    public void tearDown() {
+        driver.quit();
+    }
 }

@@ -9,11 +9,11 @@ import org.openqa.selenium.WebDriver;
 public class PaceModal extends BaseModal {
 
     public void fillForm(PaceCalculator paceCalculator) {
-        new Input(driver).setValue("RunDist", paceCalculator.getRunDistance());
+        new Input(driver).clearAndSetValue("RunDist", paceCalculator.getRunDistance());
         new Dropdown(driver).selectOption("DistType", paceCalculator.getDistTypePaceCalculator().getName());
-        new Input(driver).setValue("TimeHH", paceCalculator.getHours());
-        new Input(driver).setValue("TimeMM", paceCalculator.getMinutes());
-        new Input(driver).setValue("TimeSS", paceCalculator.getSeconds());
+        new Input(driver).clearAndSetValue("TimeHH", paceCalculator.getHours());
+        new Input(driver).clearAndSetValue("TimeMM", paceCalculator.getMinutes());
+        new Input(driver).clearAndSetValue("TimeSS", paceCalculator.getSeconds());
     }
 
     public PaceModal(WebDriver driver) {
