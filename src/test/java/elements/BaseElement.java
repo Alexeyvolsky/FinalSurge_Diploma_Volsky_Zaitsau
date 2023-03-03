@@ -13,4 +13,9 @@ public class BaseElement {
     public void scrollIntoView(WebElement element) {
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
     }
+
+    protected void jsSendKeysInSettings(String name, String value) {
+        JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
+        jsExecutor.executeScript("document.getElementById('"+name+"').value='"+value+"'");
+    }
 }

@@ -18,13 +18,13 @@ public class HansonsCalculatorTest extends BaseTest   {
         loginPage.setPasswordInput(PASSWORD);
         loginPage.clickLoginButton();
         headerNavigate.clickWorkoutCalculateButton();
-        baseModal.openIframeWorkoutCalculator();
+        hansonsModal.openIframeWorkoutCalculator();
     }
 
     @Description("Verify that Hensons calculator counts data")
     @Test
     public void positiveHansonsTest()   {
-        baseModal.clickHansonsCalculatorButton();
+        hansonsModal.clickHansonsCalculatorButton();
         HansonsCalculator hansonsValue = HansonsCalculator.builder().setRaceDist(RaceDist.HALF_MARATHON)
                 .setDistTypeHansons(DistTypeHansons.MILES).setHours(String.valueOf(faker.number().numberBetween(0, 24)))
                 .setMinutes(String.valueOf(faker.number().numberBetween(0, 59)))
@@ -33,8 +33,8 @@ public class HansonsCalculatorTest extends BaseTest   {
                 .setWindSpeed(String.valueOf(faker.number().numberBetween(0, 99)))
                 .setTempType(TempType.CELSIUS).setSpeedType(SpeedType.KILOMETERS_PER_HOUR)
                 .setHumidity(String.valueOf(faker.number().numberBetween(0, 100))).build();
-        hansons.fillForm(hansonsValue);
-        baseModal.clickFirstSaveButtonSettings();
-        Assert.assertTrue(baseModal.isGreenBoxDisplay("Recent Race Information"));
+        hansonsModal.fillForm(hansonsValue);
+        hansonsModal.clickFirstSaveButtonSettings();
+        Assert.assertTrue(hansonsModal.isGreenBoxDisplay());
     }
 }

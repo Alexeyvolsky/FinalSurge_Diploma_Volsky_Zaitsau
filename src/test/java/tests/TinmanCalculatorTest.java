@@ -16,19 +16,19 @@ public class TinmanCalculatorTest extends BaseTest  {
         loginPage.setPasswordInput(PASSWORD);
         loginPage.clickLoginButton();
         headerNavigate.clickWorkoutCalculateButton();
-        baseModal.openIframeWorkoutCalculator();
+        tinmanModal.openIframeWorkoutCalculator();
     }
 
     @Description("Verify that Tinman calculator counts data")
     @Test
     public void positiveTinmanTest()    {
-        baseModal.clickTinmanCalculatorButton();
+        tinmanModal.clickTinmanCalculatorButton();
         TinmanCalculator tinmanValue = TinmanCalculator.builder().setDistanceTinman(DistanceTinman.MARATHON)
                 .setHours(String.valueOf(faker.number().numberBetween(0, 24)))
                 .setMinutes(String.valueOf(faker.number().numberBetween(0, 59)))
                 .setSeconds(String.valueOf(faker.number().numberBetween(0, 59))).setGender(Gender.FEMALE).build();
-        tinman.fillForm(tinmanValue);
-        baseModal.clickFirstSaveButtonSettings();
-        Assert.assertTrue(baseModal.isGreenBoxDisplay("Race Information"));
+        tinmanModal.fillForm(tinmanValue);
+        tinmanModal.clickFirstSaveButtonSettings();
+        Assert.assertTrue(tinmanModal.isGreenBoxDisplay());
     }
 }

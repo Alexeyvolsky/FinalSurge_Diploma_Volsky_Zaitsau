@@ -20,4 +20,8 @@ public class Input extends BaseElement{
         input.clear();
         input.sendKeys(value);
     }
+
+    public void jsSetValet(String id, String value)    {
+        jsSendKeysInSettings(id, value);
+    }
 }
