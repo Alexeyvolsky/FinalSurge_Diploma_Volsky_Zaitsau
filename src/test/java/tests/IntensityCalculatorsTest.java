@@ -9,7 +9,7 @@ import org.testng.annotations.Test;
 
 public class IntensityCalculatorsTest extends BaseTest {
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void login() {
         loginPage.setEmailInput(USERNAME);
         loginPage.setPasswordInput(PASSWORD);
@@ -19,7 +19,7 @@ public class IntensityCalculatorsTest extends BaseTest {
     }
 
     @Description("Verify that Intensity calculator counts data")
-    @Test
+    @Test(groups = {"regression"})
     public void positiveIntensityTest() {
         IntensityCalculator intensityValue = IntensityCalculator.builder()
                 .setSelectEvent(SelectEvent.MILE).setHours("0")

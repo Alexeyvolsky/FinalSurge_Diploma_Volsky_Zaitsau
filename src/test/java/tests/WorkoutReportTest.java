@@ -2,17 +2,33 @@ package tests;
 
 import enums.ActivityType;
 import enums.ReportView;
+import io.qameta.allure.Description;
 import models.Report;
+import models.Rest;
 import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class WorkoutReportTest extends BaseTest{
 
-    @Test
-    public void workoutReportTest(){
+    @BeforeMethod(alwaysRun = true)
+    public void login() {
         loginPage.setEmailInput(USERNAME);
         loginPage.setPasswordInput(PASSWORD);
         loginPage.clickLoginButton();
+        dashboardPage.moveToWorkoutsMenu();
+        dashboardPage.clickWorkoutsButton("Add Workout");
+        workoutsPage.clickActiveTypeButton("rest");
+        Rest workoutValue = Rest.builder().setWorkoutDescription("Workout description")
+                .setWorkoutName("Workouts name")
+                .setDate("02/23/2023")
+                .build();
+        addNewWorkoutModal.fillformRest(workoutValue);
+        addNewWorkoutModal.clickAddWorkoutButton();
+    }
+    @Description("Verify thet user can get report on workouts of the selected type for the selected period")
+    @Test(groups = {"regression"})
+    public void workoutReportTest(){
         dashboardPage.moveToWorkoutsMenu();
         dashboardPage.clickWorkoutsButton("Reports & Statistics");
         Assert.assertTrue(workoutReportPage.reportButtonPresent());

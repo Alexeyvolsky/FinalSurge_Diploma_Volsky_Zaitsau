@@ -6,16 +6,20 @@ import modals.*;
 import modals.OtherCalculators.CaloricNeedsModal;
 import modals.OtherCalculators.PaceModal;
 import modals.WorkoutCalculators.*;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.opera.OperaDriver;
+import org.testng.ITestContext;
+import org.testng.annotations.*;
 import pages.*;
+import utils.TestListener;
 
 import java.util.concurrent.TimeUnit;
-
-public class BaseTest {
+//@Listeners(TestListener.class)
+public abstract class BaseTest {
     protected final static String BASE_URL = "https://log.finalsurge.com/";
     protected final static String USERNAME = "aleksvolsky@gmail.com";
     protected final static String PASSWORD = "1234567890QwE";
@@ -44,18 +48,29 @@ public class BaseTest {
     protected CopyMoveDeleteModal copyMoveDeleteModal;
     Faker faker = new Faker();
 
+    @Parameters({"browser"})
     @BeforeClass(alwaysRun = true)
-    public void setUp(){
-        WebDriverManager.chromedriver().setup();
-        ChromeOptions options = new ChromeOptions();
-//        options.addArguments("--headless");
-        options.addArguments("--ignore-certificate-errors");
-        options.addArguments("--disable-popup-blocking");
-        options.addArguments("--disable-notifications");
-        driver = new ChromeDriver(options);
+    public void setUp(@Optional("Chrome") String browserName, ITestContext testContext) throws Exception{
+        if (browserName.equals("Chrome")) {
+            ChromeOptions options = new ChromeOptions();
+            WebDriverManager.chromedriver().setup();
+            options.addArguments("--headless");
+            options.addArguments("--ignore-certificate-errors");
+            options.addArguments("--disable-popup-blocking");
+            options.addArguments("--disable-notifications");
+            driver = new ChromeDriver();
+        } else if (browserName.equals("Firefox")) {
+            WebDriverManager.firefoxdriver().setup();
+            driver = new FirefoxDriver();
+        }else if (browserName.equals("Opera")) {
+            WebDriverManager.operadriver().setup();
+            driver = new OperaDriver();
+        } else {
+            throw new Exception("Incorrect browser name");
+        }
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        driver.get(BASE_URL);
+        testContext.setAttribute("driver", driver);
         loginPage = new LoginPage(driver);
         dailyVitalsPage = new DailyVitalsPage(driver);
         dashboardPage = new DashboardPage(driver);
@@ -79,9 +94,19 @@ public class BaseTest {
         calendarPage = new CalendarPage(driver);
         copyMoveDeleteModal = new CopyMoveDeleteModal(driver);
     }
+    @BeforeMethod(alwaysRun = true)
+    public void navigate() {
+        driver.get(BASE_URL);
+    }
 
     @AfterClass(alwaysRun = true)
     public void tearDown() {
         driver.quit();
+    }
+    @AfterMethod(alwaysRun = true)
+    public void clearCookies() {
+        driver.manage().deleteAllCookies();
+        ((JavascriptExecutor) driver).executeScript(String.format("window.localStorage.clear();"));
+        ((JavascriptExecutor) driver).executeScript(String.format("window.sessionStorage.clear();"));
     }
 }

@@ -9,7 +9,7 @@ import org.testng.annotations.Test;
 
 public class McMillanCalculatorTest extends BaseTest  {
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void login() {
         loginPage.setEmailInput(USERNAME);
         loginPage.setPasswordInput(PASSWORD);
@@ -19,7 +19,7 @@ public class McMillanCalculatorTest extends BaseTest  {
     }
 
     @Description("Verify that McMillan calculator counts data")
-    @Test
+    @Test(groups = {"regression"})
     public void positiveMcMillanTest()  {
         mcMillanModal.clickMcMilanCalculatorButton();
         McMillanCalculator mcMillanValue = McMillanCalculator.builder().setDistanceMcMillan(DistanceMcMillan.MILE)
@@ -35,3 +35,10 @@ public class McMillanCalculatorTest extends BaseTest  {
         Assert.assertTrue(mcMillanModal.isGreenBoxDisplay());
     }
 }
+
+
+
+
+
+
+

@@ -5,12 +5,13 @@ import io.qameta.allure.Description;
 import models.OtherCalculators.PaceCalculator;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 public class PaceCalculatorTest extends BaseTest  {
 
-    @BeforeClass()
+    @BeforeMethod(alwaysRun = true)
     public void login() {
         loginPage.setEmailInput(USERNAME);
         loginPage.setPasswordInput(PASSWORD);
@@ -20,7 +21,7 @@ public class PaceCalculatorTest extends BaseTest  {
     }
 
     @Description("Verify that Pace calculator counts data")
-    @Test
+    @Test(groups = {"regression"})
     public void positivePaceCalculatorTest()    {
         paceCalculator.clickPaceCalculatorButton();
         PaceCalculator paceCalculatorValue = PaceCalculator.builder()
@@ -35,7 +36,7 @@ public class PaceCalculatorTest extends BaseTest  {
     }
 
     @Description("Verify that Pace calculator work correct with bad data")
-    @Test(dataProvider = "negativePaceCalculatorList")
+    @Test(dataProvider = "negativePaceCalculatorList", groups = {"regression"})
     public void negativePaceCalculatorTest(PaceCalculator paceCalculatorValue)    {
         paceCalculator.clickPaceCalculatorButton();
         paceCalculator.fillForm(paceCalculatorValue);

@@ -2,14 +2,16 @@ package tests;
 
 import enums.*;
 import io.qameta.allure.Description;
+import models.PrintWorkout;
 import models.QuickAdd;
 import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class CopyDayTest extends BaseTest   {
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void login() {
         loginPage.setEmailInput(USERNAME);
         loginPage.setPasswordInput(PASSWORD);
@@ -27,7 +29,7 @@ public class CopyDayTest extends BaseTest   {
     }
 
     @Description("Verify that user can make copy his activity in another day")
-    @Test
+    @Test(groups = {"regression"})
     public void copyDayTest()   {
         headerNavigate.clickCalendarButton();
         calendarPage.clickPlusButton(Day.TEN_DAY);

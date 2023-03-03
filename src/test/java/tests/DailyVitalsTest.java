@@ -1,11 +1,13 @@
 package tests;
 
+import io.qameta.allure.Description;
 import models.DailyVitals;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class DailyVitalsTest extends BaseTest{
-    @Test
+    @Description("Verify data is displayed for the correct period")
+    @Test(groups = {"regression"})
     public void dailyVitalsTest(){
         loginPage.setEmailInput(USERNAME);
         loginPage.setPasswordInput(PASSWORD);

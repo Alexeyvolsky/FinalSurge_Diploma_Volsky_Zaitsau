@@ -1,9 +1,9 @@
-package pages;
+package utils;
 
 import org.openqa.selenium.WebDriver;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
-import utils.AllureUtils;
+import tests.BaseTest;
 
 import java.util.Date;
 
@@ -17,7 +17,7 @@ public class TestListener implements ITestListener {
     @Override
     public void onTestSuccess(ITestResult result) {
         ITestListener.super.onTestSuccess(result);
-        System.out.println("Test " + result.getName() + " started at" + " succeeded");
+        System.out.println("Test " + result.getName() + " succeeded");
     }
 
     @Override

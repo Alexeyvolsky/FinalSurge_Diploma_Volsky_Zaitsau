@@ -26,9 +26,9 @@ public class PrintDetailsPage extends BasePage   {
         return printWorkout.build();
     }
 
-    public void switchBetweenTabs()  {
+    public void switchBetweenTabs(int tab)  {
         ArrayList<String> tabs = new ArrayList<>(driver.getWindowHandles());
-        driver.switchTo().window(tabs.get(1));
+        driver.switchTo().window(tabs.get(tab));
     }
 
     public PrintDetailsPage(WebDriver driver) {

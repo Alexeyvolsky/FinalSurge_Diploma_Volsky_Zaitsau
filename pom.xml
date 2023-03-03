@@ -53,6 +53,7 @@
             <version>1.0.2</version>
         </dependency>
 
+
     </dependencies>
 
     <build>
@@ -89,7 +90,7 @@
         <maven.compiler.source>19</maven.compiler.source>
         <maven.compiler.target>19</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <suiteXmlFile>smoke.xml</suiteXmlFile>
+        <suiteXmlFile>allTests.xml</suiteXmlFile>
     </properties>
 
 

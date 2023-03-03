@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 
 public class SettingsTest extends BaseTest  {
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void login() {
         loginPage.setEmailInput(USERNAME);
         loginPage.setPasswordInput(PASSWORD);
@@ -17,7 +17,7 @@ public class SettingsTest extends BaseTest  {
     }
 
     @Description("Verify that user can change you personal information")
-    @Test
+    @Test(groups = {"regression"})
     public void settingsTest()  {
         headerNavigate.clickSettingsButton();
         settingDetailsPage.waitUserAvatarPresent();
