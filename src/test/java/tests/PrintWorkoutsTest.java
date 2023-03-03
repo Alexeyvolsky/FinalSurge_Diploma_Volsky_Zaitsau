@@ -1,5 +1,6 @@
 package tests;
 
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import enums.*;
 import io.qameta.allure.Description;
 import models.PrintWorkout;
@@ -10,7 +11,7 @@ import org.testng.annotations.Test;
 
 public class PrintWorkoutsTest extends BaseTest {
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void makeTestData()  {
         loginPage.setEmailInput(USERNAME);
         loginPage.setPasswordInput(PASSWORD);
@@ -36,17 +37,18 @@ public class PrintWorkoutsTest extends BaseTest {
         quickAddModal.fillformQuickAdd(quickAddSecondDay);
         calendarPage.clickAddWorkoutButton();
     }
-
     @Description("Verify that user can choose data and get list with his activities during that time")
-    @Test
+    @Test(groups = {"regression"})
     public void positivePrintWorkoutTest()  {
         headerNavigate.clickPrintWorkoutButton();
         printWorkoutsModal.openIframePrintWorkout();
         PrintWorkout printWorkoutValue = PrintWorkout.builder().setStartingData("3/1/2023").setEndingData("3/2/2023").build();
         printWorkoutsModal.fillForm(printWorkoutValue);
         printWorkoutsModal.clickSaveButtonPrint();
-        printDetailsPage.switchBetweenTabs();
+        printDetailsPage.switchBetweenTabs(1);
         printDetailsPage.isPrintDetailsPageIsPresent();
         Assert.assertEquals(printDetailsPage.getPrintWorkoutData(), printWorkoutValue);
+        printDetailsPage.switchBetweenTabs(0);
+        Assert.assertTrue(dashboardPage.isUserIconPresent());
     }
 }

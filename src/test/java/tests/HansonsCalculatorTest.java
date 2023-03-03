@@ -12,7 +12,7 @@ import org.testng.annotations.Test;
 
 public class HansonsCalculatorTest extends BaseTest   {
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void login() {
         loginPage.setEmailInput(USERNAME);
         loginPage.setPasswordInput(PASSWORD);
@@ -22,7 +22,7 @@ public class HansonsCalculatorTest extends BaseTest   {
     }
 
     @Description("Verify that Hensons calculator counts data")
-    @Test
+    @Test(groups = {"regression"})
     public void positiveHansonsTest()   {
         hansonsModal.clickHansonsCalculatorButton();
         HansonsCalculator hansonsValue = HansonsCalculator.builder().setRaceDist(RaceDist.HALF_MARATHON)
@@ -38,3 +38,5 @@ public class HansonsCalculatorTest extends BaseTest   {
         Assert.assertTrue(hansonsModal.isGreenBoxDisplay());
     }
 }
+
+

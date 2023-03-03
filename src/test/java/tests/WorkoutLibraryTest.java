@@ -2,12 +2,14 @@ package tests;
 
 import enums.ActivityType;
 import enums.DistTypeHills;
+import io.qameta.allure.Description;
 import models.WorkoutLibrary;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class WorkoutLibraryTest extends BaseTest{
-    @Test
+    @Description("Verify that user can add new workout to library")
+    @Test(groups = {"regression"})
     public void workoutLibraryTest() {
         loginPage.setEmailInput(USERNAME);
         loginPage.setPasswordInput(PASSWORD);

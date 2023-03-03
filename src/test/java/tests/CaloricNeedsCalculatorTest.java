@@ -8,12 +8,13 @@ import io.qameta.allure.Description;
 import models.OtherCalculators.CaloricNeedsCalculator;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 public class CaloricNeedsCalculatorTest extends BaseTest  {
 
-    @BeforeClass
+    @BeforeMethod(alwaysRun = true)
     public void login() {
         loginPage.setEmailInput(USERNAME);
         loginPage.setPasswordInput(PASSWORD);
@@ -23,7 +24,7 @@ public class CaloricNeedsCalculatorTest extends BaseTest  {
     }
 
     @Description("Verify that CaloricNeeds calculator counts data")
-    @Test
+    @Test(groups = {"regression"})
     public void positiveCaloricNeedsTest()  {
         CaloricNeedsCalculator caloricNeedsValue = CaloricNeedsCalculator.builder()
                 .setWeight(String.valueOf(faker.number().numberBetween(30, 500))).setWeightType(WeightType.KG)
@@ -37,7 +38,7 @@ public class CaloricNeedsCalculatorTest extends BaseTest  {
     }
 
     @Description("Verify that ValoricNeeds calculator correct work with bad data")
-    @Test(dataProvider = "negativeCaloricNeedsList")
+    @Test(groups = {"regression"}, dataProvider = "negativeCaloricNeedsList")
     public void negativeCaloricNeedsTest(CaloricNeedsCalculator caloricNeedsValue)  {
         caloricNeedsModal.fillForm(caloricNeedsValue);
         caloricNeedsModal.clickFirstSaveButtonSettings();

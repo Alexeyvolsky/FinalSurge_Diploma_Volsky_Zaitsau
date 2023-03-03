@@ -13,7 +13,7 @@ import org.testng.annotations.Test;
 public class WorkoutsTest extends BaseTest  {
 
     @Description("Verify that user can add rest day")
-    @Test
+    @Test(groups = {"smoke"})
     public void addRestdayTest() {
         loginPage.setEmailInput(USERNAME);
         loginPage.setPasswordInput(PASSWORD);
@@ -34,7 +34,7 @@ public class WorkoutsTest extends BaseTest  {
     }
 
     @Description("Verify that user can add run hills activity")
-    @Test
+    @Test(groups = {"smoke"})
     public void addRunHillsTest(){
         loginPage.setEmailInput(USERNAME);
         loginPage.setPasswordInput(PASSWORD);
@@ -49,7 +49,7 @@ public class WorkoutsTest extends BaseTest  {
                 .setDate("02/23/2023")
                 .setTimeOfDay("03:15")
                 .setWorkoutName("Alexey")
-                .setWorkoutDescription("Ahaha")
+                .setWorkoutDescription("Description")
                 .setDistanceInput("33.00")
                 .setDistTypeHills(DistTypeHills.MILES)
                 .setDuration("4:56")

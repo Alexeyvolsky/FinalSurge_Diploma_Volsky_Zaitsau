@@ -5,11 +5,10 @@ import models.WorcoutCalculators.PalladinoCalculator;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import pages.Retry;
 
 public class PallandinoCalculatorTest extends BaseTest  {
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void login() {
         loginPage.setEmailInput(USERNAME);
         loginPage.setPasswordInput(PASSWORD);
@@ -19,7 +18,7 @@ public class PallandinoCalculatorTest extends BaseTest  {
     }
 
     @Description("Verify that PallandinoIntervalPower calculator counts data")
-    @Test
+    @Test(groups = {"regression"})
     public void positivePallandinoIntervalPowerTest() {
         palladinoModal.clickPalladinoCalculatorButton();
         PalladinoCalculator palladinoIntervalPower = PalladinoCalculator.builder()
@@ -31,7 +30,7 @@ public class PallandinoCalculatorTest extends BaseTest  {
     }
 
     @Description("Verify that PallandinoMoreThenForty calculator counts data")
-    @Test
+    @Test(groups = {"regression"})
     public void positivePallandinoMoreThenFortyCalculatorTest() {
         palladinoModal.clickPalladinoCalculatorButton();
         PalladinoCalculator palladinoMoreThenForty = PalladinoCalculator.builder()
@@ -45,7 +44,7 @@ public class PallandinoCalculatorTest extends BaseTest  {
     }
 
     @Description("Verify that PallandinoLessThenForty calculator counts data")
-    @Test
+    @Test(groups = {"regression"})
     public void positivePallandinoLessThenFortyCalculatorTest() {
         palladinoModal.clickPalladinoCalculatorButton();
         PalladinoCalculator palladinoLessThenForty = PalladinoCalculator.builder()
@@ -58,7 +57,7 @@ public class PallandinoCalculatorTest extends BaseTest  {
     }
 
     @Description("Verify that PallandinoCpAndRwc calculator counts data")
-    @Test(retryAnalyzer = Retry.class)
+    @Test(groups = {"regression"})
     public void positivePallandinoCpAndRwcCalculatorTest()  {
         palladinoModal.clickPalladinoCalculatorButton();
         PalladinoCalculator palladinoCpAndRwc = PalladinoCalculator.builder()

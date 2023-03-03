@@ -10,7 +10,7 @@ import org.testng.annotations.Test;
 
 public class TinmanCalculatorTest extends BaseTest  {
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void login() {
         loginPage.setEmailInput(USERNAME);
         loginPage.setPasswordInput(PASSWORD);
@@ -20,7 +20,7 @@ public class TinmanCalculatorTest extends BaseTest  {
     }
 
     @Description("Verify that Tinman calculator counts data")
-    @Test
+    @Test(groups = {"regression"})
     public void positiveTinmanTest()    {
         tinmanModal.clickTinmanCalculatorButton();
         TinmanCalculator tinmanValue = TinmanCalculator.builder().setDistanceTinman(DistanceTinman.MARATHON)
