@@ -2,8 +2,7 @@ package enums;
 
 public enum SelectEvent {
 
-    MILE(" Mile"), KM5(" 5Km"), KM10(" 10Km"), HALF_MARATHON(" Half Marathon"),
-    MARATHON(" Marathon");
+    MILE("MILE"), KM5("FIVEK"), KM10("TENK"), HALF_MARATHON("HALFMAR"), MARATHON("MARATHON");
 
     private final String name;
 

@@ -6,7 +6,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class PrintWorkoutsTest extends BaseTest {
-
+// TODO: въебать прекондишн
     @Description("Verify that user can choose data and get list with his activities during that time")
     @Test
     public void positivePrintWorkoutTest()  {

@@ -22,9 +22,9 @@ public class IntensityCalculatorsTest extends BaseTest {
     @Test
     public void positiveIntensityTest() {
         IntensityCalculator intensityValue = IntensityCalculator.builder()
-                .setHours(String.valueOf(faker.number().numberBetween(0, 24)))
-                .setMinutes(String.valueOf(faker.number().numberBetween(0, 59)))
-                .setSeconds(String.valueOf(faker.number().numberBetween(0, 59))).setSelectEvent(SelectEvent.MILE).build();
+                .setSelectEvent(SelectEvent.MILE).setHours("0")
+                .setMinutes(String.valueOf(faker.number().numberBetween(0, 15)))
+                .setSeconds(String.valueOf(faker.number().numberBetween(0, 45))).build();
         intensity.fillForm(intensityValue);
         baseModal.clickFirstSaveButtonSettings();
         Assert.assertTrue(baseModal.isGreenBoxDisplay("Your Workout Paces"));

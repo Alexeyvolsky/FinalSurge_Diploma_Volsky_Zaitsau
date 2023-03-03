@@ -45,8 +45,8 @@ public class CalendarPage extends BasePage{
         driver.findElement(By.xpath(String.format(COPY_MOVE_DELETE_MODAL_BUTTON, "Delete"))).click();
     }
 
-    public void clickNeedData() {
-        driver.findElement(By.xpath(String.format(NUMBER_OF_WEEK_LOCATOR, "11"))).click();
+    public void clickNeedData(String date) {
+        driver.findElement(By.xpath(String.format(NUMBER_OF_WEEK_LOCATOR, date))).click();
     }
 
     public String getActivityName() {
