@@ -27,9 +27,4 @@ public abstract class BasePage {
         JavascriptExecutor executor = (JavascriptExecutor) driver;
         executor.executeScript("arguments[0].click();", element);
     }
-
-    protected void jsSendKeysInSettings(String name, String value) {
-        JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
-        jsExecutor.executeScript("document.getElementById('"+name+"').value='"+value+"'");
-    }
 }

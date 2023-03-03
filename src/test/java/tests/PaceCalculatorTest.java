@@ -16,13 +16,13 @@ public class PaceCalculatorTest extends BaseTest  {
         loginPage.setPasswordInput(PASSWORD);
         loginPage.clickLoginButton();
         headerNavigate.clickOtherCalculatorsButton();
-        baseModal.openIframeOtherCalculator();
+        paceCalculator.openIframeOtherCalculator();
     }
 
     @Description("Verify that Pace calculator counts data")
     @Test
     public void positivePaceCalculatorTest()    {
-        baseModal.clickPaceCalculatorButton();
+        paceCalculator.clickPaceCalculatorButton();
         PaceCalculator paceCalculatorValue = PaceCalculator.builder()
                 .setRunDistance(String.valueOf(faker.number().numberBetween(1, 9999)))
                 .setDistTypePaceCalculator(DistTypePaceCalculator.KILOMETERS)
@@ -30,17 +30,17 @@ public class PaceCalculatorTest extends BaseTest  {
                 .setMinutes(String.valueOf(faker.number().numberBetween(0, 59)))
                 .setSeconds(String.valueOf(faker.number().numberBetween(0, 59))).build();
         paceCalculator.fillForm(paceCalculatorValue);
-        baseModal.clickFirstSaveButtonSettings();
-        Assert.assertTrue(baseModal.isGreenBoxDisplay("Pace Chart"));
+        paceCalculator.clickFirstSaveButtonSettings();
+        Assert.assertTrue(paceCalculator.isGreenBoxDisplay());
     }
 
     @Description("Verify that Pace calculator work correct with bad data")
     @Test(dataProvider = "negativePaceCalculatorList")
     public void negativePaceCalculatorTest(PaceCalculator paceCalculatorValue)    {
-        baseModal.clickPaceCalculatorButton();
+        paceCalculator.clickPaceCalculatorButton();
         paceCalculator.fillForm(paceCalculatorValue);
-        baseModal.clickFirstSaveButtonSettings();
-        Assert.assertTrue(baseModal.alertErrorMessageIsPresent());
+        paceCalculator.clickFirstSaveButtonSettings();
+        Assert.assertTrue(paceCalculator.alertErrorMessageIsPresent());
     }
 
     @DataProvider(name = "negativePaceCalculatorList")

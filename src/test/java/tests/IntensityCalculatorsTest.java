@@ -15,7 +15,7 @@ public class IntensityCalculatorsTest extends BaseTest {
         loginPage.setPasswordInput(PASSWORD);
         loginPage.clickLoginButton();
         headerNavigate.clickWorkoutCalculateButton();
-        baseModal.openIframeWorkoutCalculator();
+        intensityModal.openIframeWorkoutCalculator();
     }
 
     @Description("Verify that Intensity calculator counts data")
@@ -25,8 +25,8 @@ public class IntensityCalculatorsTest extends BaseTest {
                 .setSelectEvent(SelectEvent.MILE).setHours("0")
                 .setMinutes(String.valueOf(faker.number().numberBetween(0, 15)))
                 .setSeconds(String.valueOf(faker.number().numberBetween(0, 45))).build();
-        intensity.fillForm(intensityValue);
-        baseModal.clickFirstSaveButtonSettings();
-        Assert.assertTrue(baseModal.isGreenBoxDisplay("Your Workout Paces"));
+        intensityModal.fillForm(intensityValue);
+        intensityModal.clickFirstSaveButtonSettings();
+        Assert.assertTrue(intensityModal.isGreenBoxDisplay());
     }
 }

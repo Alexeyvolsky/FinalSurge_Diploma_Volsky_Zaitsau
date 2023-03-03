@@ -13,13 +13,13 @@ import org.testng.annotations.Test;
 
 public class CaloricNeedsCalculatorTest extends BaseTest  {
 
-    @BeforeClass()
+    @BeforeClass
     public void login() {
         loginPage.setEmailInput(USERNAME);
         loginPage.setPasswordInput(PASSWORD);
         loginPage.clickLoginButton();
         headerNavigate.clickOtherCalculatorsButton();
-        baseModal.openIframeOtherCalculator();
+        caloricNeedsModal.openIframeOtherCalculator();
     }
 
     @Description("Verify that CaloricNeeds calculator counts data")
@@ -31,17 +31,17 @@ public class CaloricNeedsCalculatorTest extends BaseTest  {
                 .setAge(String.valueOf(faker.number().numberBetween(5, 99))).setGender(Gender.MALE)
                 .setRunDistance(String.valueOf(faker.number().numberBetween(0, 500)))
                 .setDistTypeCaloricNeeds(DistTypeCaloricNeeds.MILES).build();
-        caloricNeeds.fillForm(caloricNeedsValue);
-        baseModal.clickFirstSaveButtonSettings();
-        Assert.assertTrue(baseModal.isGreenBoxDisplay("Today's Caloric Needs"));
+        caloricNeedsModal.fillForm(caloricNeedsValue);
+        caloricNeedsModal.clickFirstSaveButtonSettings();
+        Assert.assertTrue(caloricNeedsModal.isGreenBoxDisplay());
     }
 
     @Description("Verify that ValoricNeeds calculator correct work with bad data")
     @Test(dataProvider = "negativeCaloricNeedsList")
     public void negativeCaloricNeedsTest(CaloricNeedsCalculator caloricNeedsValue)  {
-        caloricNeeds.fillForm(caloricNeedsValue);
-        baseModal.clickFirstSaveButtonSettings();
-        Assert.assertTrue(baseModal.alertErrorMessageIsPresent());
+        caloricNeedsModal.fillForm(caloricNeedsValue);
+        caloricNeedsModal.clickFirstSaveButtonSettings();
+        Assert.assertTrue(caloricNeedsModal.alertErrorMessageIsPresent());
     }
 
     @DataProvider(name = "negativeCaloricNeedsList")
