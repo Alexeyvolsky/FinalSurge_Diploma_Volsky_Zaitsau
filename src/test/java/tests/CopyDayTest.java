@@ -30,11 +30,11 @@ public class CopyDayTest extends BaseTest   {
 
     @AfterMethod
     public void clearTestData() {
-        calendarPage.clickPlusButton("11");
-        calendarPage.clickCopyMoveDeleteButton("11");
+        calendarPage.clickPlusButton("10");
+        calendarPage.clickCopyMoveDeleteButton("10");
         baseModal.openIframeCopyWeeksi();
         calendarPage.clickDeleteModalButton();
-        PrintWorkout dateStartToEnd = PrintWorkout.builder().setStartingData("2/10/2023").setEndingData("2/12/2023").build();
+        PrintWorkout dateStartToEnd = PrintWorkout.builder().setStartingData("2/10/2023").setEndingData("2/11/2023").build();
         copyMoveDeleteModal.fillForm(dateStartToEnd);
         baseModal.clickContinueButton();
         baseModal.clickContinueButton();
@@ -46,7 +46,7 @@ public class CopyDayTest extends BaseTest   {
         headerNavigate.clickCalendarButton();
         calendarPage.clickPlusButton("10");
         calendarPage.clickCopyDayButton();
-        calendarPage.clickNeedData();
+        calendarPage.clickNeedData("11");
         headerNavigate.waitSettingButtonPresent();
         Assert.assertEquals(calendarPage.getActivityName(), calendarPage.getExpectedActivityName());
     }
