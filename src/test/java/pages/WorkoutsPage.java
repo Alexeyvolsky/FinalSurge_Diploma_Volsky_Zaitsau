@@ -15,10 +15,13 @@ public class WorkoutsPage extends BasePage{
     public boolean isSidebarPresent(){
         return driver.findElement(SIDEBAR).isDisplayed();
     }
-    public void clickActiveTypeButton(String text){
-        driver.findElement(By.xpath(String.format(ACTIVE_TYPE_BUTTON,text))).click();
+    public void clickActiveTypeButtonRun(){
+        driver.findElement(By.xpath(String.format(ACTIVE_TYPE_BUTTON,"run"))).click();
     }
-    public void clickAccordingInnerButton(String text){
-        driver.findElement(By.xpath(String.format(ACCORDING_INNER, text))).click();
+    public void clickActiveTypeButtonRest(){
+        driver.findElement(By.xpath(String.format(ACTIVE_TYPE_BUTTON,"rest"))).click();
+    }
+    public void clickAccordingInnerButton(){
+        driver.findElement(By.xpath(String.format(ACCORDING_INNER, "Hills"))).click();
     }
 }

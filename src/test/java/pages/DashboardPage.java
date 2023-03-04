@@ -32,7 +32,13 @@ public class DashboardPage extends BasePage{
     public void clickViewAndAddVitalsButton(){
         driver.findElement(VIEW_ADD_VITALS_BUTTON).click();
     }
-    public void clickWorkoutsButton(String text){
-        driver.findElement(By.xpath(String.format(WORKOUTS_BUTTONS, text))).click();
+    public void clickWorkoutsButton(){
+        driver.findElement(By.xpath(String.format(WORKOUTS_BUTTONS, "Add Workout"))).click();
+    }
+    public void clickWorkoutsLibraryButton(){
+        driver.findElement(By.xpath(String.format(WORKOUTS_BUTTONS,"Workout Library"))).click();
+    }
+    public void clickWorkoutsReportButton(){
+        driver.findElement(By.xpath(String.format(WORKOUTS_BUTTONS, "Reports & Statistics"))).click();
     }
 }
