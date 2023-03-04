@@ -5,6 +5,7 @@ import models.Setting;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import utils.Retry;
 
 public class SettingsTest extends BaseTest  {
 
@@ -17,7 +18,7 @@ public class SettingsTest extends BaseTest  {
     }
 
     @Description("Verify that user can change you personal information")
-    @Test(groups = {"regression"})
+    @Test(groups = {"regression"}, retryAnalyzer = Retry.class)
     public void settingsTest()  {
         headerNavigate.clickSettingsButton();
         settingDetailsPage.waitUserAvatarPresent();

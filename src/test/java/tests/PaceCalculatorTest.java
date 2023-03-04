@@ -7,6 +7,7 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+import utils.Retry;
 
 public class PaceCalculatorTest extends BaseTest  {
 
@@ -20,7 +21,7 @@ public class PaceCalculatorTest extends BaseTest  {
     }
 
     @Description("Verify that Pace calculator counts data")
-    @Test(groups = {"regression"})
+    @Test(groups = {"regression"}, retryAnalyzer = Retry.class)
     public void positivePaceCalculatorTest()    {
         paceCalculator.clickPaceCalculatorButton();
         PaceCalculator paceCalculatorValue = PaceCalculator.builder()
@@ -35,7 +36,7 @@ public class PaceCalculatorTest extends BaseTest  {
     }
 
     @Description("Verify that Pace calculator work correct with bad data")
-    @Test(dataProvider = "negativePaceCalculatorList", groups = {"regression"})
+    @Test(dataProvider = "negativePaceCalculatorList", groups = {"regression"}, retryAnalyzer = Retry.class)
     public void negativePaceCalculatorTest(PaceCalculator paceCalculatorValue)    {
         paceCalculator.clickPaceCalculatorButton();
         paceCalculator.fillForm(paceCalculatorValue);

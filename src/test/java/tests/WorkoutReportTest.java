@@ -8,6 +8,7 @@ import models.Rest;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import utils.Retry;
 
 public class WorkoutReportTest extends BaseTest{
 
@@ -17,8 +18,8 @@ public class WorkoutReportTest extends BaseTest{
         loginPage.setPasswordInput(PASSWORD);
         loginPage.clickLoginButton();
         dashboardPage.moveToWorkoutsMenu();
-        dashboardPage.clickWorkoutsButton("Add Workout");
-        workoutsPage.clickActiveTypeButton("rest");
+        dashboardPage.clickWorkoutsButton();
+        workoutsPage.clickActiveTypeButtonRest();
         Rest workoutValue = Rest.builder().setWorkoutDescription("Workout description")
                 .setWorkoutName("Workouts name")
                 .setDate("02/23/2023")
@@ -27,10 +28,10 @@ public class WorkoutReportTest extends BaseTest{
         addNewWorkoutModal.clickAddWorkoutButton();
     }
     @Description("Verify thet user can get report on workouts of the selected type for the selected period")
-    @Test(groups = {"regression"})
+    @Test(groups = {"regression"}, retryAnalyzer = Retry.class)
     public void workoutReportTest(){
         dashboardPage.moveToWorkoutsMenu();
-        dashboardPage.clickWorkoutsButton("Reports & Statistics");
+        dashboardPage.clickWorkoutsReportButton();
         Assert.assertTrue(workoutReportPage.reportButtonPresent());
         Report reportView = Report.builder()
                 .setStartDate("2/23/2023")

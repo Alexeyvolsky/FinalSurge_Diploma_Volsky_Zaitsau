@@ -13,16 +13,16 @@
             <package name="tests"></package>
         </packages>
     </test>
-<!--    <test name="All tests on firefox">-->
-<!--        <parameter name="browser" value="Firefox"></parameter>-->
-<!--        <groups>-->
-<!--            <run>-->
-<!--                <include name="smoke"/>-->
-<!--                <include name="regression"/>-->
-<!--            </run>-->
-<!--        </groups>-->
-<!--        <packages>-->
-<!--            <package name="tests"></package>-->
-<!--        </packages>-->
-<!--    </test>-->
+    <test name="All tests on firefox">
+        <parameter name="browser" value="Firefox"></parameter>
+        <groups>
+            <run>
+                <include name="smoke"/>
+                <include name="regression"/>
+            </run>
+        </groups>
+        <packages>
+            <package name="tests"></package>
+        </packages>
+    </test>
 </suite>

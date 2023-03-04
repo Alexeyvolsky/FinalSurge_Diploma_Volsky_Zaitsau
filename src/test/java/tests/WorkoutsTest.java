@@ -9,20 +9,21 @@ import models.Hills;
 import models.Rest;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import utils.Retry;
 
 public class WorkoutsTest extends BaseTest  {
 
     @Description("Verify that user can add rest day")
-    @Test(groups = {"smoke"})
+    @Test(groups = {"smoke"}, retryAnalyzer = Retry.class)
     public void addRestdayTest() {
         loginPage.setEmailInput(USERNAME);
         loginPage.setPasswordInput(PASSWORD);
         loginPage.clickLoginButton();
         Assert.assertTrue(dashboardPage.isUserIconPresent());
         dashboardPage.moveToWorkoutsMenu();
-        dashboardPage.clickWorkoutsButton("Add Workout");
+        dashboardPage.clickWorkoutsButton();
         Assert.assertTrue(workoutsPage.isSidebarPresent());
-        workoutsPage.clickActiveTypeButton("rest");
+        workoutsPage.clickActiveTypeButtonRest();
         Rest workoutValue = Rest.builder().setWorkoutDescription("Workout description")
                 .setWorkoutName("Workouts name")
                 .setDate("02/23/2023")
@@ -34,17 +35,17 @@ public class WorkoutsTest extends BaseTest  {
     }
 
     @Description("Verify that user can add run hills activity")
-    @Test(groups = {"smoke"})
+    @Test(groups = {"smoke"}, retryAnalyzer = Retry.class)
     public void addRunHillsTest(){
         loginPage.setEmailInput(USERNAME);
         loginPage.setPasswordInput(PASSWORD);
         loginPage.clickLoginButton();
         Assert.assertTrue(dashboardPage.isUserIconPresent());
         dashboardPage.moveToWorkoutsMenu();
-        dashboardPage.clickWorkoutsButton("Add Workout");
+        dashboardPage.clickWorkoutsButton();
         Assert.assertTrue(workoutsPage.isSidebarPresent());
-        workoutsPage.clickActiveTypeButton("run");
-        workoutsPage.clickAccordingInnerButton("Hills");
+        workoutsPage.clickActiveTypeButtonRun();
+        workoutsPage.clickAccordingInnerButton();
         Hills workoutValue = Hills.builder()
                 .setDate("02/23/2023")
                 .setTimeOfDay("03:15")

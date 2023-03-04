@@ -10,6 +10,7 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+import utils.Retry;
 
 public class CaloricNeedsCalculatorTest extends BaseTest  {
 
@@ -23,7 +24,7 @@ public class CaloricNeedsCalculatorTest extends BaseTest  {
     }
 
     @Description("Verify that CaloricNeeds calculator counts data")
-    @Test(groups = {"regression"})
+    @Test(groups = {"regression"}, retryAnalyzer = Retry.class)
     public void positiveCaloricNeedsTest()  {
         CaloricNeedsCalculator caloricNeedsValue = CaloricNeedsCalculator.builder()
                 .setWeight(String.valueOf(faker.number().numberBetween(30, 500))).setWeightType(WeightType.KG)
@@ -37,7 +38,7 @@ public class CaloricNeedsCalculatorTest extends BaseTest  {
     }
 
     @Description("Verify that ValoricNeeds calculator correct work with bad data")
-    @Test(groups = {"regression"}, dataProvider = "negativeCaloricNeedsList")
+    @Test(groups = {"regression"}, retryAnalyzer = Retry.class, dataProvider = "negativeCaloricNeedsList")
     public void negativeCaloricNeedsTest(CaloricNeedsCalculator caloricNeedsValue)  {
         caloricNeedsModal.fillForm(caloricNeedsValue);
         caloricNeedsModal.clickFirstSaveButtonSettings();

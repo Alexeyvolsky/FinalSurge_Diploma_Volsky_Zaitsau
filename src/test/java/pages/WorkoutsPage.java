@@ -14,14 +14,19 @@ public class WorkoutsPage extends BasePage{
         return driver.findElement(SIDEBAR).isDisplayed();
     }
 
-    @Step("Click activity type button")
-    public void clickActiveTypeButton(String text){
-        driver.findElement(By.xpath(String.format(ACTIVE_TYPE_BUTTON,text))).click();
+    @Step("Click activity type button run")
+    public void clickActiveTypeButtonRun(){
+        driver.findElement(By.xpath(String.format(ACTIVE_TYPE_BUTTON,"run"))).click();
+    }
+
+    @Step("Click activity type button rest")
+    public void clickActiveTypeButtonRest(){
+        driver.findElement(By.xpath(String.format(ACTIVE_TYPE_BUTTON,"rest"))).click();
     }
 
     @Step("Click according inner button")
-    public void clickAccordingInnerButton(String text){
-        driver.findElement(By.xpath(String.format(ACCORDING_INNER, text))).click();
+    public void clickAccordingInnerButton(){
+        driver.findElement(By.xpath(String.format(ACCORDING_INNER, "Hills"))).click();
     }
 
     public WorkoutsPage(WebDriver driver) {

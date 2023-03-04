@@ -41,8 +41,18 @@ public class DashboardPage extends BasePage{
     }
 
     @Step("Click workout button")
-    public void clickWorkoutsButton(String text){
-        driver.findElement(By.xpath(String.format(WORKOUTS_BUTTONS, text))).click();
+       public void clickWorkoutsButton(){
+        driver.findElement(By.xpath(String.format(WORKOUTS_BUTTONS, "Add Workout"))).click();
+    }
+
+    @Step("Click workout library button")
+        public void clickWorkoutsLibraryButton(){
+        driver.findElement(By.xpath(String.format(WORKOUTS_BUTTONS,"Workout Library"))).click();
+    }
+
+    @Step("Click workout report button")
+    public void clickWorkoutsReportButton(){
+        driver.findElement(By.xpath(String.format(WORKOUTS_BUTTONS, "Reports & Statistics"))).click();
     }
 
     public DashboardPage(WebDriver driver) {

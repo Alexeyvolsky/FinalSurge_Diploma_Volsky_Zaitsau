@@ -7,6 +7,7 @@ import models.QuickAdd;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import utils.Retry;
 
 public class PrintWorkoutsTest extends BaseTest {
 
@@ -37,7 +38,7 @@ public class PrintWorkoutsTest extends BaseTest {
         calendarPage.clickAddWorkoutButton();
     }
     @Description("Verify that user can choose data and get list with his activities during that time")
-    @Test(groups = {"regression"})
+    @Test(groups = {"regression"}, retryAnalyzer = Retry.class)
     public void positivePrintWorkoutTest()  {
         headerNavigate.clickPrintWorkoutButton();
         printWorkoutsModal.openIframePrintWorkout();

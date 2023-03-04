@@ -17,14 +17,15 @@ import org.openqa.selenium.opera.OperaDriver;
 import org.testng.ITestContext;
 import org.testng.annotations.*;
 import pages.*;
+import utils.PropertyReader;
 import utils.TestListener;
-import java.util.concurrent.TimeUnit;
 
+import java.util.concurrent.TimeUnit;
 @Listeners(TestListener.class)
 public abstract class BaseTest {
     protected final static String BASE_URL = "https://log.finalsurge.com/";
-    protected final static String USERNAME = "aleksvolsky@gmail.com";
-    protected final static String PASSWORD = "1234567890QwE";
+    protected final static String USERNAME = System.getenv().getOrDefault("EMAIL", PropertyReader.getProperty("finalSurge.username"));
+    protected final static String PASSWORD = System.getenv().getOrDefault("PASSWORD", PropertyReader.getProperty("finalSurge.password"));
     protected WebDriver driver;
     protected LoginPage loginPage;
     protected DailyVitalsPage dailyVitalsPage;

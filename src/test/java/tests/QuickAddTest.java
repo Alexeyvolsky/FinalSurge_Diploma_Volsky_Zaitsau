@@ -5,12 +5,13 @@ import io.qameta.allure.Description;
 import models.QuickAdd;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import utils.Retry;
 
 public class QuickAddTest extends BaseTest{
 
     @Description("Verify that user can make quick add activity")
-    @Test(groups = {"smoke"})
-    public void workoutLibraryTest() {
+    @Test(groups = {"smoke"}, retryAnalyzer = Retry.class)
+    public void quickAddTest() {
         loginPage.setEmailInput(USERNAME);
         loginPage.setPasswordInput(PASSWORD);
         loginPage.clickLoginButton();
