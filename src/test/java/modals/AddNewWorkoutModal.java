@@ -4,6 +4,7 @@ import elements.Dropdown;
 import elements.Input;
 import elements.RadioButtonWorkouts;
 import elements.TextArea;
+import io.qameta.allure.Step;
 import models.Hills;
 import models.Rest;
 import org.openqa.selenium.By;
@@ -12,11 +13,14 @@ import org.openqa.selenium.WebDriver;
 public class AddNewWorkoutModal extends BaseModal{
     private final static By ADD_WORKOUT_BUTTON=By.id("saveButton");
 
+    @Step("Filling form to rest workout modal")
     public void fillformRest(Rest workout){
         new Input(driver).clearAndSetValue("WorkoutDate", workout.getDate());
         new Input(driver).setValue("Name", workout.getWorkoutName());
         new TextArea(driver).setValue("Desc", workout.getWorkoutDescription());
     }
+
+    @Step("Filling form to hills workout modal")
     public void fillformHills(Hills hills){
         new Input(driver).clearAndSetValue("WorkoutDate", hills.getDate());
         new Input(driver).setValue("WorkoutTime",hills.getTimeOfDay());
@@ -35,10 +39,12 @@ public class AddNewWorkoutModal extends BaseModal{
         new Input(driver).setValue("kCal",hills.getCaloriesBurned());
     }
 
-    public AddNewWorkoutModal(WebDriver driver) {
-        super(driver);
-    }
+    @Step("Click add workout button")
     public void clickAddWorkoutButton(){
         driver.findElement(ADD_WORKOUT_BUTTON).click();
+    }
+
+    public AddNewWorkoutModal(WebDriver driver) {
+        super(driver);
     }
 }

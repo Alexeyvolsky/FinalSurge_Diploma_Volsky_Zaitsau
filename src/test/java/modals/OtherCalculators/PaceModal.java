@@ -2,6 +2,7 @@ package modals.OtherCalculators;
 
 import elements.Dropdown;
 import elements.Input;
+import io.qameta.allure.Step;
 import modals.BaseModal;
 import models.OtherCalculators.PaceCalculator;
 import org.openqa.selenium.By;
@@ -17,6 +18,7 @@ public class PaceModal extends BaseModal {
     protected String GREEN_BOX = "//h4[text()='Pace Chart']";
     protected final static By ALERT_ERROR_MESSAGE = By.cssSelector(".alert");
 
+    @Step("Filling form to pace calculator")
     public void fillForm(PaceCalculator paceCalculator) {
         new Input(driver).clearAndSetValue("RunDist", paceCalculator.getRunDistance());
         new Dropdown(driver).selectOption("DistType", paceCalculator.getDistTypePaceCalculator().getName());
@@ -25,15 +27,18 @@ public class PaceModal extends BaseModal {
         new Input(driver).clearAndSetValue("TimeSS", paceCalculator.getSeconds());
     }
 
+    @Step("Open iframe for modal other calculator")
     public void openIframeOtherCalculator()    {
         WebElement iframe = driver.findElement(LOCATOR_IFRAME_OTHER_CALCULATOR);
         driver.switchTo().frame(iframe);
     }
 
+    @Step("Click save button")
     public void clickFirstSaveButtonSettings()   {
         driver.findElement(FIRST_SAVE_BUTTON_SETTINGS).click();
     }
 
+    @Step("Click pace calculator button")
     public void clickPaceCalculatorButton() {
         try {
             driver.findElement(PACE_CALCULATOR_BUTTON_LOCATOR).click();
@@ -41,6 +46,7 @@ public class PaceModal extends BaseModal {
         }
     }
 
+    @Step("Verify that green box is display")
     public boolean isGreenBoxDisplay()  {
         try {
             driver.findElement(By.xpath(GREEN_BOX)).isDisplayed();
@@ -50,6 +56,7 @@ public class PaceModal extends BaseModal {
         return true;
     }
 
+    @Step("Verify that alert error message is display")
     public boolean alertErrorMessageIsPresent()    {
         try {
             driver.findElement(ALERT_ERROR_MESSAGE).isDisplayed();

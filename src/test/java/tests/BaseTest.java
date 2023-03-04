@@ -2,9 +2,11 @@ package tests;
 
 import com.github.javafaker.Faker;
 import io.github.bonigarcia.wdm.WebDriverManager;
-import modals.*;
+import modals.AddNewWorkoutModal;
 import modals.OtherCalculators.CaloricNeedsModal;
 import modals.OtherCalculators.PaceModal;
+import modals.PrintWorkoutsModal;
+import modals.QuickAddModal;
 import modals.WorkoutCalculators.*;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -16,9 +18,9 @@ import org.testng.ITestContext;
 import org.testng.annotations.*;
 import pages.*;
 import utils.TestListener;
-
 import java.util.concurrent.TimeUnit;
-//@Listeners(TestListener.class)
+
+@Listeners(TestListener.class)
 public abstract class BaseTest {
     protected final static String BASE_URL = "https://log.finalsurge.com/";
     protected final static String USERNAME = "aleksvolsky@gmail.com";
@@ -45,7 +47,6 @@ public abstract class BaseTest {
     protected SettingDetailsPage settingDetailsPage;
     protected PrintDetailsPage printDetailsPage;
     protected CalendarPage calendarPage;
-    protected CopyMoveDeleteModal copyMoveDeleteModal;
     Faker faker = new Faker();
 
     @Parameters({"browser"})
@@ -92,7 +93,6 @@ public abstract class BaseTest {
         settingDetailsPage = new SettingDetailsPage(driver);
         printDetailsPage = new PrintDetailsPage(driver);
         calendarPage = new CalendarPage(driver);
-        copyMoveDeleteModal = new CopyMoveDeleteModal(driver);
     }
     @BeforeMethod(alwaysRun = true)
     public void navigate() {

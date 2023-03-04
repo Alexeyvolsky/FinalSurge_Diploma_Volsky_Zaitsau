@@ -2,6 +2,7 @@ package modals.WorkoutCalculators;
 
 import elements.Dropdown;
 import elements.Input;
+import io.qameta.allure.Step;
 import modals.BaseModal;
 import models.WorcoutCalculators.HansonsCalculator;
 import org.openqa.selenium.By;
@@ -15,6 +16,8 @@ public class HansonsModal extends BaseModal {
     protected final static By HANSONS_CALCULATOR_BUTTON_LOCATOR = By.xpath("//a[text()='Hansons']");
     protected final static By FIRST_SAVE_BUTTON_SETTINGS = By.id("saveButtonSettings");
     protected String GREEN_BOX = "//h4[text()='Recent Race Information']";
+
+    @Step("Filling form to hansons calculator")
     public void fillForm(HansonsCalculator hansons) {
         new Dropdown(driver).selectOption("RaceDist", hansons.getRaceDist().getName());
         new Dropdown(driver).selectOption("DistType", hansons.getDistTypeHansons().getName());
@@ -28,19 +31,23 @@ public class HansonsModal extends BaseModal {
         new Input(driver).setValue("Humid", hansons.getHumidity());
     }
 
+    @Step("Click hansons calculator button")
     public void clickHansonsCalculatorButton()  {
         driver.findElement(HANSONS_CALCULATOR_BUTTON_LOCATOR).click();
     }
 
+    @Step("Click save button")
     public void clickFirstSaveButtonSettings()   {
         driver.findElement(FIRST_SAVE_BUTTON_SETTINGS).click();
     }
 
+    @Step("Open iframe for modal workout calculator")
     public void openIframeWorkoutCalculator()   {
         WebElement iframe = driver.findElement(LOCATOR_IFRAME_WORKOUT_CALCULATOR);
         driver.switchTo().frame(iframe);
     }
 
+    @Step("Verify that green box is display")
     public boolean isGreenBoxDisplay()  {
         try {
             driver.findElement(By.xpath(GREEN_BOX)).isDisplayed();

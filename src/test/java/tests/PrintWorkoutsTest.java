@@ -1,6 +1,5 @@
 package tests;
 
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import enums.*;
 import io.qameta.allure.Description;
 import models.PrintWorkout;

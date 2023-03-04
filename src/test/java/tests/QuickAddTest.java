@@ -4,7 +4,6 @@ import enums.*;
 import io.qameta.allure.Description;
 import models.QuickAdd;
 import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 
 public class QuickAddTest extends BaseTest{

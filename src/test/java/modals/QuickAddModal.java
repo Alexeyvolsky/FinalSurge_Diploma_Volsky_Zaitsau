@@ -2,13 +2,14 @@ package modals;
 
 import elements.Dropdown;
 import elements.Input;
-import elements.RadioButtonWorkouts;
 import elements.TextArea;
-import models.Hills;
+import io.qameta.allure.Step;
 import models.QuickAdd;
 import org.openqa.selenium.WebDriver;
 
 public class QuickAddModal extends BaseModal{
+
+    @Step("Filling form to quick add")
     public void fillformQuickAdd(QuickAdd quickAdd){
         new Input(driver).clearAndSetValue("WorkoutDate",quickAdd.getDate());
         new Input(driver).setValue("WorkoutTime",quickAdd.getTimeOfDay());
@@ -24,6 +25,7 @@ public class QuickAddModal extends BaseModal{
         new Dropdown(driver).selectOption("PerEffort",quickAdd.getPerceivedEffort().getName());
         new TextArea(driver).setValue("PostDesc",quickAdd.getPostWorkoutsNotes());
     }
+
     public QuickAddModal(WebDriver driver) {
         super(driver);
     }
