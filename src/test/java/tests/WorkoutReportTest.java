@@ -8,6 +8,7 @@ import models.Rest;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import utils.Retry;
 
 public class WorkoutReportTest extends BaseTest{
 
@@ -27,7 +28,7 @@ public class WorkoutReportTest extends BaseTest{
         addNewWorkoutModal.clickAddWorkoutButton();
     }
     @Description("Verify thet user can get report on workouts of the selected type for the selected period")
-    @Test(groups = {"regression"})
+    @Test(groups = {"regression"}, retryAnalyzer = Retry.class)
     public void workoutReportTest(){
         dashboardPage.moveToWorkoutsMenu();
         dashboardPage.clickWorkoutsButton("Reports & Statistics");

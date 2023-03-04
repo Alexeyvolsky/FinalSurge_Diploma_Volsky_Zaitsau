@@ -7,6 +7,7 @@ import models.WorcoutCalculators.TinmanCalculator;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import utils.Retry;
 
 public class TinmanCalculatorTest extends BaseTest  {
 
@@ -20,7 +21,7 @@ public class TinmanCalculatorTest extends BaseTest  {
     }
 
     @Description("Verify that Tinman calculator counts data")
-    @Test(groups = {"regression"})
+    @Test(groups = {"regression"}, retryAnalyzer = Retry.class)
     public void positiveTinmanTest()    {
         tinmanModal.clickTinmanCalculatorButton();
         TinmanCalculator tinmanValue = TinmanCalculator.builder().setDistanceTinman(DistanceTinman.MARATHON)

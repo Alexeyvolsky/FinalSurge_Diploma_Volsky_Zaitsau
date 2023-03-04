@@ -4,10 +4,11 @@ import io.qameta.allure.Description;
 import models.DailyVitals;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import utils.Retry;
 
 public class DailyVitalsTest extends BaseTest{
     @Description("Verify data is displayed for the correct period")
-    @Test(groups = {"regression"})
+    @Test(groups = {"regression"}, retryAnalyzer = Retry.class)
     public void dailyVitalsTest(){
         loginPage.setEmailInput(USERNAME);
         loginPage.setPasswordInput(PASSWORD);

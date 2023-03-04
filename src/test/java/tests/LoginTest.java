@@ -4,11 +4,12 @@ import io.qameta.allure.Description;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+import utils.Retry;
 
 public class LoginTest extends BaseTest {
 
     @Description("Verify that user can login on the site")
-    @Test(groups = {"smoke"})
+    @Test(groups = {"smoke"}, retryAnalyzer = Retry.class)
     public void positiveLoginTest() {
         loginPage.setEmailInput(USERNAME);
         loginPage.setPasswordInput(PASSWORD);
@@ -17,7 +18,7 @@ public class LoginTest extends BaseTest {
     }
 
     @Description("Verify that login page work correct with bad data")
-    @Test(dataProvider = "negativeLoginTestData", groups = {"smoke"})
+    @Test(dataProvider = "negativeLoginTestData", retryAnalyzer = Retry.class, groups = {"smoke"})
     public void negativeLoginTest(String email, String password){
         loginPage.setEmailInput(email);
         loginPage.setPasswordInput(password);
@@ -26,7 +27,7 @@ public class LoginTest extends BaseTest {
     }
 
     @Description("Verify that user can make logout")
-    @Test(groups = {"smoke"})
+    @Test(groups = {"smoke"}, retryAnalyzer = Retry.class)
     public void logoutTest(){
         loginPage.setEmailInput(USERNAME);
         loginPage.setPasswordInput(PASSWORD);

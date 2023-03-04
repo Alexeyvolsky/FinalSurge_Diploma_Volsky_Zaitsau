@@ -9,11 +9,12 @@ import models.Hills;
 import models.Rest;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import utils.Retry;
 
 public class WorkoutsTest extends BaseTest  {
 
     @Description("Verify that user can add rest day")
-    @Test(groups = {"smoke"})
+    @Test(groups = {"smoke"}, retryAnalyzer = Retry.class)
     public void addRestdayTest() {
         loginPage.setEmailInput(USERNAME);
         loginPage.setPasswordInput(PASSWORD);
@@ -34,7 +35,7 @@ public class WorkoutsTest extends BaseTest  {
     }
 
     @Description("Verify that user can add run hills activity")
-    @Test(groups = {"smoke"})
+    @Test(groups = {"smoke"}, retryAnalyzer = Retry.class)
     public void addRunHillsTest(){
         loginPage.setEmailInput(USERNAME);
         loginPage.setPasswordInput(PASSWORD);

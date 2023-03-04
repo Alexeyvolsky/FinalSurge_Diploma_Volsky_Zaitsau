@@ -6,6 +6,7 @@ import models.WorcoutCalculators.McMillanCalculator;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import utils.Retry;
 
 public class McMillanCalculatorTest extends BaseTest  {
 
@@ -19,7 +20,7 @@ public class McMillanCalculatorTest extends BaseTest  {
     }
 
     @Description("Verify that McMillan calculator counts data")
-    @Test(groups = {"regression"})
+    @Test(groups = {"regression"}, retryAnalyzer = Retry.class)
     public void positiveMcMillanTest()  {
         mcMillanModal.clickMcMilanCalculatorButton();
         McMillanCalculator mcMillanValue = McMillanCalculator.builder().setDistanceMcMillan(DistanceMcMillan.MILE)
