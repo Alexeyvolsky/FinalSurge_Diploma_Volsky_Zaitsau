@@ -18,8 +18,8 @@ public class WorkoutReportTest extends BaseTest{
         loginPage.setPasswordInput(PASSWORD);
         loginPage.clickLoginButton();
         dashboardPage.moveToWorkoutsMenu();
-        dashboardPage.clickWorkoutsButton("Add Workout");
-        workoutsPage.clickActiveTypeButton("rest");
+        dashboardPage.clickWorkoutsButton();
+        workoutsPage.clickActiveTypeButtonRest();
         Rest workoutValue = Rest.builder().setWorkoutDescription("Workout description")
                 .setWorkoutName("Workouts name")
                 .setDate("02/23/2023")
@@ -31,7 +31,7 @@ public class WorkoutReportTest extends BaseTest{
     @Test(groups = {"regression"}, retryAnalyzer = Retry.class)
     public void workoutReportTest(){
         dashboardPage.moveToWorkoutsMenu();
-        dashboardPage.clickWorkoutsButton("Reports & Statistics");
+        dashboardPage.clickWorkoutsReportButton();
         Assert.assertTrue(workoutReportPage.reportButtonPresent());
         Report reportView = Report.builder()
                 .setStartDate("2/23/2023")

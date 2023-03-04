@@ -16,7 +16,7 @@ public class WorkoutLibraryTest extends BaseTest{
         loginPage.setPasswordInput(PASSWORD);
         loginPage.clickLoginButton();
         dashboardPage.moveToWorkoutsMenu();
-        dashboardPage.clickWorkoutsButton("Workout Library");
+        dashboardPage.clickWorkoutsLibraryButton();
         Assert.assertTrue(workoutLibraryPage.addWorkoutButtonPresent());
         WorkoutLibrary workoutLibrary = WorkoutLibrary.builder()
                 .setActivityType(ActivityType.RUN)
