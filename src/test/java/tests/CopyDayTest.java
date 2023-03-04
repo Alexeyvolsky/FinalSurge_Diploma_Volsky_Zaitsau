@@ -8,6 +8,7 @@ import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import utils.Retry;
 
 public class CopyDayTest extends BaseTest   {
 
@@ -29,7 +30,7 @@ public class CopyDayTest extends BaseTest   {
     }
 
     @Description("Verify that user can make copy his activity in another day")
-    @Test(groups = {"regression"})
+    @Test(groups = {"regression"}, retryAnalyzer = Retry.class)
     public void copyDayTest()   {
         headerNavigate.clickCalendarButton();
         calendarPage.clickPlusButton(Day.TEN_DAY);

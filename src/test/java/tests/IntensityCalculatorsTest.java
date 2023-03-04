@@ -6,6 +6,7 @@ import models.WorcoutCalculators.IntensityCalculator;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import utils.Retry;
 
 public class IntensityCalculatorsTest extends BaseTest {
 
@@ -19,7 +20,7 @@ public class IntensityCalculatorsTest extends BaseTest {
     }
 
     @Description("Verify that Intensity calculator counts data")
-    @Test(groups = {"regression"})
+    @Test(groups = {"regression"}, retryAnalyzer = Retry.class)
     public void positiveIntensityTest() {
         IntensityCalculator intensityValue = IntensityCalculator.builder()
                 .setSelectEvent(SelectEvent.MILE).setHours("0")

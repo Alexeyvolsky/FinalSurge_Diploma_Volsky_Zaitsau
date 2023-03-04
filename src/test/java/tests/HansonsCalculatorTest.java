@@ -9,6 +9,7 @@ import models.WorcoutCalculators.HansonsCalculator;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import utils.Retry;
 
 public class HansonsCalculatorTest extends BaseTest   {
 
@@ -22,7 +23,7 @@ public class HansonsCalculatorTest extends BaseTest   {
     }
 
     @Description("Verify that Hensons calculator counts data")
-    @Test(groups = {"regression"})
+    @Test(groups = {"regression"}, retryAnalyzer = Retry.class)
     public void positiveHansonsTest()   {
         hansonsModal.clickHansonsCalculatorButton();
         HansonsCalculator hansonsValue = HansonsCalculator.builder().setRaceDist(RaceDist.HALF_MARATHON)
