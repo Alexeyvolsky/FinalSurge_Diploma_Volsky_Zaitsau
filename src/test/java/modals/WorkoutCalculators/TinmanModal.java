@@ -3,6 +3,7 @@ package modals.WorkoutCalculators;
 import elements.Dropdown;
 import elements.Input;
 import elements.RadioButton;
+import io.qameta.allure.Step;
 import modals.BaseModal;
 import models.WorcoutCalculators.TinmanCalculator;
 import org.openqa.selenium.By;
@@ -17,6 +18,7 @@ public class TinmanModal extends BaseModal {
     protected final static By FIRST_SAVE_BUTTON_SETTINGS = By.id("saveButtonSettings");
     protected String GREEN_BOX = "//h4[text()='Race Information']";
 
+    @Step("Filling form to tinman calculator")
     public void fillForm(TinmanCalculator tinman)  {
         new Dropdown(driver).selectOption("distance", tinman.getDistanceTinman().getName());
         new Input(driver).setValue("TimeHH", tinman.getHours());
@@ -25,19 +27,23 @@ public class TinmanModal extends BaseModal {
         new RadioButton(driver).clickRadiobutton("Gender", tinman.getGender().getAnotherValue());
     }
 
+    @Step("Open iframe for modal workout calculator")
     public void openIframeWorkoutCalculator()   {
         WebElement iframe = driver.findElement(LOCATOR_IFRAME_WORKOUT_CALCULATOR);
         driver.switchTo().frame(iframe);
     }
 
+    @Step("Click Tinman calculator button")
     public void clickTinmanCalculatorButton() {
         driver.findElement(TINMAN_CALCULATOR_BUTTON_LOCATOR).click();
     }
 
+    @Step("Click save button")
     public void clickFirstSaveButtonSettings()   {
         driver.findElement(FIRST_SAVE_BUTTON_SETTINGS).click();
     }
 
+    @Step("Verify that green box is display")
     public boolean isGreenBoxDisplay()  {
         try {
             driver.findElement(By.xpath(GREEN_BOX)).isDisplayed();

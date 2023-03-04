@@ -2,6 +2,7 @@ package modals.OtherCalculators;
 
 import elements.Input;
 import elements.RadioButton;
+import io.qameta.allure.Step;
 import modals.BaseModal;
 import models.OtherCalculators.CaloricNeedsCalculator;
 import org.openqa.selenium.By;
@@ -16,6 +17,7 @@ public class CaloricNeedsModal extends BaseModal {
     protected String GREEN_BOX = "//h4[text()=\"Today's Caloric Needs\"]";
     protected final static By ALERT_ERROR_MESSAGE = By.cssSelector(".alert");
 
+    @Step("Filling form to calculate caloric needs")
     public void fillForm(CaloricNeedsCalculator caloricNeeds)  {
         new Input(driver).clearAndSetValue("Weight", caloricNeeds.getWeight());
         new RadioButton(driver).clickRadiobutton("WeightType", caloricNeeds.getWeightType().getValue());
@@ -27,15 +29,18 @@ public class CaloricNeedsModal extends BaseModal {
         new RadioButton(driver).clickRadiobutton("DistType", caloricNeeds.getDistTypeCaloricNeeds().getValue());
     }
 
+    @Step("Open iframe for modal other calculator")
     public void openIframeOtherCalculator()    {
         WebElement iframe = driver.findElement(LOCATOR_IFRAME_OTHER_CALCULATOR);
         driver.switchTo().frame(iframe);
     }
 
+    @Step("Click save button")
     public void clickFirstSaveButtonSettings()   {
         driver.findElement(FIRST_SAVE_BUTTON_SETTINGS).click();
     }
 
+    @Step("Verify that green box is display")
     public boolean isGreenBoxDisplay()  {
         try {
             driver.findElement(By.xpath(GREEN_BOX)).isDisplayed();
@@ -45,6 +50,7 @@ public class CaloricNeedsModal extends BaseModal {
         return true;
     }
 
+    @Step("Verify that alert error message is display")
     public boolean alertErrorMessageIsPresent()    {
         try {
             driver.findElement(ALERT_ERROR_MESSAGE).isDisplayed();

@@ -1,6 +1,7 @@
 package pages;
 
 import enums.Day;
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
@@ -15,39 +16,47 @@ public class CalendarPage extends BasePage{
     private final static String NUMBER_OF_WEEK_LOCATOR = "//div[@class='datepicker dropdown-menu' " +
             "and contains (@style, 'display: block;')]//td[@class = 'day ' and contains(text(), '%s')]";
 
+    @Step("Verify that activity present")
     public boolean isActivityPresent()  {
         try {
-            driver.findElement(By.xpath(String.format(ACTIVITY_NAME, Day.TEN_DAY.getName())));
+            driver.findElement(By.xpath(String.format(ACTIVITY_NAME, Day.TEN_DAY.getName()))).isDisplayed();
         } catch (NoSuchElementException ex) {
             return false;
         }
         return true;
     }
 
+    @Step("Click plus button in calendar")
     public void clickPlusButton(Day day)   {
         jsClick(driver.findElement(By.xpath(String.format(ICON_PLUS, day.getName()))));
     }
 
+    @Step("Click copy day button")
     public void clickCopyDayButton()    {
         jsClick(driver.findElement(COPY_DAY_BUTTON));
     }
 
+    @Step("Click quick add button")
     public void clickQuickAddButton(){
         jsClick(driver.findElement(QUICK_ADD_BUTTON));
     }
 
+    @Step("Click need data")
     public void clickNeedData(Day day) {
         driver.findElement(By.xpath(String.format(NUMBER_OF_WEEK_LOCATOR, day.getName()))).click();
     }
 
+    @Step("Get activity for the tenth day")
     public String getActivityForTheTenthDay() {
         return String.valueOf(driver.findElement(By.xpath(String.format(ACTIVITY_NAME, Day.TEN_DAY.getName()))).getText());
     }
 
+    @Step("Get activity for the eleventh day")
     public String getActivityForTheEleventhDay() {
         return String.valueOf(driver.findElement(By.xpath(String.format(ACTIVITY_NAME, Day.ELEVEN_DAY.getName()))).getText());
     }
 
+    @Step("Click add workout button")
     public void clickAddWorkoutButton(){
         driver.findElement(ADD_WORKOUT_BUTTON).click();
     }

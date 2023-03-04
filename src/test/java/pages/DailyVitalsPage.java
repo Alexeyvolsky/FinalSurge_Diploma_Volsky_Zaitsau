@@ -1,6 +1,7 @@
 package pages;
 
 import elements.Input;
+import io.qameta.allure.Step;
 import models.DailyVitals;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -15,28 +16,40 @@ public class DailyVitalsPage extends BasePage{
     private final static By WEEKTOTALS = By.xpath("//tbody/tr/td/a");
     private final static By LAST_DATE_IN_TABLE = By.xpath("//table[contains(@class,'table-striped')]/tbody/tr[1]/td[1]");
 
-    public DailyVitalsPage(WebDriver driver) {
-        super(driver);
-    }
+    @Step("Filling form to daily vitals")
     public void fillformDailyVitals(DailyVitals dailyVitals){
         new Input(driver).clearAndSetValue("CDateStart",dailyVitals.getStartDate());
         new Input(driver).clearAndSetValue("CDateEnd",dailyVitals.getEndDate());
     }
+
+    @Step("Verify that add vitals is display")
     public boolean isAddVitalsDisplayed() {
         return driver.findElement(ADD_VITALS_BUTTON).isDisplayed();
     }
+
+    @Step("Click custom view button")
     public void clickCustomViewButton(){
         driver.findElement(CUSTOM_VIEW_BUTTON).click();
     }
+
+    @Step("Click view button")
     public void clickViewButton(){
         driver.findElement(VIEW_BUTTON).click();
     }
+
+    @Step("Get last date")
     public String getLastDate(){
         return driver.findElement(LAST_DATE_IN_TABLE).getText();
     }
+
+    @Step("Get first date")
     public String getFirstDate(){
         List<WebElement> amountOfDays= driver.findElements(WEEKTOTALS);
         int i = amountOfDays.size();
         return driver.findElement(By.xpath("//table[contains(@class,'table-striped')]/tbody/tr["+(i)+"]/td[1]")).getText();
+    }
+
+    public DailyVitalsPage(WebDriver driver) {
+        super(driver);
     }
 }

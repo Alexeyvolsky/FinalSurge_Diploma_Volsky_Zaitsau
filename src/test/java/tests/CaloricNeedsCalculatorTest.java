@@ -7,7 +7,6 @@ import enums.WeightType;
 import io.qameta.allure.Description;
 import models.OtherCalculators.CaloricNeedsCalculator;
 import org.testng.Assert;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
