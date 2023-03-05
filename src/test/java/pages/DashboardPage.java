@@ -11,6 +11,7 @@ public class DashboardPage extends BasePage{
     private final static By LOGOUT_BUTTON = By.xpath("//a[text()='Logout']");
     private final static By WORKOUTS_MENU = By.xpath("//a[text()='Workouts']");
     private final static By DAILY_VITALS = By.xpath("//a[text()='Daily Vitals']");
+    private final static By TRAINING_PLANS = By.xpath("//a[text()='Training Plans']");
     private final static By VIEW_ADD_VITALS_BUTTON = By.xpath("//a[text()='View & Add Vitals']");
     private final static String WORKOUTS_BUTTONS = "//a[text()='%s']";
 
@@ -39,6 +40,12 @@ public class DashboardPage extends BasePage{
         Actions actions = new Actions(driver);
         actions.moveToElement(driver.findElement(DAILY_VITALS)).perform();
     }
+    @Step("Hover to training plans menu")
+    public void moveToTrainingPlansMenu(){
+        log.info("hovering to training plans menu");
+        Actions actions = new Actions(driver);
+        actions.moveToElement(driver.findElement(TRAINING_PLANS)).perform();
+    }
 
     @Step("Click view and add vitals button")
     public void clickViewAndAddVitalsButton(){
@@ -62,6 +69,11 @@ public class DashboardPage extends BasePage{
     public void clickWorkoutsReportButton(){
         log.info("clicking workout report button");
         driver.findElement(By.xpath(String.format(WORKOUTS_BUTTONS, "Reports & Statistics"))).click();
+    }
+    @Step("Click find a plan button")
+    public void clickFindAPlanButton(){
+        log.info("clicking find a plan button");
+        driver.findElement(By.xpath(String.format(WORKOUTS_BUTTONS, "Find a Plan"))).click();
     }
 
     public DashboardPage(WebDriver driver) {

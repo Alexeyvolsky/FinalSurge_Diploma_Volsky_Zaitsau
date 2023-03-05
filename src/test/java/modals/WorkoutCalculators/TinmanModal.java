@@ -22,9 +22,9 @@ public class TinmanModal extends BaseModal {
     @Step("Filling form to tinman calculator")
     public void fillForm(TinmanCalculator tinman)  {
         new Dropdown(driver).selectOption("distance", tinman.getDistanceTinman().getName());
-        new Input(driver).setValue("TimeHH", tinman.getHours());
-        new Input(driver).setValue("TimeMM", tinman.getMinutes());
-        new Input(driver).setValue("TimeSS", tinman.getSeconds());
+        new Input(driver).setValueCountry("TimeHH", tinman.getHours());
+        new Input(driver).setValueCountry("TimeMM", tinman.getMinutes());
+        new Input(driver).setValueCountry("TimeSS", tinman.getSeconds());
         new RadioButton(driver).clickRadiobutton("Gender", tinman.getGender().getAnotherValue());
     }
 

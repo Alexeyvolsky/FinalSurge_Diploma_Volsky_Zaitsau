@@ -20,9 +20,9 @@ public class IntensityModal extends BaseModal {
     @Step("Filling form to intensity calculator")
     public void fillForm(IntensityCalculator intensity)  {
         new RadioButton(driver).clickRadiobutton("EventType", intensity.getSelectEvent().getName());
-        new Input(driver).setValue("TimeHH", intensity.getHours());
-        new Input(driver).setValue("TimeMM", intensity.getMinutes());
-        new Input(driver).setValue("TimeSS", intensity.getSeconds());
+        new Input(driver).setValueCountry("TimeHH", intensity.getHours());
+        new Input(driver).setValueCountry("TimeMM", intensity.getMinutes());
+        new Input(driver).setValueCountry("TimeSS", intensity.getSeconds());
     }
 
     @Step("Open iframe for modal workout calculator")

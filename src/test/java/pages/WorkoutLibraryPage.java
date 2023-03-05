@@ -22,11 +22,11 @@ public class WorkoutLibraryPage extends BasePage{
     @Step("Filling form to print library")
     public void fillformLibrary(WorkoutLibrary workoutLibrary){
         new Dropdown(driver).selectOptionByText("ActivityType",workoutLibrary.getActivityType().getName());
-        new Input(driver).setValue("Name",workoutLibrary.getWorkoutName());
-        new Input(driver).setValue("Desc",workoutLibrary.getWorkoutDescription());
-        new Input(driver).setValue("PDistance",workoutLibrary.getPlannedDistanceInput());
+        new Input(driver).setValueCountry("Name",workoutLibrary.getWorkoutName());
+        new Input(driver).setValueCountry("Desc",workoutLibrary.getWorkoutDescription());
+        new Input(driver).setValueCountry("PDistance",workoutLibrary.getPlannedDistanceInput());
         new Dropdown(driver).selectOptionByText("PDistType",workoutLibrary.getDistTypeHills().getName());
-        new Input(driver).setValue("PDuration",workoutLibrary.getPlannedDuration());
+        new Input(driver).setValueCountry("PDuration",workoutLibrary.getPlannedDuration());
     }
 
     @Step("Get library workout details data")

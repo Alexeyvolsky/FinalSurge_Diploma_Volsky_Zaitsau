@@ -15,8 +15,8 @@ public class PrintWorkoutsModal extends BaseModal{
 
     @Step("Filling form to print workout modal")
     public void fillForm(PrintWorkout printWorkout) {
-        new Input(driver).setValue("PrintStartDate", printWorkout.getStartingData());
-        new Input(driver).setValue("PrintEndDate", printWorkout.getEndingData());
+        new Input(driver).setValueCountry("PrintStartDate", printWorkout.getStartingData());
+        new Input(driver).setValueCountry("PrintEndDate", printWorkout.getEndingData());
     }
 
     @Step("Open iframe for modal print workout")

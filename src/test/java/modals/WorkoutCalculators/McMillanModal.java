@@ -21,13 +21,13 @@ public class McMillanModal extends BaseModal {
     @Step("Filling form to McMillan calculator")
     public void fillForm(McMillanCalculator mcMillan)   {
         new Dropdown(driver).selectOption("distance", mcMillan.getDistanceMcMillan().getName());
-        new Input(driver).setValue("TimeHH", mcMillan.getHours());
-        new Input(driver).setValue("TimeMM", mcMillan.getMinutes());
-        new Input(driver).setValue("TimeSS", mcMillan.getSeconds());
+        new Input(driver).setValueCountry("TimeHH", mcMillan.getHours());
+        new Input(driver).setValueCountry("TimeMM", mcMillan.getMinutes());
+        new Input(driver).setValueCountry("TimeSS", mcMillan.getSeconds());
         new Dropdown(driver).selectOption("goaldistance", mcMillan.getDistanceMcMillan().getName());
-        new Input(driver).setValue("GTimeHH", mcMillan.getHours());
-        new Input(driver).setValue("GTimeMM", mcMillan.getMinutes());
-        new Input(driver).setValue("GTimeSS", mcMillan.getSeconds());
+        new Input(driver).setValueCountry("GTimeHH", mcMillan.getHours());
+        new Input(driver).setValueCountry("GTimeMM", mcMillan.getMinutes());
+        new Input(driver).setValueCountry("GTimeSS", mcMillan.getSeconds());
     }
 
     @Step("Open iframe for modal workout calculator")

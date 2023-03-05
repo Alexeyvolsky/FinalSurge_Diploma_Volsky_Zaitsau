@@ -31,4 +31,8 @@ public abstract class BasePage {
         JavascriptExecutor executor = (JavascriptExecutor) driver;
         executor.executeScript("arguments[0].click();", element);
     }
+    public void scrollIntoView(WebElement element) {
+        log.info(String.format("scrolling to element %s ", element));
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
+    }
 }

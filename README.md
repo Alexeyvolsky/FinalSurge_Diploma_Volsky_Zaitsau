@@ -18,6 +18,7 @@ Checklist:
 14. Verify that user can copy his activity to another day in calendar.(in work) Дима
 15. Verify that user can view daily vitals for the selected time period.
 16. Verify that user can quick add workout to the calendar.
+17. Verify that user can't pay for the training with a non-existent card
 
 Prerequisites installed:
 1. Java JDK: 19

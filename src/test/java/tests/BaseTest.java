@@ -26,6 +26,10 @@ public abstract class BaseTest {
     protected final static String BASE_URL = "https://log.finalsurge.com/";
     protected final static String USERNAME = System.getenv().getOrDefault("EMAIL", PropertyReader.getProperty("finalSurge.username"));
     protected final static String PASSWORD = System.getenv().getOrDefault("PASSWORD", PropertyReader.getProperty("finalSurge.password"));
+    protected final static String CARD_NUMBER=System.getenv().getOrDefault("CARD_NUMBER", PropertyReader.getProperty("finalSurge.cardNumber"));
+    protected final static String EXPIRY_DATE=System.getenv().getOrDefault("EXPIRY_DATE", PropertyReader.getProperty("finalSurge.cardExpDate"));
+    protected final static String CVC=System.getenv().getOrDefault("CVC", PropertyReader.getProperty("finalSurge.cardCVC"));
+
     protected WebDriver driver;
     protected LoginPage loginPage;
     protected DailyVitalsPage dailyVitalsPage;
@@ -48,6 +52,9 @@ public abstract class BaseTest {
     protected SettingDetailsPage settingDetailsPage;
     protected PrintDetailsPage printDetailsPage;
     protected CalendarPage calendarPage;
+    protected TrainingPlansPage trainingPlansPage;
+    protected CoachPage coachPage;
+    protected CheckoutPage checkoutPage;
     Faker faker = new Faker();
 
     @Parameters({"browser", "headless"})
@@ -101,6 +108,9 @@ public abstract class BaseTest {
         settingDetailsPage = new SettingDetailsPage(driver);
         printDetailsPage = new PrintDetailsPage(driver);
         calendarPage = new CalendarPage(driver);
+        trainingPlansPage = new TrainingPlansPage(driver);
+        coachPage = new CoachPage(driver);
+        checkoutPage = new CheckoutPage(driver);
     }
     @BeforeMethod(alwaysRun = true)
     public void navigate() {
