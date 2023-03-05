@@ -22,33 +22,33 @@ public class PalladinoModal extends BaseModal {
 
     @Step("Filling form to IntervalPower calculator")
     public void fillFormCalculateIntervalPowerTarget(PalladinoCalculator palladino) {
-        new Input(driver).setValue("CP", palladino.getCriticalPower());
-        new Input(driver).setValue("RWC", palladino.getReserveWorkCapacity());
+        new Input(driver).setValueCountry("CP", palladino.getCriticalPower());
+        new Input(driver).setValueCountry("RWC", palladino.getReserveWorkCapacity());
     }
 
     @Step("Filling form to CpAndRwcFromACp calculator")
     public void fillFormCpAndRwcFromACpTest(PalladinoCalculator palladino)   {
-        new Input(driver).setValue("TimeMM", palladino.getMinutes());
-        new Input(driver).setValue("TimeSS", palladino.getSeconds());
-        new Input(driver).setValue("AVPWS", palladino.getShortTest());
-        new Input(driver).setValue("TimeMML", palladino.getMinutes());
-        new Input(driver).setValue("TimeSSL", palladino.getSeconds());
-        new Input(driver).setValue("AVPWL", palladino.getLongTest());
+        new Input(driver).setValueCountry("TimeMM", palladino.getMinutes());
+        new Input(driver).setValueCountry("TimeSS", palladino.getSeconds());
+        new Input(driver).setValueCountry("AVPWS", palladino.getShortTest());
+        new Input(driver).setValueCountry("TimeMML", palladino.getMinutes());
+        new Input(driver).setValueCountry("TimeSSL", palladino.getSeconds());
+        new Input(driver).setValueCountry("AVPWL", palladino.getLongTest());
     }
 
     @Step("Filling form to CpFromRaceOrTtMoreThenForty calculator")
     public void fillFormCpFromRaceOrTtMoreThenForty(PalladinoCalculator palladino)    {
-        new Input(driver).setValue("TimeHHR", palladino.getHours());
-        new Input(driver).setValue("TimeMMR", palladino.getMinutes());
-        new Input(driver).setValue("TimeSSR", palladino.getSeconds());
-        new Input(driver).setValue("RAP", palladino.getRaceAvgPower());
+        new Input(driver).setValueCountry("TimeHHR", palladino.getHours());
+        new Input(driver).setValueCountry("TimeMMR", palladino.getMinutes());
+        new Input(driver).setValueCountry("TimeSSR", palladino.getSeconds());
+        new Input(driver).setValueCountry("RAP", palladino.getRaceAvgPower());
     }
 
     @Step("Filling form to CpFromRaceOrTtLessThenForty calculator")
     public void fillFormCpFromRaceOrTtLessThenForty(PalladinoCalculator palladino)   {
-        new Input(driver).setValue("TimeMMRR", palladino.getMinutes());
-        new Input(driver).setValue("TimeSSRR", palladino.getSeconds());
-        new Input(driver).setValue("RAPR", palladino.getRaceAvgPower());
+        new Input(driver).setValueCountry("TimeMMRR", palladino.getMinutes());
+        new Input(driver).setValueCountry("TimeSSRR", palladino.getSeconds());
+        new Input(driver).setValueCountry("RAPR", palladino.getRaceAvgPower());
     }
 
     @Step("Open iframe for modal workout calculator")

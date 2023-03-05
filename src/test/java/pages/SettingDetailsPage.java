@@ -18,10 +18,10 @@ public class SettingDetailsPage extends BasePage   {
 
     @Step("Filling form to setting")
     public void fillForm(Setting setting)  {
-        new Input(driver).jsSetValet("BDay", setting.getBirthday());
-        new Input(driver).jsSetValet("Weight", setting.getWeight());
-        new Input(driver).jsSetValet("City", setting.getCity());
-        new Input(driver).jsSetValet("Zip", setting.getPostalCode());
+        new Input(driver).jsSetValue("BDay", setting.getBirthday());
+        new Input(driver).jsSetValue("Weight", setting.getWeight());
+        new Input(driver).jsSetValue("City", setting.getCity());
+        new Input(driver).jsSetValue("Zip", setting.getPostalCode());
     }
 
     @Step("Get settings details data")

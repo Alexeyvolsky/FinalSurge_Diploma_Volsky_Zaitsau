@@ -17,27 +17,27 @@ public class AddNewWorkoutModal extends BaseModal{
     @Step("Filling form to rest workout modal")
     public void fillformRest(Rest workout){
         new Input(driver).clearAndSetValue("WorkoutDate", workout.getDate());
-        new Input(driver).setValue("Name", workout.getWorkoutName());
+        new Input(driver).setValueCountry("Name", workout.getWorkoutName());
         new TextArea(driver).setValue("Desc", workout.getWorkoutDescription());
     }
 
     @Step("Filling form to hills workout modal")
     public void fillformHills(Hills hills){
         new Input(driver).clearAndSetValue("WorkoutDate", hills.getDate());
-        new Input(driver).setValue("WorkoutTime",hills.getTimeOfDay());
-        new Input(driver).setValue("Name", hills.getWorkoutName());
+        new Input(driver).setValueCountry("WorkoutTime",hills.getTimeOfDay());
+        new Input(driver).setValueCountry("Name", hills.getWorkoutName());
         new TextArea(driver).setValue("Desc", hills.getWorkoutDescription());
-        new Input(driver).setValue("Distance", hills.getDistanceInput());
+        new Input(driver).setValueCountry("Distance", hills.getDistanceInput());
         new Dropdown(driver).selectOption("DistType", hills.getDistTypeHills().getName());
-        new Input(driver).setValue("Duration",hills.getDuration());
+        new Input(driver).setValueCountry("Duration",hills.getDuration());
         new Input(driver).clearAndSetValue("Pace",hills.getPace());
         new Dropdown(driver).selectOption("PaceType",hills.getPaceType().getName());
         new RadioButtonWorkouts(driver).clickRadiobutton(hills.getHowIfelt().getName());
         new Dropdown(driver).selectOption("PerEffort",hills.getPerceivedEffort().getName());
-        new Input(driver).setValue("MinHR",hills.getMinHr());
-        new Input(driver).setValue("AvgHR",hills.getAvgHr());
-        new Input(driver).setValue("MaxHR", hills.getMaxHr());
-        new Input(driver).setValue("kCal",hills.getCaloriesBurned());
+        new Input(driver).setValueCountry("MinHR",hills.getMinHr());
+        new Input(driver).setValueCountry("AvgHR",hills.getAvgHr());
+        new Input(driver).setValueCountry("MaxHR", hills.getMaxHr());
+        new Input(driver).setValueCountry("kCal",hills.getCaloriesBurned());
     }
 
     @Step("Click add workout button")
