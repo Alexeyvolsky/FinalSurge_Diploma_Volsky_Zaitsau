@@ -2,11 +2,12 @@ package pages;
 
 import elements.Input;
 import io.qameta.allure.Step;
+import lombok.extern.log4j.Log4j2;
 import models.Setting;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
-
+@Log4j2
 public class SettingDetailsPage extends BasePage   {
 
     private final static By EDIT_PROFILE_BUTTON = By.cssSelector("#ProfileEditLink");
@@ -25,6 +26,7 @@ public class SettingDetailsPage extends BasePage   {
 
     @Step("Get settings details data")
     public Setting getSettingsDetails()  {
+        log.info("getting setting details data");
         Setting settingsDetails = new Setting();
         settingsDetails.setBirthday(getBirthdaySettings("Birthday:"));
         settingsDetails.setWeight(getWeightSettings("Weight:"));
@@ -35,6 +37,7 @@ public class SettingDetailsPage extends BasePage   {
 
     @Step("Wait user thumbnail is displayed")
     public boolean waitUserThumbnailPresent()   {
+        log.info("waiting user thumbnail is displayed");
         try {
             waitForElementDisplayed(USER_THUMBNAIL);
         } catch (NoSuchElementException ex) {
@@ -45,6 +48,7 @@ public class SettingDetailsPage extends BasePage   {
 
     @Step("Wait user avatar is displayed")
     public boolean waitUserAvatarPresent() {
+        log.info("waiting user avatar is displayed");
         try {
             waitForElementDisplayed(USER_AVATAR);
         } catch (NoSuchElementException ex) {
@@ -55,35 +59,41 @@ public class SettingDetailsPage extends BasePage   {
 
     @Step("JavaScript click edit profile button")
     public void jsClickEditProfileButton()  {
+        log.info("javascript click edit profile button");
         jsClick(driver.findElement(EDIT_PROFILE_BUTTON));
     }
 
-    @Step("Get and split birthday in setting")
+    @Step("Get birthday in setting")
     public String getBirthdaySettings(String name)  {
+        log.info("getting birthday in setting");
         return driver.findElement(By.xpath(String.format(LOCATOR_FOR_SETTINGS_ELEMENTS_DETAILS, name))).getText()
                 .split(":")[1].trim();
     }
 
-    @Step("Get and split weight in setting")
+    @Step("Get weight in setting")
     public String getWeightSettings(String name)  {
+        log.info("getting weight in setting");
         return driver.findElement(By.xpath(String.format(LOCATOR_FOR_SETTINGS_ELEMENTS_DETAILS, name))).getText()
                 .split(":")[1].replace(".00 kg", "").trim();
     }
 
-    @Step("Get and split city in setting")
+    @Step("Get city in setting")
     public String getCitySettings(String name)  {
+        log.info("getting city in setting");
         return driver.findElement(By.xpath(String.format(LOCATOR_FOR_SETTINGS_ELEMENTS_DETAILS, name))).getText()
                 .split(":")[1].trim();
     }
 
-    @Step("Get and split postal code in setting")
+    @Step("Get postal code in setting")
     public String getPostalCodeSettings(String name)  {
+        log.info("getting postal code in setting");
         return driver.findElement(By.xpath(String.format(LOCATOR_FOR_SETTINGS_ELEMENTS_DETAILS, name))).getText()
                 .split(":")[1].trim();
     }
 
     @Step("JavaScript click save changes button")
     public void clickSaveChangesButton()    {
+        log.info("javascript click save changes button");
         jsClick(driver.findElement(SAVE_CHANGES_BUTTON));
     }
 
