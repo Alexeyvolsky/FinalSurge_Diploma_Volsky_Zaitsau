@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Negative Tests" parallel="tests" thread-count="3">
+<suite name="Negative Tests" parallel="tests" thread-count="2">
     <test name="Negative tests on chrome">
         <parameter name="browser" value="Chrome"></parameter>
         <groups>
@@ -12,15 +12,15 @@
             <package name="tests"></package>
         </packages>
     </test>
-<!--    <test name="Negative tests on firefox">-->
-<!--        <parameter name="browser" value="Firefox"></parameter>-->
-<!--        <groups>-->
-<!--            <run>-->
-<!--                <include name="negative"/>-->
-<!--            </run>-->
-<!--        </groups>-->
-<!--        <packages>-->
-<!--            <package name="tests"></package>-->
-<!--        </packages>-->
-<!--    </test>-->
+    <test name="Negative tests on firefox">
+        <parameter name="browser" value="Firefox"></parameter>
+        <groups>
+            <run>
+                <include name="negative"/>
+            </run>
+        </groups>
+        <packages>
+            <package name="tests"></package>
+        </packages>
+    </test>
 </suite>

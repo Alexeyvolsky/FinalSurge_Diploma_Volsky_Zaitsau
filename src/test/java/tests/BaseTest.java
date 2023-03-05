@@ -13,7 +13,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.opera.OperaDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.testng.ITestContext;
 import org.testng.annotations.*;
 import pages.*;
@@ -50,26 +50,33 @@ public abstract class BaseTest {
     protected CalendarPage calendarPage;
     Faker faker = new Faker();
 
-    @Parameters({"browser"})
+    @Parameters({"browser", "headless"})
     @BeforeClass(alwaysRun = true)
-    public void setUp(@Optional("Chrome") String browserName, ITestContext testContext) throws Exception{
+    public void setUp(@Optional("Chrome") String browserName, @Optional("true") String headless, ITestContext testContext) throws Exception{
         if (browserName.equals("Chrome")) {
             ChromeOptions options = new ChromeOptions();
+            if (headless.equals("false"))    {
+                options.addArguments("--headless");
+            }
             WebDriverManager.chromedriver().setup();
-            options.addArguments("--headless");
             options.addArguments("--ignore-certificate-errors");
             options.addArguments("--disable-popup-blocking");
             options.addArguments("--disable-notifications");
             driver = new ChromeDriver();
         } else if (browserName.equals("Firefox")) {
+            FirefoxOptions options = new FirefoxOptions();
+            if (headless.equals("false"))    {
+                options.addArguments("--headless");
+            }
             WebDriverManager.firefoxdriver().setup();
+            options.addArguments("--ignore-certificate-errors");
+            options.addArguments("--disable-popup-blocking");
+            options.addArguments("--disable-notifications");
             driver = new FirefoxDriver();
-        }else if (browserName.equals("Opera")) {
-            WebDriverManager.operadriver().setup();
-            driver = new OperaDriver();
         } else {
             throw new Exception("Incorrect browser name");
         }
+
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         testContext.setAttribute("driver", driver);
