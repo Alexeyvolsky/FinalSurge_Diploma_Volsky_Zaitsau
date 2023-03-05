@@ -2,13 +2,14 @@ package modals.WorkoutCalculators;
 
 import elements.Input;
 import io.qameta.allure.Step;
+import lombok.extern.log4j.Log4j2;
 import modals.BaseModal;
 import models.WorcoutCalculators.PalladinoCalculator;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-
+@Log4j2
 public class PalladinoModal extends BaseModal {
 
     protected final static By LOCATOR_IFRAME_WORKOUT_CALCULATOR = By.id("IntensityCalciFrame");
@@ -52,37 +53,44 @@ public class PalladinoModal extends BaseModal {
 
     @Step("Open iframe for modal workout calculator")
     public void openIframeWorkoutCalculator()   {
+        log.info("opening iframe for modal workout calculator");
         WebElement iframe = driver.findElement(LOCATOR_IFRAME_WORKOUT_CALCULATOR);
         driver.switchTo().frame(iframe);
     }
 
     @Step("Click Pallandino calculator button")
     public void clickPalladinoCalculatorButton()  {
+        log.info("clicking palladino calculator button");
         driver.findElement(PALLADINO_CALCULATOR_BUTTON_LOCATOR).click();
     }
 
     @Step("Click first save button")
     public void clickFirstSaveButtonSettings()   {
+        log.info("clicking first save button");
         driver.findElement(FIRST_SAVE_BUTTON_SETTINGS).click();
     }
 
     @Step("Click second save button")
     public void clickSecondSaveButtonSettings()  {
+        log.info("clicking second save button");
         driver.findElement(SECOND_SAVE_BUTTON_SETTINGS).click();
     }
 
     @Step("Click third save button")
     public void clickThirdSaveButtonSettings()  {
+        log.info("clicking third save button");
         driver.findElement(THIRD_SAVE_BUTTON_SETTINGS).click();
     }
 
     @Step("Click fourth save button")
     public void clickFourthSaveButtonSettings()  {
+        log.info("clicking fourth save button");
         driver.findElement(FOURTH_SAVE_BUTTON_SETTINGS).click();
     }
 
     @Step("Verify that green box in IntervalPower calculator is display")
     public boolean isGreenBoxIntervalPowerDisplay()  {
+        log.info("verifying that green box in IntervalPower is display");
         try {
             driver.findElement(By.xpath(String.format(GREEN_BOX, "Interval Power Targets"))).isDisplayed();
         } catch (NoSuchElementException ex) {
@@ -93,6 +101,7 @@ public class PalladinoModal extends BaseModal {
 
     @Step("Verify that green box in MoreThenForty calculator is display")
     public boolean isGreenBoxMoreThenFortyDisplay()  {
+        log.info("verifying that green box in MoreThenForty calculator is display");
         try {
             driver.findElement(By.xpath(String.format(GREEN_BOX, "Estimate Results"))).isDisplayed();
         } catch (NoSuchElementException ex) {
@@ -103,6 +112,7 @@ public class PalladinoModal extends BaseModal {
 
     @Step("Verify that green box in LessThenForty calculator is display")
     public boolean isGreenBoxLessThenFortyDisplay()  {
+        log.info("verifying that green box in LessThenForty calculator is display");
         try {
             driver.findElement(By.xpath(String.format(GREEN_BOX, "Estimate Results"))).isDisplayed();
         } catch (NoSuchElementException ex) {
@@ -113,6 +123,7 @@ public class PalladinoModal extends BaseModal {
 
     @Step("Verify that green box in CpAndRwc calculator is display")
     public boolean isGreenBoxCpAndRwcDisplay()  {
+        log.info("verifying that green box in CpAndRwc calculator is display");
         try {
             driver.findElement(By.xpath(String.format(GREEN_BOX, "Estimate Results"))).isDisplayed();
         } catch (NoSuchElementException ex) {
