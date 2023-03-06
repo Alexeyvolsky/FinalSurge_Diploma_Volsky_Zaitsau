@@ -17,14 +17,14 @@ public class TinmanModal extends BaseModal {
     protected final static By LOCATOR_IFRAME_WORKOUT_CALCULATOR = By.id("IntensityCalciFrame");
     protected final static By TINMAN_CALCULATOR_BUTTON_LOCATOR = By.xpath("//a[text()='Tinman']");
     protected final static By FIRST_SAVE_BUTTON_SETTINGS = By.id("saveButtonSettings");
-    protected String GREEN_BOX = "//h4[text()='Race Information']";
+    protected final static String GREEN_BOX = "//h4[text()='Race Information']";
 
     @Step("Filling form to tinman calculator")
     public void fillForm(TinmanCalculator tinman)  {
-        new Dropdown(driver).selectOption("distance", tinman.getDistanceTinman().getName());
-        new Input(driver).setValueCountry("TimeHH", tinman.getHours());
-        new Input(driver).setValueCountry("TimeMM", tinman.getMinutes());
-        new Input(driver).setValueCountry("TimeSS", tinman.getSeconds());
+        new Dropdown(driver).selectOptionByValue("distance", tinman.getDistanceTinman().getName());
+        new Input(driver).setValue("TimeHH", tinman.getHours());
+        new Input(driver).setValue("TimeMM", tinman.getMinutes());
+        new Input(driver).setValue("TimeSS", tinman.getSeconds());
         new RadioButton(driver).clickRadiobutton("Gender", tinman.getGender().getAnotherValue());
     }
 
@@ -47,9 +47,8 @@ public class TinmanModal extends BaseModal {
         driver.findElement(FIRST_SAVE_BUTTON_SETTINGS).click();
     }
 
-    @Step("Verify that green box is display")
     public boolean isGreenBoxDisplay()  {
-        log.info("verifying that green box is display");
+        log.debug("verifying that green box is display");
         try {
             driver.findElement(By.xpath(GREEN_BOX)).isDisplayed();
         } catch (NoSuchElementException ex) {

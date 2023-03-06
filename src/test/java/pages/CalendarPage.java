@@ -17,9 +17,8 @@ public class CalendarPage extends BasePage{
     private final static String NUMBER_OF_WEEK_LOCATOR = "//div[@class='datepicker dropdown-menu' " +
             "and contains (@style, 'display: block;')]//td[@class = 'day ' and contains(text(), '%s')]";
 
-    @Step("Verify that activity present")
     public boolean isActivityPresent()  {
-        log.info("verifying that activity present ");
+        log.debug("verifying that activity present ");
         try {
             driver.findElement(By.xpath(String.format(ACTIVITY_NAME, Day.TEN_DAY.getName()))).isDisplayed();
         } catch (NoSuchElementException ex) {

@@ -22,11 +22,11 @@ public class WorkoutLibraryPage extends BasePage{
     @Step("Filling form to print library")
     public void fillformLibrary(WorkoutLibrary workoutLibrary){
         new Dropdown(driver).selectOptionByText("ActivityType",workoutLibrary.getActivityType().getName());
-        new Input(driver).setValueCountry("Name",workoutLibrary.getWorkoutName());
-        new Input(driver).setValueCountry("Desc",workoutLibrary.getWorkoutDescription());
-        new Input(driver).setValueCountry("PDistance",workoutLibrary.getPlannedDistanceInput());
+        new Input(driver).setValue("Name",workoutLibrary.getWorkoutName());
+        new Input(driver).setValue("Desc",workoutLibrary.getWorkoutDescription());
+        new Input(driver).setValue("PDistance",workoutLibrary.getPlannedDistanceInput());
         new Dropdown(driver).selectOptionByText("PDistType",workoutLibrary.getDistTypeHills().getName());
-        new Input(driver).setValueCountry("PDuration",workoutLibrary.getPlannedDuration());
+        new Input(driver).setValue("PDuration",workoutLibrary.getPlannedDuration());
     }
 
     @Step("Get library workout details data")
@@ -41,9 +41,8 @@ public class WorkoutLibraryPage extends BasePage{
         return workoutLibraryDetails;
     }
 
-    @Step("Verify that workout button is display")
     public boolean addWorkoutButtonPresent(){
-        log.info("verifying that workout button is display ");
+        log.debug("verifying that workout button is display ");
         return driver.findElement(ADD_WORKOUT_BUTTON).isDisplayed();
     }
 

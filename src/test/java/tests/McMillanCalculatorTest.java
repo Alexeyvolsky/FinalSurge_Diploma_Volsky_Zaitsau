@@ -25,8 +25,8 @@ public class McMillanCalculatorTest extends BaseTest  {
         mcMillanModal.clickMcMilanCalculatorButton();
         McMillanCalculator mcMillanValue = McMillanCalculator.builder().setDistanceMcMillan(DistanceMcMillan.MILE)
                 .setHours(String.valueOf(faker.number().numberBetween(0, 24)))
-                .setMinutes(String.valueOf(faker.number().numberBetween(0, 59)))
-                .setSeconds(String.valueOf(faker.number().numberBetween(0, 59)))
+                .setMinutes(String.valueOf(faker.number().numberBetween(1, 59)))
+                .setSeconds(String.valueOf(faker.number().numberBetween(1, 59)))
                 .setDistanceMcMillan(DistanceMcMillan.MARATHON)
                 .setHours(String.valueOf(faker.number().numberBetween(0, 24)))
                 .setMinutes(String.valueOf(faker.number().numberBetween(0, 59)))

@@ -12,7 +12,7 @@ public class Dropdown extends BaseElement{
         super(driver);
     }
 
-    public void selectOption(String name, String optionName) {
+    public void selectOptionByValue(String name, String optionName) {
         log.info(String.format("selecting option: option name = %s", optionName));
         Select dropdown = new Select(driver.findElement(By.xpath(String.format(DROPDOWN_LOCATOR, name))));
         dropdown.selectByValue(optionName);

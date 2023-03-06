@@ -10,9 +10,8 @@ public class WorkoutsPage extends BasePage{
     private final static String ACTIVE_TYPE_BUTTON = "//a[@data-code='%s']";
     private final static String ACCORDING_INNER = "//div[@class='accordion-inner']//a[text()='%s']";
 
-    @Step("Verify that sidebar is displayed")
     public boolean isSidebarPresent(){
-        log.info("verifying that sidebar is display");
+        log.debug("verifying that sidebar is display");
         return driver.findElement(SIDEBAR).isDisplayed();
     }
 

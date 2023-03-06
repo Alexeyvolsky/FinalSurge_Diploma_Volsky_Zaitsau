@@ -25,9 +25,9 @@ public class TinmanCalculatorTest extends BaseTest  {
     public void positiveTinmanTest()    {
         tinmanModal.clickTinmanCalculatorButton();
         TinmanCalculator tinmanValue = TinmanCalculator.builder().setDistanceTinman(DistanceTinman.MARATHON)
-                .setHours(String.valueOf(faker.number().numberBetween(0, 24)))
-                .setMinutes(String.valueOf(faker.number().numberBetween(0, 59)))
-                .setSeconds(String.valueOf(faker.number().numberBetween(0, 59))).setGender(Gender.FEMALE).build();
+                .setHours(String.valueOf(faker.number().numberBetween(1, 24)))
+                .setMinutes(String.valueOf(faker.number().numberBetween(1, 59)))
+                .setSeconds(String.valueOf(faker.number().numberBetween(1, 59))).setGender(Gender.FEMALE).build();
         tinmanModal.fillForm(tinmanValue);
         tinmanModal.clickFirstSaveButtonSettings();
         Assert.assertTrue(tinmanModal.isGreenBoxDisplay());

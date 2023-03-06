@@ -41,7 +41,7 @@ Instructions for running tests:
 All test: mvn clean test
 Regression test: mvn clean test -DsuiteXmlFile="regressionTest.xml"
 Negative test: mvn clean test -DsuiteXmlFile="negativeTest.xml"
-Smoke test: mvn clean test - DsuiteXmlFile = "smokeTest.xml"
+Smoke test: mvn clean test -DsuiteXmlFile = "smokeTest.xml"
 
 
 Generates a report:

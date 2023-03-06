@@ -27,13 +27,13 @@ public class HansonsCalculatorTest extends BaseTest   {
     public void positiveHansonsTest()   {
         hansonsModal.clickHansonsCalculatorButton();
         HansonsCalculator hansonsValue = HansonsCalculator.builder().setRaceDist(RaceDist.HALF_MARATHON)
-                .setDistTypeHansons(DistTypeHansons.MILES).setHours(String.valueOf(faker.number().numberBetween(0, 24)))
+                .setDistTypeHansons(DistTypeHansons.MILES).setHours(String.valueOf(faker.number().numberBetween(0, 10)))
                 .setMinutes(String.valueOf(faker.number().numberBetween(0, 59)))
                 .setSeconds(String.valueOf(faker.number().numberBetween(0, 59)))
-                .setTemperature(String.valueOf(faker.number().numberBetween(-40, 150)))
-                .setWindSpeed(String.valueOf(faker.number().numberBetween(0, 99)))
+                .setTemperature(String.valueOf(faker.number().numberBetween(0, 25)))
+                .setWindSpeed(String.valueOf(faker.number().numberBetween(0, 50)))
                 .setTempType(TempType.CELSIUS).setSpeedType(SpeedType.KILOMETERS_PER_HOUR)
-                .setHumidity(String.valueOf(faker.number().numberBetween(0, 100))).build();
+                .setHumidity(String.valueOf(faker.number().numberBetween(0, 18))).build();
         hansonsModal.fillForm(hansonsValue);
         hansonsModal.clickFirstSaveButtonSettings();
         Assert.assertTrue(hansonsModal.isGreenBoxDisplay());

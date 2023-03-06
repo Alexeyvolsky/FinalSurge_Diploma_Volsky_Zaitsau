@@ -16,20 +16,20 @@ public class HansonsModal extends BaseModal {
     protected final static By LOCATOR_IFRAME_WORKOUT_CALCULATOR = By.id("IntensityCalciFrame");
     protected final static By HANSONS_CALCULATOR_BUTTON_LOCATOR = By.xpath("//a[text()='Hansons']");
     protected final static By FIRST_SAVE_BUTTON_SETTINGS = By.id("saveButtonSettings");
-    protected String GREEN_BOX = "//h4[text()='Recent Race Information']";
+    protected final static String GREEN_BOX = "//h4[text()='Recent Race Information']";
 
     @Step("Filling form to hansons calculator")
     public void fillForm(HansonsCalculator hansons) {
-        new Dropdown(driver).selectOption("RaceDist", hansons.getRaceDist().getName());
-        new Dropdown(driver).selectOption("DistType", hansons.getDistTypeHansons().getName());
-        new Input(driver).setValueCountry("TimeHH", hansons.getHours());
-        new Input(driver).setValueCountry("TimeMM", hansons.getMinutes());
-        new Input(driver).setValueCountry("TimeSS", hansons.getSeconds());
-        new Input(driver).setValueCountry("Temp", hansons.getTemperature());
-        new Input(driver).setValueCountry("Wind", hansons.getWindSpeed());
-        new Dropdown(driver).selectOption("TempType", hansons.getTempType().getName());
-        new Dropdown(driver).selectOption("SpeedType", hansons.getSpeedType().getName());
-        new Input(driver).setValueCountry("Humid", hansons.getHumidity());
+        new Dropdown(driver).selectOptionByValue("RaceDist", hansons.getRaceDist().getName());
+        new Dropdown(driver).selectOptionByValue("DistType", hansons.getDistTypeHansons().getName());
+        new Input(driver).setValue("TimeHH", hansons.getHours());
+        new Input(driver).setValue("TimeMM", hansons.getMinutes());
+        new Input(driver).setValue("TimeSS", hansons.getSeconds());
+        new Input(driver).setValue("Temp", hansons.getTemperature());
+        new Input(driver).setValue("Wind", hansons.getWindSpeed());
+        new Dropdown(driver).selectOptionByValue("TempType", hansons.getTempType().getName());
+        new Dropdown(driver).selectOptionByValue("SpeedType", hansons.getSpeedType().getName());
+        new Input(driver).setValue("Humid", hansons.getHumidity());
     }
 
     @Step("Click hansons calculator button")
@@ -51,9 +51,8 @@ public class HansonsModal extends BaseModal {
         driver.switchTo().frame(iframe);
     }
 
-    @Step("Verify that green box is display")
     public boolean isGreenBoxDisplay()  {
-        log.info("verifying that green box is display");
+        log.debug("verifying that green box is display");
         try {
             driver.findElement(By.xpath(GREEN_BOX)).isDisplayed();
         } catch (NoSuchElementException ex) {

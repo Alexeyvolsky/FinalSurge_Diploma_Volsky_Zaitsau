@@ -21,9 +21,8 @@ public class WorkoutReportPage extends BasePage{
         new Dropdown(driver).selectOptionByText("ActivityType",report.getActivityType().getName());
     }
 
-    @Step("Verify that report button is display")
     public boolean reportButtonPresent(){
-        log.info("verifying that report button is display ");
+        log.debug("verifying that report button is display ");
         return driver.findElement(VIEW_REPORT_BUTTON).isDisplayed();
     }
 

@@ -15,13 +15,12 @@ public class PrintWorkoutsModal extends BaseModal{
 
     @Step("Filling form to print workout modal")
     public void fillForm(PrintWorkout printWorkout) {
-        new Input(driver).setValueCountry("PrintStartDate", printWorkout.getStartingData());
-        new Input(driver).setValueCountry("PrintEndDate", printWorkout.getEndingData());
+        new Input(driver).setValue("PrintStartDate", printWorkout.getStartingData());
+        new Input(driver).setValue("PrintEndDate", printWorkout.getEndingData());
     }
 
-    @Step("Open iframe for modal print workout")
     public void openIframePrintWorkout()    {
-        log.info("opening iframe for modal workout calculator");
+        log.debug("opening iframe for modal workout calculator");
         WebElement iframe = driver.findElement(LOCATOR_IFRAME_PRINT_WORKOUT);
         driver.switchTo().frame(iframe);
     }

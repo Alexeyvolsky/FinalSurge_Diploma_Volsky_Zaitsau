@@ -16,18 +16,18 @@ public class McMillanModal extends BaseModal {
     protected final static By LOCATOR_IFRAME_WORKOUT_CALCULATOR = By.id("IntensityCalciFrame");
     protected final static By MCMILLAN_CALCULATOR_BUTTON_LOCATOR = By.xpath("//a[text()='McMillan']");
     protected final static By FIRST_SAVE_BUTTON_SETTINGS = By.id("saveButtonSettings");
-    protected String GREEN_BOX = "//h4[text()='Goal Race Times']";
+    protected final static String GREEN_BOX = "//h4[text()='Goal Race Times']";
 
     @Step("Filling form to McMillan calculator")
     public void fillForm(McMillanCalculator mcMillan)   {
-        new Dropdown(driver).selectOption("distance", mcMillan.getDistanceMcMillan().getName());
-        new Input(driver).setValueCountry("TimeHH", mcMillan.getHours());
-        new Input(driver).setValueCountry("TimeMM", mcMillan.getMinutes());
-        new Input(driver).setValueCountry("TimeSS", mcMillan.getSeconds());
-        new Dropdown(driver).selectOption("goaldistance", mcMillan.getDistanceMcMillan().getName());
-        new Input(driver).setValueCountry("GTimeHH", mcMillan.getHours());
-        new Input(driver).setValueCountry("GTimeMM", mcMillan.getMinutes());
-        new Input(driver).setValueCountry("GTimeSS", mcMillan.getSeconds());
+        new Dropdown(driver).selectOptionByValue("distance", mcMillan.getDistanceMcMillan().getName());
+        new Input(driver).setValue("TimeHH", mcMillan.getHours());
+        new Input(driver).setValue("TimeMM", mcMillan.getMinutes());
+        new Input(driver).setValue("TimeSS", mcMillan.getSeconds());
+        new Dropdown(driver).selectOptionByValue("goaldistance", mcMillan.getDistanceMcMillan().getName());
+        new Input(driver).setValue("GTimeHH", mcMillan.getHours());
+        new Input(driver).setValue("GTimeMM", mcMillan.getMinutes());
+        new Input(driver).setValue("GTimeSS", mcMillan.getSeconds());
     }
 
     @Step("Open iframe for modal workout calculator")
@@ -49,9 +49,8 @@ public class McMillanModal extends BaseModal {
         driver.findElement(FIRST_SAVE_BUTTON_SETTINGS).click();
     }
 
-    @Step("Verify that green box is display")
     public boolean isGreenBoxDisplay()  {
-        log.info("verifying that green box is display");
+        log.debug("verifying that green box is display");
         try {
             driver.findElement(By.xpath(GREEN_BOX)).isDisplayed();
         } catch (NoSuchElementException ex) {
