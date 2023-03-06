@@ -23,7 +23,7 @@ import utils.TestListener;
 import java.util.concurrent.TimeUnit;
 @Listeners(TestListener.class)
 public abstract class BaseTest {
-    protected final static String BASE_URL = "https://log.finalsurge.com/";
+    protected final static String BASE_URL = System.getenv().getOrDefault("BASE_URL", PropertyReader.getProperty("finalSurge.url"));
     protected final static String USERNAME = System.getenv().getOrDefault("EMAIL", PropertyReader.getProperty("finalSurge.username"));
     protected final static String PASSWORD = System.getenv().getOrDefault("PASSWORD", PropertyReader.getProperty("finalSurge.password"));
     protected final static String CARD_NUMBER=System.getenv().getOrDefault("CARD_NUMBER", PropertyReader.getProperty("finalSurge.cardNumber"));
@@ -57,12 +57,13 @@ public abstract class BaseTest {
     protected CheckoutPage checkoutPage;
     Faker faker = new Faker();
 
-    @Parameters({"browser", "headless"})
     @BeforeClass(alwaysRun = true)
-    public void setUp(@Optional("Chrome") String browserName, @Optional("true") String headless, ITestContext testContext) throws Exception{
+    public void setUp(ITestContext testContext) throws Exception    {
+        String browserName = System.getProperty("browser", "Chrome");
+        String headless = System.getProperty("headless", "false");
         if (browserName.equals("Chrome")) {
             ChromeOptions options = new ChromeOptions();
-            if (headless.equals("false"))    {
+            if (headless.equals("true"))    {
                 options.addArguments("--headless");
             }
             WebDriverManager.chromedriver().setup();
@@ -72,7 +73,7 @@ public abstract class BaseTest {
             driver = new ChromeDriver();
         } else if (browserName.equals("Firefox")) {
             FirefoxOptions options = new FirefoxOptions();
-            if (headless.equals("false"))    {
+            if (headless.equals("true"))    {
                 options.addArguments("--headless");
             }
             WebDriverManager.firefoxdriver().setup();

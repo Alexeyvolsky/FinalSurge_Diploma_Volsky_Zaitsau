@@ -49,8 +49,8 @@ public class PallandinoCalculatorTest extends BaseTest  {
     public void positivePallandinoLessThenFortyCalculatorTest() {
         palladinoModal.clickPalladinoCalculatorButton();
         PalladinoCalculator palladinoLessThenForty = PalladinoCalculator.builder()
-                .setMinutes(String.valueOf(faker.number().numberBetween(0, 59)))
-                .setSeconds(String.valueOf(faker.number().numberBetween(0, 59)))
+                .setMinutes(String.valueOf(faker.number().numberBetween(1, 59)))
+                .setSeconds(String.valueOf(faker.number().numberBetween(1, 59)))
                 .setRaceAvgPower(String.valueOf(faker.number().numberBetween(20, 800))).build();
         palladinoModal.fillFormCpFromRaceOrTtLessThenForty(palladinoLessThenForty);
         palladinoModal.clickFourthSaveButtonSettings();

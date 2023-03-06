@@ -15,9 +15,8 @@ public class DashboardPage extends BasePage{
     private final static By VIEW_ADD_VITALS_BUTTON = By.xpath("//a[text()='View & Add Vitals']");
     private final static String WORKOUTS_BUTTONS = "//a[text()='%s']";
 
-    @Step("Verify that user icon is displayed")
     public boolean isUserIconPresent() {
-        log.info("verifying that user icon is displayed");
+        log.debug("verifying that user icon is displayed");
         return driver.findElement(USER_ICON).isDisplayed();
     }
 
@@ -70,6 +69,7 @@ public class DashboardPage extends BasePage{
         log.info("clicking workout report button");
         driver.findElement(By.xpath(String.format(WORKOUTS_BUTTONS, "Reports & Statistics"))).click();
     }
+
     @Step("Click find a plan button")
     public void clickFindAPlanButton(){
         log.info("clicking find a plan button");

@@ -13,9 +13,8 @@ public class PrintDetailsPage extends BasePage   {
 
     private final static By WORKOUTS_DATA = By.xpath("//td/span[2]");
 
-    @Step("Verify that print details page is displayed")
     public boolean isPrintDetailsPageIsPresent()    {
-        log.info("verifying that print details page is displayed");
+        log.debug("verifying that print details page is displayed");
         try {
             driver.findElement(WORKOUTS_DATA).isDisplayed();
         } catch (NoSuchElementException ex) {

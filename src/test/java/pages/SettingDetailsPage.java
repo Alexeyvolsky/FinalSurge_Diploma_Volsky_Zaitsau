@@ -35,9 +35,8 @@ public class SettingDetailsPage extends BasePage   {
         return settingsDetails;
     }
 
-    @Step("Wait user thumbnail is displayed")
     public boolean waitUserThumbnailPresent()   {
-        log.info("waiting user thumbnail is displayed");
+        log.debug("waiting user thumbnail is displayed");
         try {
             waitForElementDisplayed(USER_THUMBNAIL);
         } catch (NoSuchElementException ex) {
@@ -46,9 +45,8 @@ public class SettingDetailsPage extends BasePage   {
         return true;
     }
 
-    @Step("Wait user avatar is displayed")
     public boolean waitUserAvatarPresent() {
-        log.info("waiting user avatar is displayed");
+        log.debug("waiting user avatar is displayed");
         try {
             waitForElementDisplayed(USER_AVATAR);
         } catch (NoSuchElementException ex) {

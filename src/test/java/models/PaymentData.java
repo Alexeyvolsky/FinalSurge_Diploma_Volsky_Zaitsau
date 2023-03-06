@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder(setterPrefix = "set")
-public class Checkout {
+public class PaymentData {
     private String cardNumber;
     private String expiryDate;
     private String cvcCode;

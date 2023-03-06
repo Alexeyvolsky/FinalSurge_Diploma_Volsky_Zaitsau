@@ -12,7 +12,7 @@ import utils.Retry;
 public class PrintWorkoutsTest extends BaseTest {
 
     @BeforeMethod(alwaysRun = true)
-    public void makeTestData()  {
+    public void makeTestData() {
         loginPage.setEmailInput(USERNAME);
         loginPage.setPasswordInput(PASSWORD);
         loginPage.clickLoginButton();

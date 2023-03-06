@@ -15,7 +15,7 @@ public class CaloricNeedsModal extends BaseModal {
 
     protected final static By LOCATOR_IFRAME_OTHER_CALCULATOR = By.id("OtherCalciFrame");
     protected final static By FIRST_SAVE_BUTTON_SETTINGS = By.id("saveButtonSettings");
-    protected String GREEN_BOX = "//h4[text()=\"Today's Caloric Needs\"]";
+    protected final static String GREEN_BOX = "//h4[text()=\"Today's Caloric Needs\"]";
     protected final static By ALERT_ERROR_MESSAGE = By.cssSelector(".alert");
 
     @Step("Filling form to calculate caloric needs")
@@ -30,9 +30,8 @@ public class CaloricNeedsModal extends BaseModal {
         new RadioButton(driver).clickRadiobutton("DistType", caloricNeeds.getDistTypeCaloricNeeds().getValue());
     }
 
-    @Step("Open iframe for modal other calculator")
     public void openIframeOtherCalculator()    {
-        log.info("opening iframe for modal other calculator");
+        log.debug("opening iframe for modal other calculator");
         WebElement iframe = driver.findElement(LOCATOR_IFRAME_OTHER_CALCULATOR);
         driver.switchTo().frame(iframe);
     }
@@ -43,9 +42,8 @@ public class CaloricNeedsModal extends BaseModal {
         driver.findElement(FIRST_SAVE_BUTTON_SETTINGS).click();
     }
 
-    @Step("Verify that green box is display")
     public boolean isGreenBoxDisplay()  {
-        log.info("verifying that green box is display");
+        log.debug("verifying that green box is display");
         try {
             driver.findElement(By.xpath(GREEN_BOX)).isDisplayed();
         } catch (NoSuchElementException ex) {
@@ -54,9 +52,8 @@ public class CaloricNeedsModal extends BaseModal {
         return true;
     }
 
-    @Step("Verify that alert error message is display")
     public boolean alertErrorMessageIsPresent()    {
-        log.info("verifying that alert error message is display");
+        log.debug("verifying that alert error message is display");
         try {
             driver.findElement(ALERT_ERROR_MESSAGE).isDisplayed();
         } catch (NoSuchElementException ex) {

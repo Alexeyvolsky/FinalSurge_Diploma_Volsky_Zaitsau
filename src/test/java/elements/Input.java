@@ -10,7 +10,7 @@ public class Input extends BaseElement{
     public Input(WebDriver driver) {
         super(driver);
     }
-    public void setValueCountry(String id, String value){
+    public void setValue(String id, String value){
         log.info(String.format("setting input: value = %s", value));
         WebElement input = driver.findElement(By.id(id));
         scrollIntoView(input);
@@ -28,8 +28,9 @@ public class Input extends BaseElement{
         log.info(String.format("js send value %s, %s ", id, value));
         jsSendKeysInSettings(id, value);
     }
-    public void setValueCountry(By locator, String value) {
+    public void setValueCard(By locator, String value) {
         log.info(String.format("setting input: value = %s", value));
-        driver.findElement(locator).sendKeys(value);
+        WebElement input = driver.findElement(locator);
+        input.sendKeys(value);
     }
 }

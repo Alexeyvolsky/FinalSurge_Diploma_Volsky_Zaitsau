@@ -14,13 +14,13 @@ public class LoginPage extends BasePage{
 
     @Step("Set email on login page")
     public void setEmailInput(String email){
-        log.debug("entering email on login page");
+        log.debug(String.format("entering email on login page: %s", email));
         driver.findElement(EMAIL_INPUT).sendKeys(email);
     }
 
     @Step("Set password on login page")
     public void setPasswordInput(String password){
-        log.debug("entering password on login page");
+        log.debug(String.format("entering password on login page: %s", password));
         driver.findElement(PASSWORD_INPUT).sendKeys(password);
     }
 
@@ -30,15 +30,13 @@ public class LoginPage extends BasePage{
         driver.findElement(LOGIN_BUTTON).click();
     }
 
-    @Step("Verify that login button is displayed")
     public boolean isLoginButtonPresent() {
-        log.info("verifying that login button is displayed");
+        log.debug("verifying that login button is displayed");
         return driver.findElement(LOGIN_BUTTON).isDisplayed();
     }
 
-    @Step("Verify that logout message is displayed")
     public boolean logoutMessagePresent(){
-        log.info("verifying that logout message is displayed");
+        log.debug("verifying that logout message is displayed");
         return driver.findElement(LOGOUT_BUTTON).isDisplayed();
     }
 

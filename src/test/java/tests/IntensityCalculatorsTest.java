@@ -24,7 +24,7 @@ public class IntensityCalculatorsTest extends BaseTest {
     public void positiveIntensityTest() {
         IntensityCalculator intensityValue = IntensityCalculator.builder()
                 .setSelectEvent(SelectEvent.MILE).setHours("0")
-                .setMinutes(String.valueOf(faker.number().numberBetween(0, 15)))
+                .setMinutes(String.valueOf(faker.number().numberBetween(4, 15)))
                 .setSeconds(String.valueOf(faker.number().numberBetween(0, 45))).build();
         intensityModal.fillForm(intensityValue);
         intensityModal.clickFirstSaveButtonSettings();

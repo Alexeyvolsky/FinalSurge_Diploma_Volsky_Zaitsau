@@ -1,9 +1,7 @@
 package tests;
 
-import enums.*;
 import io.qameta.allure.Description;
-import models.Checkout;
-import models.QuickAdd;
+import models.PaymentData;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -29,11 +27,11 @@ public class BuyAPlanTest extends BaseTest{
         coachPage.clickLoginButton();
         coachPage.login(USERNAME, PASSWORD);
         checkoutPage.waitForElementDisplayed();
-        Checkout checkout = Checkout.builder()
+        PaymentData paymentData = PaymentData.builder()
                 .setCardNumber(CARD_NUMBER)
                 .setExpiryDate(EXPIRY_DATE)
                 .setCvcCode(CVC).build();
-        checkoutPage.fillformCheckout(checkout);
+        checkoutPage.fillformCheckout(paymentData);
         checkoutPage.clickPayButton();
         checkoutPage.waitForPayButtonIsClickable();
         checkoutPage.clickPayButton();

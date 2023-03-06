@@ -43,9 +43,8 @@ public class HeaderNavigatePage extends BasePage    {
         driver.findElement(By.xpath(String.format(USER_BOX_BUTTON, "Settings"))).click();
     }
 
-    @Step("Wait until setting button is displayed")
     public void waitSettingButtonPresent()  {
-        log.info("waiting until setting button is displayed");
+        log.debug("waiting until setting button is displayed");
         waitForElementDisplayed(By.xpath(String.format(USER_BOX_BUTTON, "Settings")));
     }
 

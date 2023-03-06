@@ -23,9 +23,8 @@ public class DailyVitalsPage extends BasePage{
         new Input(driver).clearAndSetValue("CDateEnd",dailyVitals.getEndDate());
     }
 
-    @Step("Verify that add vitals is display")
     public boolean isAddVitalsDisplayed() {
-        log.info("verifying that add vitals is display");
+        log.debug("verifying that add vitals is display");
         return driver.findElement(ADD_VITALS_BUTTON).isDisplayed();
     }
 

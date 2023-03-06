@@ -47,9 +47,8 @@ public class WorkoutDetailsPage extends BasePage {
         return workoutDetailsHills;
     }
 
-    @Step("Verify that view your workout is Display")
     public boolean isViewYourWorkoutPresent(){
-        log.info("verifying that view your workout is display");
+        log.debug("verifying that view your workout is display");
         return driver.findElement(VIEW_YOUR_WORKOUT).isDisplayed();
     }
 

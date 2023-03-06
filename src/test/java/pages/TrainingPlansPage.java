@@ -17,11 +17,12 @@ public class TrainingPlansPage extends BasePage{
     public TrainingPlansPage(WebDriver driver) {
         super(driver);
     }
-    @Step("Verifying that training types image is displayed")
+
     public boolean isTrainingTypesImagePresent() {
-        log.info("verifying that training types image is displayed");
+        log.debug("verifying that training types image is displayed");
         return driver.findElement(TRAINING_TYPES_IMAGE).isDisplayed();
     }
+
     @Step ("Clicking a chosen training plan")
     public void clickTrainingPlan() {
         log.info("clicking a chosen training plan");
