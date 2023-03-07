@@ -6,10 +6,8 @@ import io.qameta.allure.Step;
 import lombok.extern.log4j.Log4j2;
 import modals.BaseModal;
 import models.WorcoutCalculators.McMillanCalculator;
-import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
+
 @Log4j2
 public class McMillanModal extends BaseModal {
 
@@ -33,8 +31,7 @@ public class McMillanModal extends BaseModal {
     @Step("Open iframe for modal workout calculator")
     public void openIframeWorkoutCalculator()   {
         log.debug("opening iframe for modal workout calculator");
-        WebElement iframe = driver.findElement(LOCATOR_IFRAME_WORKOUT_CALCULATOR);
-        driver.switchTo().frame(iframe);
+        openIframe(LOCATOR_IFRAME_WORKOUT_CALCULATOR);
     }
 
     @Step("Click McMilan calculator button")
@@ -46,6 +43,7 @@ public class McMillanModal extends BaseModal {
     @Step("Click save button")
     public void clickFirstSaveButtonSettings()   {
         log.info("clicking save button");
+        scrollIntoView(driver.findElement(FIRST_SAVE_BUTTON_SETTINGS));
         driver.findElement(FIRST_SAVE_BUTTON_SETTINGS).click();
     }
 
@@ -57,6 +55,11 @@ public class McMillanModal extends BaseModal {
             return false;
         }
         return true;
+    }
+
+    public void waitSaveButton()    {
+        log.debug("waiting for save button is loaded");
+        waitForElementDisplayed(FIRST_SAVE_BUTTON_SETTINGS);
     }
 
     public McMillanModal(WebDriver driver) {

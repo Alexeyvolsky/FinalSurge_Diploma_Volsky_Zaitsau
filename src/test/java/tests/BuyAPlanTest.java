@@ -15,10 +15,11 @@ public class BuyAPlanTest extends BaseTest{
         loginPage.clickLoginButton();
     }
     @Description("Choosing a training plan and trying to pay for it")
-    @Test(groups = {"regression"}, retryAnalyzer = Retry.class)
+    @Test(groups = {"negative"}, retryAnalyzer = Retry.class)
     public void negativeBuyAPlanTest(){
         dashboardPage.moveToTrainingPlansMenu();
         dashboardPage.clickFindAPlanButton();
+        trainingPlansPage.waitTrainingTypesImage();
         Assert.assertTrue(trainingPlansPage.isTrainingTypesImagePresent());
         trainingPlansPage.clickTrainingPlan();
         coachPage.waitForContinueButtonVisible();

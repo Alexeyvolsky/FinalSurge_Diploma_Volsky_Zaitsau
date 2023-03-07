@@ -19,6 +19,7 @@ public class PrintWorkoutsTest extends BaseTest {
         headerNavigate.clickCalendarButton();
         calendarPage.clickPlusButton(Day.FIRST_DAY);
         calendarPage.clickQuickAddButton();
+        calendarPage.waitAddWorkoutButton();
         QuickAdd quickAddFirstDay = QuickAdd.builder().setDate("03/1/2023").setTimeOfDay("03:21").setActivityType(ActivityType.RUN)
                 .setWorkoutName("Alexey").setWorkoutDescription("Description").setDistanceInput("33.00")
                 .setDistTypeHills(DistTypeHills.METERS).setDuration("4:56").setPaceType(PaceType.MIN_MI).setPace("12:08")
@@ -29,6 +30,7 @@ public class PrintWorkoutsTest extends BaseTest {
         headerNavigate.clickCalendarButton();
         calendarPage.clickPlusButton(Day.SECOND_DAY);
         calendarPage.clickQuickAddButton();
+        calendarPage.waitAddWorkoutButton();
         QuickAdd quickAddSecondDay = QuickAdd.builder().setDate("03/2/2023").setTimeOfDay("03:21").setActivityType(ActivityType.RUN)
                 .setWorkoutName("Alexey").setWorkoutDescription("Description").setDistanceInput("33.00")
                 .setDistTypeHills(DistTypeHills.METERS).setDuration("4:56").setPaceType(PaceType.MIN_MI).setPace("12:08")
@@ -49,6 +51,7 @@ public class PrintWorkoutsTest extends BaseTest {
         printDetailsPage.isPrintDetailsPageIsPresent();
         Assert.assertEquals(printDetailsPage.getPrintWorkoutData(), printWorkoutValue);
         printDetailsPage.switchBetweenTabs(0);
+        dashboardPage.waitUserIcon();
         Assert.assertTrue(dashboardPage.isUserIconPresent());
     }
 }

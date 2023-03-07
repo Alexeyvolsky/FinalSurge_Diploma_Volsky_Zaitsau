@@ -23,6 +23,11 @@ public class TrainingPlansPage extends BasePage{
         return driver.findElement(TRAINING_TYPES_IMAGE).isDisplayed();
     }
 
+    public void waitTrainingTypesImage()    {
+        log.debug("wait for training types image loaded");
+        waitForElementDisplayed(TRAINING_TYPES_IMAGE);
+    }
+
     @Step ("Clicking a chosen training plan")
     public void clickTrainingPlan() {
         log.info("clicking a chosen training plan");

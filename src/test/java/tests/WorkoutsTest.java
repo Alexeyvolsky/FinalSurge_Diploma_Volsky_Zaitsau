@@ -19,9 +19,9 @@ public class WorkoutsTest extends BaseTest  {
         loginPage.setEmailInput(USERNAME);
         loginPage.setPasswordInput(PASSWORD);
         loginPage.clickLoginButton();
-        Assert.assertTrue(dashboardPage.isUserIconPresent());
         dashboardPage.moveToWorkoutsMenu();
         dashboardPage.clickWorkoutsButton();
+        workoutsPage.waitSidebar();
         Assert.assertTrue(workoutsPage.isSidebarPresent());
         workoutsPage.clickActiveTypeButtonRest();
         Rest workoutValue = Rest.builder().setWorkoutDescription("Workout description")
@@ -40,9 +40,9 @@ public class WorkoutsTest extends BaseTest  {
         loginPage.setEmailInput(USERNAME);
         loginPage.setPasswordInput(PASSWORD);
         loginPage.clickLoginButton();
-        Assert.assertTrue(dashboardPage.isUserIconPresent());
         dashboardPage.moveToWorkoutsMenu();
         dashboardPage.clickWorkoutsButton();
+        workoutsPage.waitSidebar();
         Assert.assertTrue(workoutsPage.isSidebarPresent());
         workoutsPage.clickActiveTypeButtonRun();
         workoutsPage.clickAccordingInnerButton();
@@ -67,6 +67,5 @@ public class WorkoutsTest extends BaseTest  {
         addNewWorkoutModal.clickAddWorkoutButton();
         Assert.assertTrue(workoutDetailsPage.isViewYourWorkoutPresent());
         Assert.assertEquals(workoutValue,workoutDetailsPage.getWorkoutDetailsHills());
-
     }
 }

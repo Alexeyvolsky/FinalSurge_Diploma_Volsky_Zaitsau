@@ -20,6 +20,7 @@ public class HansonsCalculatorTest extends BaseTest   {
         loginPage.clickLoginButton();
         headerNavigate.clickWorkoutCalculateButton();
         hansonsModal.openIframeWorkoutCalculator();
+        hansonsModal.waitSaveButton();
     }
 
     @Description("Verify that Hensons calculator counts data")

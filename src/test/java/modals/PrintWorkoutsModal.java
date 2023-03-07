@@ -6,7 +6,6 @@ import lombok.extern.log4j.Log4j2;
 import models.PrintWorkout;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 @Log4j2
 public class PrintWorkoutsModal extends BaseModal{
 
@@ -21,8 +20,7 @@ public class PrintWorkoutsModal extends BaseModal{
 
     public void openIframePrintWorkout()    {
         log.debug("opening iframe for modal workout calculator");
-        WebElement iframe = driver.findElement(LOCATOR_IFRAME_PRINT_WORKOUT);
-        driver.switchTo().frame(iframe);
+        openIframe(LOCATOR_IFRAME_PRINT_WORKOUT);
     }
 
     @Step("Click print save button")

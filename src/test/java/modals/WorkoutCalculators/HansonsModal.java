@@ -9,7 +9,6 @@ import models.WorcoutCalculators.HansonsCalculator;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 @Log4j2
 public class HansonsModal extends BaseModal {
 
@@ -47,8 +46,7 @@ public class HansonsModal extends BaseModal {
     @Step("Open iframe for modal workout calculator")
     public void openIframeWorkoutCalculator()   {
         log.debug("opening iframe for modal workout calculator");
-        WebElement iframe = driver.findElement(LOCATOR_IFRAME_WORKOUT_CALCULATOR);
-        driver.switchTo().frame(iframe);
+        openIframe(LOCATOR_IFRAME_WORKOUT_CALCULATOR);
     }
 
     public boolean isGreenBoxDisplay()  {
@@ -59,6 +57,11 @@ public class HansonsModal extends BaseModal {
             return false;
         }
         return true;
+    }
+
+    public void waitSaveButton()    {
+        log.debug("waiting for save button is loaded");
+        waitForElementDisplayed(FIRST_SAVE_BUTTON_SETTINGS);
     }
 
     public HansonsModal(WebDriver driver) {

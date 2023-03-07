@@ -18,6 +18,7 @@ public class PaceCalculatorTest extends BaseTest  {
         loginPage.clickLoginButton();
         headerNavigate.clickOtherCalculatorsButton();
         paceCalculator.openIframeOtherCalculator();
+        paceCalculator.waitSaveButton();
     }
 
     @Description("Verify that Pace calculator counts data")
@@ -36,7 +37,7 @@ public class PaceCalculatorTest extends BaseTest  {
     }
 
     @Description("Verify that Pace calculator work correct with bad data")
-    @Test(dataProvider = "negativePaceCalculatorList", groups = {"regression"}, retryAnalyzer = Retry.class)
+    @Test(dataProvider = "negativePaceCalculatorList", groups = {"negative"}, retryAnalyzer = Retry.class)
     public void negativePaceCalculatorTest(PaceCalculator paceCalculatorValue)    {
         paceCalculator.clickPaceCalculatorButton();
         paceCalculator.fillForm(paceCalculatorValue);

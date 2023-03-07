@@ -20,6 +20,11 @@ public class DashboardPage extends BasePage{
         return driver.findElement(USER_ICON).isDisplayed();
     }
 
+    public void waitUserIcon()  {
+        log.debug("waiting user icon loaded");
+        waitForElementDisplayed(USER_ICON);
+    }
+
     @Step("Click logout button")
     public void clickLogoutButton(){
         log.info("clicking logout button");

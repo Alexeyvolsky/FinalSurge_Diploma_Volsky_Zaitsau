@@ -33,6 +33,11 @@ public class WorkoutsPage extends BasePage{
         driver.findElement(By.xpath(String.format(ACCORDING_INNER, "Hills"))).click();
     }
 
+    public void waitSidebar()   {
+        log.debug("waiting for sidebar loaded");
+        waitForElementDisplayed(SIDEBAR);
+    }
+
     public WorkoutsPage(WebDriver driver) {
         super(driver);
     }

@@ -21,6 +21,7 @@ public class CaloricNeedsCalculatorTest extends BaseTest  {
         loginPage.clickLoginButton();
         headerNavigate.clickOtherCalculatorsButton();
         caloricNeedsModal.openIframeOtherCalculator();
+        caloricNeedsModal.waitSaveButton();
     }
 
     @Description("Verify that CaloricNeeds calculator counts data")
@@ -38,7 +39,7 @@ public class CaloricNeedsCalculatorTest extends BaseTest  {
     }
 
     @Description("Verify that ValoricNeeds calculator correct work with bad data")
-    @Test(groups = {"regression"}, retryAnalyzer = Retry.class, dataProvider = "negativeCaloricNeedsList")
+    @Test(groups = {"negative"}, retryAnalyzer = Retry.class, dataProvider = "negativeCaloricNeedsList")
     public void negativeCaloricNeedsTest(CaloricNeedsCalculator caloricNeedsValue)  {
         caloricNeedsModal.fillForm(caloricNeedsValue);
         caloricNeedsModal.clickFirstSaveButtonSettings();
