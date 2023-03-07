@@ -33,7 +33,7 @@ public class PrintDetailsPage extends BasePage   {
 
     @Step("Switch between tabs")
     public void switchBetweenTabs(int tab)  {
-        log.info("switching between tabs");
+        log.info(String.format("switching between tabs: %s", tab));
         ArrayList<String> tabs = new ArrayList<>(driver.getWindowHandles());
         driver.switchTo().window(tabs.get(tab));
     }

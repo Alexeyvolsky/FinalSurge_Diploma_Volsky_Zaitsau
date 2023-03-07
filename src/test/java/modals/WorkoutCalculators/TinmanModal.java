@@ -30,7 +30,7 @@ public class TinmanModal extends BaseModal {
 
     @Step("Open iframe for modal workout calculator")
     public void openIframeWorkoutCalculator()   {
-        log.info("opening iframe for modal workout calculator");
+        log.debug("opening iframe for modal workout calculator");
         WebElement iframe = driver.findElement(LOCATOR_IFRAME_WORKOUT_CALCULATOR);
         driver.switchTo().frame(iframe);
     }
