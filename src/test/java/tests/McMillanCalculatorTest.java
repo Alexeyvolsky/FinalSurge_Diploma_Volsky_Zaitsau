@@ -17,6 +17,7 @@ public class McMillanCalculatorTest extends BaseTest  {
         loginPage.clickLoginButton();
         headerNavigate.clickWorkoutCalculateButton();
         mcMillanModal.openIframeWorkoutCalculator();
+        mcMillanModal.waitSaveButton();
     }
 
     @Description("Verify that McMillan calculator counts data")

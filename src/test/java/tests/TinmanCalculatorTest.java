@@ -23,6 +23,7 @@ public class TinmanCalculatorTest extends BaseTest  {
     @Description("Verify that Tinman calculator counts data")
     @Test(groups = {"regression"}, retryAnalyzer = Retry.class)
     public void positiveTinmanTest()    {
+        tinmanModal.waitSaveButton();
         tinmanModal.clickTinmanCalculatorButton();
         TinmanCalculator tinmanValue = TinmanCalculator.builder().setDistanceTinman(DistanceTinman.MARATHON)
                 .setHours(String.valueOf(faker.number().numberBetween(1, 24)))

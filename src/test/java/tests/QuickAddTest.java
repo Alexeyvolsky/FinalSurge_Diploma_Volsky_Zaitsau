@@ -18,6 +18,7 @@ public class QuickAddTest extends BaseTest{
         headerNavigate.clickCalendarButton();
         calendarPage.clickPlusButton(Day.TEN_DAY);
         calendarPage.clickQuickAddButton();
+        calendarPage.waitAddWorkoutButton();
         Assert.assertFalse(calendarPage.isActivityPresent());
         QuickAdd quickAdd = QuickAdd.builder()
                 .setDate("02/10/2023")

@@ -9,7 +9,6 @@ import models.OtherCalculators.CaloricNeedsCalculator;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 @Log4j2
 public class CaloricNeedsModal extends BaseModal {
 
@@ -32,8 +31,7 @@ public class CaloricNeedsModal extends BaseModal {
 
     public void openIframeOtherCalculator()    {
         log.debug("opening iframe for modal other calculator");
-        WebElement iframe = driver.findElement(LOCATOR_IFRAME_OTHER_CALCULATOR);
-        driver.switchTo().frame(iframe);
+        openIframe(LOCATOR_IFRAME_OTHER_CALCULATOR);
     }
 
     @Step("Click save button")
@@ -60,6 +58,11 @@ public class CaloricNeedsModal extends BaseModal {
             return false;
         }
         return true;
+    }
+
+    public void waitSaveButton()    {
+        log.debug("waiting for save button is loaded");
+        waitForElementDisplayed(FIRST_SAVE_BUTTON_SETTINGS);
     }
 
     public CaloricNeedsModal(WebDriver driver) {

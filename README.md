@@ -45,6 +45,5 @@ Smoke test: mvn clean test -DsuiteXmlFile = "smokeTest.xml"
 
 
 Generates a report:
-allure generate
-allure serve
-
+mvn allure:report
+mvn allure:serve

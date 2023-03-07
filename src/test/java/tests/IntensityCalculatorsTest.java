@@ -17,6 +17,7 @@ public class IntensityCalculatorsTest extends BaseTest {
         loginPage.clickLoginButton();
         headerNavigate.clickWorkoutCalculateButton();
         intensityModal.openIframeWorkoutCalculator();
+        intensityModal.waitSaveButton();
     }
 
     @Description("Verify that Intensity calculator counts data")

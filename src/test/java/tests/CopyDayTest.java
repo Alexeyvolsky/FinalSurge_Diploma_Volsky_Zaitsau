@@ -18,6 +18,7 @@ public class CopyDayTest extends BaseTest   {
         headerNavigate.clickCalendarButton();
         calendarPage.clickPlusButton(Day.TEN_DAY);
         calendarPage.clickQuickAddButton();
+        calendarPage.waitAddWorkoutButton();
         QuickAdd quickAdd = QuickAdd.builder().setDate("02/10/2023").setTimeOfDay("03:21").setActivityType(ActivityType.RUN)
                 .setWorkoutName("Alexey").setWorkoutDescription("Description").setDistanceInput("33.00")
                 .setDistTypeHills(DistTypeHills.METERS).setDuration("4:56").setPaceType(PaceType.MIN_MI).setPace("12:08")

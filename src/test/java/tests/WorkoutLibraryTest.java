@@ -8,7 +8,8 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import utils.Retry;
 
-public class WorkoutLibraryTest extends BaseTest{
+public class WorkoutLibraryTest extends BaseTest    {
+
     @Description("Verify that user can add new workout to library")
     @Test(groups = {"regression"}, retryAnalyzer = Retry.class)
     public void workoutLibraryTest() {

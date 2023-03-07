@@ -66,7 +66,13 @@ public class CalendarPage extends BasePage{
     @Step("Click add workout button")
     public void clickAddWorkoutButton(){
         log.info("clicking add workout button");
+        scrollIntoView(driver.findElement(ADD_WORKOUT_BUTTON));
         driver.findElement(ADD_WORKOUT_BUTTON).click();
+    }
+
+    public void waitAddWorkoutButton()   {
+        log.debug("waiting for add workout button loaded");
+        waitForElementDisplayed(ADD_WORKOUT_BUTTON);
     }
 
     public CalendarPage(WebDriver driver) {

@@ -10,7 +10,6 @@ import models.WorcoutCalculators.TinmanCalculator;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 @Log4j2
 public class TinmanModal extends BaseModal {
 
@@ -31,8 +30,7 @@ public class TinmanModal extends BaseModal {
     @Step("Open iframe for modal workout calculator")
     public void openIframeWorkoutCalculator()   {
         log.debug("opening iframe for modal workout calculator");
-        WebElement iframe = driver.findElement(LOCATOR_IFRAME_WORKOUT_CALCULATOR);
-        driver.switchTo().frame(iframe);
+        openIframe(LOCATOR_IFRAME_WORKOUT_CALCULATOR);
     }
 
     @Step("Click Tinman calculator button")
@@ -55,6 +53,11 @@ public class TinmanModal extends BaseModal {
             return false;
         }
         return true;
+    }
+
+    public void waitSaveButton()    {
+        log.debug("waiting for save button is loaded");
+        waitForElementDisplayed(FIRST_SAVE_BUTTON_SETTINGS);
     }
 
     public TinmanModal(WebDriver driver) {
