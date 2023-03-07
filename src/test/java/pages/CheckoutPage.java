@@ -1,6 +1,5 @@
 package pages;
 
-import elements.Input;
 import io.qameta.allure.Step;
 import lombok.extern.log4j.Log4j2;
 import models.PaymentData;
@@ -40,13 +39,13 @@ public class CheckoutPage extends BasePage{
     @Step("Filling form to hills workout modal")
     public void fillformCheckout(PaymentData paymentData){
         driver.switchTo().frame(driver.findElement(CARD_NUMBER_IFRAME));
-        new Input(driver).setValueCard(CARD_NUMBER_INPUT, paymentData.getCardNumber());
+        driver.findElement(CARD_NUMBER_INPUT).sendKeys(paymentData.getCardNumber());
         driver.switchTo().defaultContent();
         driver.switchTo().frame(driver.findElement(EXP_DATE_IFRAME));
-        new Input(driver).setValueCard(EXPIRY_DATE, paymentData.getExpiryDate());
+        driver.findElement(EXPIRY_DATE).sendKeys(paymentData.getExpiryDate());
         driver.switchTo().defaultContent();
         driver.switchTo().frame(driver.findElement(CVC_IFRAME));
-        new Input(driver).setValueCard(CVC_CODE, paymentData.getCvcCode());
+        driver.findElement(CVC_CODE).sendKeys(paymentData.getCvcCode());
         driver.switchTo().defaultContent();
     }
 

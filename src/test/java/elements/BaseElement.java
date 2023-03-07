@@ -11,8 +11,8 @@ public class BaseElement {
     public BaseElement(WebDriver driver) {
         this.driver = driver;
     }
-    public void scrollIntoView(WebElement element) {
-        log.info(String.format("scrolling to element %s ", element));
+    protected void scrollIntoView(WebElement element) {
+        log.debug(String.format("scrolling to element %s ", element));
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
     }
 

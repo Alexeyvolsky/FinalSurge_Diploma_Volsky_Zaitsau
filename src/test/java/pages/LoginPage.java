@@ -14,13 +14,13 @@ public class LoginPage extends BasePage{
 
     @Step("Set email on login page")
     public void setEmailInput(String email){
-        log.debug(String.format("entering email on login page: %s", email));
+        log.info(String.format("entering email on login page: %s", email));
         driver.findElement(EMAIL_INPUT).sendKeys(email);
     }
 
     @Step("Set password on login page")
     public void setPasswordInput(String password){
-        log.debug(String.format("entering password on login page: %s", password));
+        log.info(String.format("entering password on login page: %s", password));
         driver.findElement(PASSWORD_INPUT).sendKeys(password);
     }
 

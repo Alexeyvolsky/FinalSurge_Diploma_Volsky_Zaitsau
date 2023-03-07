@@ -28,9 +28,4 @@ public class Input extends BaseElement{
         log.info(String.format("js send value %s, %s ", id, value));
         jsSendKeysInSettings(id, value);
     }
-    public void setValueCard(By locator, String value) {
-        log.info(String.format("setting input: value = %s", value));
-        WebElement input = driver.findElement(locator);
-        input.sendKeys(value);
-    }
 }

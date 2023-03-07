@@ -31,6 +31,7 @@ public class WorkoutLibraryPage extends BasePage{
 
     @Step("Get library workout details data")
     public WorkoutLibrary getWorkoutLibraryDetails(){
+        log.info("get details workout library");
         WorkoutLibrary workoutLibraryDetails = new WorkoutLibrary();
         workoutLibraryDetails.setActivityType(ActivityType.fromString(getActualActivityType()));
         workoutLibraryDetails.setWorkoutName(getActualWorkoutName());
