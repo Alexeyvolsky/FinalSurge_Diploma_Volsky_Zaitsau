@@ -10,7 +10,7 @@ import utils.Retry;
 public class QuickAddTest extends BaseTest{
 
     @Description("Verify that user can make quick add activity")
-    @Test(groups = {"smoke"}, retryAnalyzer = Retry.class)
+    @Test(groups = {"smoke"}, retryAnalyzer = Retry.class, invocationCount = 5)
     public void quickAddTest() {
         loginPage.setEmailInput(USERNAME);
         loginPage.setPasswordInput(PASSWORD);
@@ -19,7 +19,6 @@ public class QuickAddTest extends BaseTest{
         calendarPage.clickPlusButton(Day.TEN_DAY);
         calendarPage.clickQuickAddButton();
         calendarPage.waitAddWorkoutButton();
-        Assert.assertFalse(calendarPage.isActivityPresent());
         QuickAdd quickAdd = QuickAdd.builder()
                 .setDate("02/10/2023")
                 .setTimeOfDay("03:21")

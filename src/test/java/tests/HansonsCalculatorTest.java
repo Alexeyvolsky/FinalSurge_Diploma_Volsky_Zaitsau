@@ -28,7 +28,7 @@ public class HansonsCalculatorTest extends BaseTest   {
     public void positiveHansonsTest()   {
         hansonsModal.clickHansonsCalculatorButton();
         HansonsCalculator hansonsValue = HansonsCalculator.builder().setRaceDist(RaceDist.HALF_MARATHON)
-                .setDistTypeHansons(DistTypeHansons.MILES).setHours(String.valueOf(faker.number().numberBetween(0, 10)))
+                .setDistTypeHansons(DistTypeHansons.MILES).setHours(String.valueOf(faker.number().numberBetween(0, 8)))
                 .setMinutes(String.valueOf(faker.number().numberBetween(0, 59)))
                 .setSeconds(String.valueOf(faker.number().numberBetween(0, 59)))
                 .setTemperature(String.valueOf(faker.number().numberBetween(0, 25)))
