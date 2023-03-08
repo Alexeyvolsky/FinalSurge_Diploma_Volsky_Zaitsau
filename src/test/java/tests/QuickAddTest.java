@@ -10,7 +10,7 @@ import utils.Retry;
 public class QuickAddTest extends BaseTest{
 
     @Description("Verify that user can make quick add activity")
-    @Test(groups = {"smoke"}, retryAnalyzer = Retry.class, invocationCount = 5)
+    @Test(groups = {"smoke"}, retryAnalyzer = Retry.class)
     public void quickAddTest() {
         loginPage.setEmailInput(USERNAME);
         loginPage.setPasswordInput(PASSWORD);
