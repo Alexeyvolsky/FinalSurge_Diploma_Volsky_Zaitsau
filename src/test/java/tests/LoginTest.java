@@ -18,7 +18,7 @@ public class LoginTest extends BaseTest {
     }
 
     @Description("Verify that login page work correct with bad data")
-    @Test(dataProvider = "negativeLoginTestData", retryAnalyzer = Retry.class, groups = {"negative"})
+    @Test(dataProvider = "negativeLoginTestData", retryAnalyzer = Retry.class, groups = {"negative","regression"})
     public void negativeLoginTest(String email, String password){
         loginPage.setEmailInput(email);
         loginPage.setPasswordInput(password);

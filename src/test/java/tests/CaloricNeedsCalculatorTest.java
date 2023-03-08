@@ -39,7 +39,7 @@ public class CaloricNeedsCalculatorTest extends BaseTest  {
     }
 
     @Description("Verify that ValoricNeeds calculator correct work with bad data")
-    @Test(groups = {"negative"}, retryAnalyzer = Retry.class, dataProvider = "negativeCaloricNeedsList")
+    @Test(groups = {"negative","regression"}, retryAnalyzer = Retry.class, dataProvider = "negativeCaloricNeedsList")
     public void negativeCaloricNeedsTest(CaloricNeedsCalculator caloricNeedsValue)  {
         caloricNeedsModal.fillForm(caloricNeedsValue);
         caloricNeedsModal.clickFirstSaveButtonSettings();

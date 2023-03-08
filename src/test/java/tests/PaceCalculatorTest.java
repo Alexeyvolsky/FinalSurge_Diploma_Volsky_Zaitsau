@@ -37,7 +37,7 @@ public class PaceCalculatorTest extends BaseTest  {
     }
 
     @Description("Verify that Pace calculator work correct with bad data")
-    @Test(dataProvider = "negativePaceCalculatorList", groups = {"negative"}, retryAnalyzer = Retry.class)
+    @Test(dataProvider = "negativePaceCalculatorList", groups = {"negative","regression"}, retryAnalyzer = Retry.class)
     public void negativePaceCalculatorTest(PaceCalculator paceCalculatorValue)    {
         paceCalculator.clickPaceCalculatorButton();
         paceCalculator.fillForm(paceCalculatorValue);

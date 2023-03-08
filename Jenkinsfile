@@ -3,10 +3,10 @@ pipeline {
 
     triggers {
         parameterizedCron('''
-                    0 0 * * 6 %SUITE_NAME=smokeTest.xml
-                    0 1 * * 6 %SUITE_NAME=regressionTest.xml
-                    0 2 * * 6 %SUITE_NAME=negativeTest.xml
-                    0 3 * * 6 %SUITE_NAME=allTests.xml
+                    0 0 * * 0-6 %SUITE_NAME=smokeTest.xml
+                    0 1 * * 0-6 %SUITE_NAME=regressionTest.xml
+                    0 2 * * 0-6 %SUITE_NAME=negativeTest.xml
+                    0 3 * * 0-6 %SUITE_NAME=allTests.xml
                 ''')
     }
 
