@@ -2,7 +2,9 @@ package tests;
 
 import io.qameta.allure.Description;
 import models.PaymentData;
+import org.openqa.selenium.By;
 import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import utils.Retry;
@@ -15,7 +17,7 @@ public class BuyAPlanTest extends BaseTest{
         loginPage.clickLoginButton();
     }
     @Description("Choosing a training plan and trying to pay for it")
-    @Test(groups = {"negative"}, retryAnalyzer = Retry.class)
+    @Test(groups = {"negative","regression"}, retryAnalyzer = Retry.class)
     public void negativeBuyAPlanTest(){
         dashboardPage.moveToTrainingPlansMenu();
         dashboardPage.clickFindAPlanButton();
