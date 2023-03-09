@@ -19,8 +19,8 @@ public class HansonsCalculatorTest extends BaseTest   {
         loginPage.setPasswordInput(PASSWORD);
         loginPage.clickLoginButton();
         headerNavigate.clickWorkoutCalculateButton();
-        hansonsModal.openIframe();
-        hansonsModal.waitSaveButton();
+        hansonsModal.switchToIframeCalculator();
+        hansonsModal.waitForSaveButtonDisplayed();
     }
 
     @Description("Verify that Hensons calculator counts data")

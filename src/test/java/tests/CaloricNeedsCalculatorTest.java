@@ -20,8 +20,8 @@ public class CaloricNeedsCalculatorTest extends BaseTest  {
         loginPage.setPasswordInput(PASSWORD);
         loginPage.clickLoginButton();
         headerNavigate.clickOtherCalculatorsButton();
-        caloricNeedsModal.openIframe();
-        caloricNeedsModal.waitSaveButton();
+        caloricNeedsModal.switchToIframeCalculator();
+        caloricNeedsModal.waitForSaveButtonDisplayed();
     }
 
     @Description("Verify that CaloricNeeds calculator counts data")
