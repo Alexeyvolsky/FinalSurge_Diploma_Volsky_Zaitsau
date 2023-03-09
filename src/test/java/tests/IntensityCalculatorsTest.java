@@ -16,7 +16,7 @@ public class IntensityCalculatorsTest extends BaseTest {
         loginPage.setPasswordInput(PASSWORD);
         loginPage.clickLoginButton();
         headerNavigate.clickWorkoutCalculateButton();
-        intensityModal.openIframeWorkoutCalculator();
+        hansonsModal.openIframe();
         intensityModal.waitSaveButton();
     }
 

@@ -16,7 +16,7 @@ public class McMillanCalculatorTest extends BaseTest  {
         loginPage.setPasswordInput(PASSWORD);
         loginPage.clickLoginButton();
         headerNavigate.clickWorkoutCalculateButton();
-        mcMillanModal.openIframeWorkoutCalculator();
+        mcMillanModal.openIframe();
         mcMillanModal.waitSaveButton();
     }
 

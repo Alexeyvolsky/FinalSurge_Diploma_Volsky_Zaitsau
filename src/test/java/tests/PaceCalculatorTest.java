@@ -17,32 +17,32 @@ public class PaceCalculatorTest extends BaseTest  {
         loginPage.setPasswordInput(PASSWORD);
         loginPage.clickLoginButton();
         headerNavigate.clickOtherCalculatorsButton();
-        paceCalculator.openIframeOtherCalculator();
-        paceCalculator.waitSaveButton();
+        paceModal.openIframe();
+        paceModal.waitSaveButton();
     }
 
     @Description("Verify that Pace calculator counts data")
     @Test(groups = {"regression"}, retryAnalyzer = Retry.class)
     public void positivePaceCalculatorTest()    {
-        paceCalculator.clickPaceCalculatorButton();
+        paceModal.clickPaceCalculatorButton();
         PaceCalculator paceCalculatorValue = PaceCalculator.builder()
                 .setRunDistance(String.valueOf(faker.number().numberBetween(1, 9999)))
                 .setDistTypePaceCalculator(DistTypePaceCalculator.KILOMETERS)
                 .setHours(String.valueOf(faker.number().numberBetween(0, 24)))
                 .setMinutes(String.valueOf(faker.number().numberBetween(0, 59)))
                 .setSeconds(String.valueOf(faker.number().numberBetween(0, 59))).build();
-        paceCalculator.fillForm(paceCalculatorValue);
-        paceCalculator.clickFirstSaveButtonSettings();
-        Assert.assertTrue(paceCalculator.isGreenBoxDisplay());
+        paceModal.fillForm(paceCalculatorValue);
+        paceModal.clickFirstSaveButtonSettings();
+        Assert.assertTrue(paceModal.isGreenBoxDisplay());
     }
 
     @Description("Verify that Pace calculator work correct with bad data")
     @Test(dataProvider = "negativePaceCalculatorList", groups = {"negative","regression"}, retryAnalyzer = Retry.class)
     public void negativePaceCalculatorTest(PaceCalculator paceCalculatorValue)    {
-        paceCalculator.clickPaceCalculatorButton();
-        paceCalculator.fillForm(paceCalculatorValue);
-        paceCalculator.clickFirstSaveButtonSettings();
-        Assert.assertTrue(paceCalculator.alertErrorMessageIsPresent());
+        paceModal.clickPaceCalculatorButton();
+        paceModal.fillForm(paceCalculatorValue);
+        paceModal.clickFirstSaveButtonSettings();
+        Assert.assertTrue(paceModal.alertErrorMessageIsPresent());
     }
 
     @DataProvider(name = "negativePaceCalculatorList")

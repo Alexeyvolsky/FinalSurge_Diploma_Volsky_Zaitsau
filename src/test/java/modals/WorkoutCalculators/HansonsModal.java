@@ -12,7 +12,6 @@ import org.openqa.selenium.WebDriver;
 @Log4j2
 public class HansonsModal extends BaseModal {
 
-    protected final static By LOCATOR_IFRAME_WORKOUT_CALCULATOR = By.id("IntensityCalciFrame");
     protected final static By HANSONS_CALCULATOR_BUTTON_LOCATOR = By.xpath("//a[text()='Hansons']");
     protected final static By FIRST_SAVE_BUTTON_SETTINGS = By.id("saveButtonSettings");
     protected final static String GREEN_BOX = "//h4[text()='Recent Race Information']";
@@ -43,12 +42,6 @@ public class HansonsModal extends BaseModal {
         driver.findElement(FIRST_SAVE_BUTTON_SETTINGS).click();
     }
 
-    @Step("Open iframe for modal workout calculator")
-    public void openIframeWorkoutCalculator()   {
-        log.debug("opening iframe for modal workout calculator");
-        openIframe(LOCATOR_IFRAME_WORKOUT_CALCULATOR);
-    }
-
     public boolean isGreenBoxDisplay()  {
         log.debug("verifying that green box is display");
         try {
@@ -57,11 +50,6 @@ public class HansonsModal extends BaseModal {
             return false;
         }
         return true;
-    }
-
-    public void waitSaveButton()    {
-        log.debug("waiting for save button is loaded");
-        waitForElementDisplayed(FIRST_SAVE_BUTTON_SETTINGS);
     }
 
     public HansonsModal(WebDriver driver) {

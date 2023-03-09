@@ -11,7 +11,6 @@ import org.openqa.selenium.*;
 @Log4j2
 public class McMillanModal extends BaseModal {
 
-    protected final static By LOCATOR_IFRAME_WORKOUT_CALCULATOR = By.id("IntensityCalciFrame");
     protected final static By MCMILLAN_CALCULATOR_BUTTON_LOCATOR = By.xpath("//a[text()='McMillan']");
     protected final static By FIRST_SAVE_BUTTON_SETTINGS = By.id("saveButtonSettings");
     protected final static String GREEN_BOX = "//h4[text()='Goal Race Times']";
@@ -26,12 +25,6 @@ public class McMillanModal extends BaseModal {
         new Input(driver).setValue("GTimeHH", mcMillan.getHours());
         new Input(driver).setValue("GTimeMM", mcMillan.getMinutes());
         new Input(driver).setValue("GTimeSS", mcMillan.getSeconds());
-    }
-
-    @Step("Open iframe for modal workout calculator")
-    public void openIframeWorkoutCalculator()   {
-        log.debug("opening iframe for modal workout calculator");
-        openIframe(LOCATOR_IFRAME_WORKOUT_CALCULATOR);
     }
 
     @Step("Click McMilan calculator button")
@@ -55,11 +48,6 @@ public class McMillanModal extends BaseModal {
             return false;
         }
         return true;
-    }
-
-    public void waitSaveButton()    {
-        log.debug("waiting for save button is loaded");
-        waitForElementDisplayed(FIRST_SAVE_BUTTON_SETTINGS);
     }
 
     public McMillanModal(WebDriver driver) {
