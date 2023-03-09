@@ -15,8 +15,8 @@ public class PallandinoCalculatorTest extends BaseTest  {
         loginPage.setPasswordInput(PASSWORD);
         loginPage.clickLoginButton();
         headerNavigate.clickWorkoutCalculateButton();
-        palladinoModal.openIframe();
-        palladinoModal.waitSaveButton();
+        palladinoModal.switchToIframeCalculator();
+        palladinoModal.waitForSaveButtonDisplayed();
     }
 
     @Description("Verify that PallandinoIntervalPower calculator counts data")

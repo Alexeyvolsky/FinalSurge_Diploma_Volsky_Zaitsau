@@ -17,13 +17,13 @@ public class TinmanCalculatorTest extends BaseTest  {
         loginPage.setPasswordInput(PASSWORD);
         loginPage.clickLoginButton();
         headerNavigate.clickWorkoutCalculateButton();
-        tinmanModal.openIframe();
+        tinmanModal.switchToIframeCalculator();
     }
 
     @Description("Verify that Tinman calculator counts data")
     @Test(groups = {"regression"}, retryAnalyzer = Retry.class)
     public void positiveTinmanTest()    {
-        tinmanModal.waitSaveButton();
+        tinmanModal.waitForSaveButtonDisplayed();
         tinmanModal.clickTinmanCalculatorButton();
         TinmanCalculator tinmanValue = TinmanCalculator.builder().setDistanceTinman(DistanceTinman.MARATHON)
                 .setHours(String.valueOf(faker.number().numberBetween(1, 24)))

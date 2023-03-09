@@ -17,8 +17,8 @@ public class PaceCalculatorTest extends BaseTest  {
         loginPage.setPasswordInput(PASSWORD);
         loginPage.clickLoginButton();
         headerNavigate.clickOtherCalculatorsButton();
-        paceModal.openIframe();
-        paceModal.waitSaveButton();
+        paceModal.switchToIframeCalculator();
+        paceModal.waitForSaveButtonDisplayed();
     }
 
     @Description("Verify that Pace calculator counts data")
