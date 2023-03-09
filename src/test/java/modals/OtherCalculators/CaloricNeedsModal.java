@@ -12,7 +12,6 @@ import org.openqa.selenium.WebDriver;
 @Log4j2
 public class CaloricNeedsModal extends BaseModal {
 
-    protected final static By LOCATOR_IFRAME_OTHER_CALCULATOR = By.id("OtherCalciFrame");
     protected final static By FIRST_SAVE_BUTTON_SETTINGS = By.id("saveButtonSettings");
     protected final static String GREEN_BOX = "//h4[text()=\"Today's Caloric Needs\"]";
     protected final static By ALERT_ERROR_MESSAGE = By.cssSelector(".alert");
@@ -27,11 +26,6 @@ public class CaloricNeedsModal extends BaseModal {
         new RadioButton(driver).clickRadiobutton("Gender", caloricNeeds.getGender().getValue());
         new Input(driver).clearAndSetValue("RunDist", caloricNeeds.getRunDistance());
         new RadioButton(driver).clickRadiobutton("DistType", caloricNeeds.getDistTypeCaloricNeeds().getValue());
-    }
-
-    public void openIframeOtherCalculator()    {
-        log.debug("opening iframe for modal other calculator");
-        openIframe(LOCATOR_IFRAME_OTHER_CALCULATOR);
     }
 
     @Step("Click save button")
@@ -60,12 +54,8 @@ public class CaloricNeedsModal extends BaseModal {
         return true;
     }
 
-    public void waitSaveButton()    {
-        log.debug("waiting for save button is loaded");
-        waitForElementDisplayed(FIRST_SAVE_BUTTON_SETTINGS);
-    }
-
     public CaloricNeedsModal(WebDriver driver) {
         super(driver);
+        this.LOCATOR_IFRAME = By.id("OtherCalciFrame");
     }
 }

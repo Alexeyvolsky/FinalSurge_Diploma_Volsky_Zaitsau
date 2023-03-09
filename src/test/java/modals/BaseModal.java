@@ -9,10 +9,18 @@ import pages.BasePage;
 @Log4j2
 public abstract class BaseModal extends BasePage {
 
-    protected void openIframe(By locator)    {
-        log.debug("opening iframe");
-        WebElement iframe = driver.findElement(locator);
+    protected By LOCATOR_IFRAME = By.id("IntensityCalciFrame");
+    protected By SAVE_BUTTON = By.id("saveButtonSettings");
+
+    public void openIframe()    {
+        log.debug(String.format("opening iframe %s", LOCATOR_IFRAME));
+        WebElement iframe = driver.findElement(LOCATOR_IFRAME);
         driver.switchTo().frame(iframe);
+    }
+
+    public void waitSaveButton()    {
+        log.debug(String.format("waiting for save button is loaded %s", SAVE_BUTTON));
+        waitForElementDisplayed(SAVE_BUTTON);
     }
 
     public BaseModal(WebDriver driver) {

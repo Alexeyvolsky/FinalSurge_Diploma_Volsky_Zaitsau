@@ -46,7 +46,7 @@ public abstract class BaseTest {
     protected McMillanModal mcMillanModal;
     protected TinmanModal tinmanModal;
     protected PalladinoModal palladinoModal;
-    protected PaceModal paceCalculator;
+    protected PaceModal paceModal;
     protected CaloricNeedsModal caloricNeedsModal;
     protected PrintWorkoutsModal printWorkoutsModal;
     protected SettingDetailsPage settingDetailsPage;
@@ -103,7 +103,7 @@ public abstract class BaseTest {
         mcMillanModal = new McMillanModal(driver);
         tinmanModal = new TinmanModal(driver);
         palladinoModal = new PalladinoModal(driver);
-        paceCalculator = new PaceModal(driver);
+        paceModal = new PaceModal(driver);
         caloricNeedsModal = new CaloricNeedsModal(driver);
         printWorkoutsModal = new PrintWorkoutsModal(driver);
         settingDetailsPage = new SettingDetailsPage(driver);

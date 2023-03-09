@@ -13,7 +13,6 @@ import org.openqa.selenium.WebDriver;
 @Log4j2
 public class TinmanModal extends BaseModal {
 
-    protected final static By LOCATOR_IFRAME_WORKOUT_CALCULATOR = By.id("IntensityCalciFrame");
     protected final static By TINMAN_CALCULATOR_BUTTON_LOCATOR = By.xpath("//a[text()='Tinman']");
     protected final static By FIRST_SAVE_BUTTON_SETTINGS = By.id("saveButtonSettings");
     protected final static String GREEN_BOX = "//h4[text()='Race Information']";
@@ -25,12 +24,6 @@ public class TinmanModal extends BaseModal {
         new Input(driver).setValue("TimeMM", tinman.getMinutes());
         new Input(driver).setValue("TimeSS", tinman.getSeconds());
         new RadioButton(driver).clickRadiobutton("Gender", tinman.getGender().getAnotherValue());
-    }
-
-    @Step("Open iframe for modal workout calculator")
-    public void openIframeWorkoutCalculator()   {
-        log.debug("opening iframe for modal workout calculator");
-        openIframe(LOCATOR_IFRAME_WORKOUT_CALCULATOR);
     }
 
     @Step("Click Tinman calculator button")
@@ -53,11 +46,6 @@ public class TinmanModal extends BaseModal {
             return false;
         }
         return true;
-    }
-
-    public void waitSaveButton()    {
-        log.debug("waiting for save button is loaded");
-        waitForElementDisplayed(FIRST_SAVE_BUTTON_SETTINGS);
     }
 
     public TinmanModal(WebDriver driver) {

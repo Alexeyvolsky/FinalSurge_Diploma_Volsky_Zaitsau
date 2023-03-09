@@ -19,7 +19,7 @@ public class HansonsCalculatorTest extends BaseTest   {
         loginPage.setPasswordInput(PASSWORD);
         loginPage.clickLoginButton();
         headerNavigate.clickWorkoutCalculateButton();
-        hansonsModal.openIframeWorkoutCalculator();
+        hansonsModal.openIframe();
         hansonsModal.waitSaveButton();
     }
 

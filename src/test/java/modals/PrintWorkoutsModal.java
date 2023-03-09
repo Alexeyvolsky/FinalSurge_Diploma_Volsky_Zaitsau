@@ -9,18 +9,12 @@ import org.openqa.selenium.WebDriver;
 @Log4j2
 public class PrintWorkoutsModal extends BaseModal{
 
-    protected final static By LOCATOR_IFRAME_PRINT_WORKOUT = By.id("PrintWorkoutsiFrame");
     protected final static By SAVE_BUTTON_PRINT = By.id("saveButtonPrint");
 
     @Step("Filling form to print workout modal")
     public void fillForm(PrintWorkout printWorkout) {
         new Input(driver).setValue("PrintStartDate", printWorkout.getStartingData());
         new Input(driver).setValue("PrintEndDate", printWorkout.getEndingData());
-    }
-
-    public void openIframePrintWorkout()    {
-        log.debug("opening iframe for modal workout calculator");
-        openIframe(LOCATOR_IFRAME_PRINT_WORKOUT);
     }
 
     @Step("Click print save button")
@@ -31,5 +25,6 @@ public class PrintWorkoutsModal extends BaseModal{
 
     public PrintWorkoutsModal(WebDriver driver) {
         super(driver);
+        this.LOCATOR_IFRAME = By.id("PrintWorkoutsiFrame");
     }
 }

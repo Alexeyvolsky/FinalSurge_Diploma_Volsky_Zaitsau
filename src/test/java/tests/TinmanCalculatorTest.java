@@ -17,7 +17,7 @@ public class TinmanCalculatorTest extends BaseTest  {
         loginPage.setPasswordInput(PASSWORD);
         loginPage.clickLoginButton();
         headerNavigate.clickWorkoutCalculateButton();
-        tinmanModal.openIframeWorkoutCalculator();
+        tinmanModal.openIframe();
     }
 
     @Description("Verify that Tinman calculator counts data")

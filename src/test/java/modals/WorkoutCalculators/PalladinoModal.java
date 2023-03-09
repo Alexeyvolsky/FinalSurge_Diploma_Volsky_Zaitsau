@@ -11,7 +11,6 @@ import org.openqa.selenium.WebDriver;
 @Log4j2
 public class PalladinoModal extends BaseModal {
 
-    protected final static By LOCATOR_IFRAME_WORKOUT_CALCULATOR = By.id("IntensityCalciFrame");
     protected final static By PALLADINO_CALCULATOR_BUTTON_LOCATOR = By.xpath("//a[text()='Palladino']");
     protected final static By FIRST_SAVE_BUTTON_SETTINGS = By.id("saveButtonSettings");
     protected final static By SECOND_SAVE_BUTTON_SETTINGS = By.id("saveButtonSettings2");
@@ -48,12 +47,6 @@ public class PalladinoModal extends BaseModal {
         new Input(driver).setValue("TimeMMRR", palladino.getMinutes());
         new Input(driver).setValue("TimeSSRR", palladino.getSeconds());
         new Input(driver).setValue("RAPR", palladino.getRaceAvgPower());
-    }
-
-    @Step("Open iframe for modal workout calculator")
-    public void openIframeWorkoutCalculator()   {
-        log.debug("opening iframe for modal workout calculator");
-        openIframe(LOCATOR_IFRAME_WORKOUT_CALCULATOR);
     }
 
     @Step("Click Pallandino calculator button")
@@ -124,11 +117,6 @@ public class PalladinoModal extends BaseModal {
             return false;
         }
         return true;
-    }
-
-    public void waitSaveButton()    {
-        log.debug("waiting for save button is loaded");
-        waitForElementDisplayed(FIRST_SAVE_BUTTON_SETTINGS);
     }
 
     public PalladinoModal(WebDriver driver) {

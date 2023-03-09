@@ -20,7 +20,7 @@ public class CaloricNeedsCalculatorTest extends BaseTest  {
         loginPage.setPasswordInput(PASSWORD);
         loginPage.clickLoginButton();
         headerNavigate.clickOtherCalculatorsButton();
-        caloricNeedsModal.openIframeOtherCalculator();
+        caloricNeedsModal.openIframe();
         caloricNeedsModal.waitSaveButton();
     }
 

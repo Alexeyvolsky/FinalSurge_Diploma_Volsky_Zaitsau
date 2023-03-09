@@ -43,7 +43,7 @@ public class PrintWorkoutsTest extends BaseTest {
     @Test(groups = {"regression"}, retryAnalyzer = Retry.class)
     public void positivePrintWorkoutTest()  {
         headerNavigate.clickPrintWorkoutButton();
-        printWorkoutsModal.openIframePrintWorkout();
+        printWorkoutsModal.openIframe();
         PrintWorkout printWorkoutValue = PrintWorkout.builder().setStartingData("3/1/2023").setEndingData("3/2/2023").build();
         printWorkoutsModal.fillForm(printWorkoutValue);
         printWorkoutsModal.clickSaveButtonPrint();

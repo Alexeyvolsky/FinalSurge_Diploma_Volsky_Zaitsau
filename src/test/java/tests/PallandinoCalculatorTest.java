@@ -15,7 +15,7 @@ public class PallandinoCalculatorTest extends BaseTest  {
         loginPage.setPasswordInput(PASSWORD);
         loginPage.clickLoginButton();
         headerNavigate.clickWorkoutCalculateButton();
-        palladinoModal.openIframeWorkoutCalculator();
+        palladinoModal.openIframe();
         palladinoModal.waitSaveButton();
     }
 

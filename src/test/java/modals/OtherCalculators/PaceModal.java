@@ -12,7 +12,6 @@ import org.openqa.selenium.WebDriver;
 @Log4j2
 public class PaceModal extends BaseModal {
 
-    protected final static By LOCATOR_IFRAME_OTHER_CALCULATOR = By.id("OtherCalciFrame");
     protected final static By FIRST_SAVE_BUTTON_SETTINGS = By.id("saveButtonSettings");
     protected final static By PACE_CALCULATOR_BUTTON_LOCATOR = By.xpath("//a[text()='Pace Calculator']");
     protected final static String GREEN_BOX = "//h4[text()='Pace Chart']";
@@ -25,11 +24,6 @@ public class PaceModal extends BaseModal {
         new Input(driver).clearAndSetValue("TimeHH", paceCalculator.getHours());
         new Input(driver).clearAndSetValue("TimeMM", paceCalculator.getMinutes());
         new Input(driver).clearAndSetValue("TimeSS", paceCalculator.getSeconds());
-    }
-
-    public void openIframeOtherCalculator()    {
-        log.debug("opening iframe for modal other calculator");
-        openIframe(LOCATOR_IFRAME_OTHER_CALCULATOR);
     }
 
     @Step("Click save button")
@@ -67,12 +61,8 @@ public class PaceModal extends BaseModal {
         return true;
     }
 
-    public void waitSaveButton()    {
-        log.debug("waiting for save button is loaded");
-        waitForElementDisplayed(FIRST_SAVE_BUTTON_SETTINGS);
-    }
-
     public PaceModal(WebDriver driver) {
         super(driver);
+        this.LOCATOR_IFRAME = By.id("OtherCalciFrame");
     }
 }
